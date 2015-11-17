@@ -1,0 +1,25 @@
+/**
+ * Styles for top area
+ */
+#top {
+    .navbar {
+        margin-bottom: 0;
+        border-top: 3px solid @cd0067;
+    }
+    .navbar-brand {
+        padding: 12px 15px;
+    }
+    .topnav {
+        margin: 9px 0;
+        text-align: right;
+        @media (min-width: @screen-tablet) {
+            float: right;
+        }
+    }
+}
+@media screen and (max-width: @screen-lg) and (min-width: @screen-sm) {
+   ul.navbar-nav.opaque-mobile-bg {
+       height: 25px;
+       overflow: hidden;
+   }
+}

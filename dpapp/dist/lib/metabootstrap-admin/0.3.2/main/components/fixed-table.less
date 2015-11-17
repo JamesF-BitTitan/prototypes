@@ -1,0 +1,30 @@
+/**
+ * Styles for tables with a fixed thead
+ */
+.table.floating-table-header {
+    margin: 0;
+}
+.table > .thead-hidden {
+    > tr > th {
+        padding: 0;
+    }
+}
+.table-head {
+    padding-right: 15px;
+    background-color: @white;
+}
+.table-body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    bottom: 0;
+    overflow: auto;
+    overflow-y: scroll;
+    &.has-footer {
+        bottom: 35px;
+    }
+}
+.table.layout-fixed {
+    table-layout: fixed;
+}

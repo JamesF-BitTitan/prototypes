@@ -1,0 +1,355 @@
+/*********************************************************/
+/*                 Template Layout                       */
+/*********************************************************/
+#wrap, #top, .head, .Footer {
+    .clearfix();
+}
+#wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100vh;
+}
+.Wrap, #wrap {
+    margin: 0 auto;
+    position: relative;
+}
+#left, #right {
+    .transition(all .3s ease-in-out);
+    width: @SidebarWidth;
+    z-index: 999;
+    position: fixed;
+}
+/* --------------------------------------------------
+ * Left Navigation Menu
+   -------------------------------------------------- */
+#left {
+    font-size: 12px;
+    line-height: 1.5em;
+    font-weight: lighter;
+    transition: all 300ms ease-in-out;
+    width: 0;
+    opacity: 0;
+    position: fixed;
+    height: 100vh;
+    background: @bg-dark;
+    top: 45px;
+    overflow-y: auto;
+    left: -@SidebarWidth;
+
+    &.has-secondary-nav {
+        top: 87px;
+    }
+    li {
+        position: relative;
+
+        ul {
+            margin-left: -999px;
+        }
+    }
+    .link-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 10px;
+
+        i {
+            margin-right: 2px;
+            margin-top: 1px;
+        }
+    }
+    ~ #content {
+        margin-left: 250px;
+        @media (max-width: @screen-sm-max) {
+            margin-left: 0;
+        }
+        .container {
+            @media (min-width: @screen-md-min) {
+                width: @container-md - 250px;
+            }
+            @media (min-width: @screen-lg-min) {
+                width: @container-lg - 250px;
+            }
+        }
+    }
+}
+.lefty {
+    position: fixed;
+    z-index: @lefty;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 15px;
+    background: rgba(0,0,0,0.1);
+}
+#left.open, #left:hover, .lefty:hover + #wrap #left {
+    width: 250px;
+    opacity: 1;
+}
+#left.open li ul, #left:hover li ul, .lefty:hover + #wrap #left li ul {
+    margin-left: 0;
+}
+#menu {
+    background-color: @dropdown-hover !important;
+    > li {
+        > a {
+            color: @ccc;
+            text-shadow: none !important;
+            padding: 13px 0 12px 15px;
+            border-top: 1px solid rgba(0,0,0,0.075);
+            -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
+            text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+            padding: 10px 0 10px 15px;
+
+            + ul a {
+                font-size: 11px;
+            }
+        }
+        ul {
+            background-color: @dark-blue;
+
+            a {
+                padding: 11px 0 11px 15px;
+            }
+        }
+    }
+    &.advanced {
+        li {
+            a, a div > div {
+                width: 245px;
+                margin-right: 5px;
+                padding-right: 8px;
+            }
+            > a {
+                border-top: 1px solid rgba(0,0,0,0.1);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+            }
+            a {
+                padding: 10px 0 10px 15px;
+                small {
+                    display: block;
+
+                    div {
+                        width: 174px;
+                        display: inline-block;
+                        position: relative;
+                        top: 6px;
+                        margin-top: -4px;
+                    }
+                }
+                .util {
+                    display: none;
+                }
+                .lb {
+                    padding: 0 3px;
+                    background: rgba(255,255,255,0.32);
+                    color: @dark-blue2;
+                    border-radius: 3px;
+                }
+            }
+            &.active {
+                > a {
+                    background-color: rgba(0,0,0,0.1);
+                    box-shadow: 0px 1px 3px rgba(0,0,0,0.1) inset;
+                }
+                a .util {
+                    display: inline;
+                }
+            }
+            &:hover a .lb {
+                background: rgba(255,255,255,0.45);
+            }
+            &.tab-project.active, &.tab-project:hover {
+                border-left: 3px solid rgba(255,255,255,0.32);
+            }
+        }
+    }
+}
+#menu, #menu ul, #menu li, #menu a {
+    color: @ddd;
+}
+@media (min-width: @screen-sm-min) {
+    #left {
+        left: auto;
+        .sidebar-left-hidden & {
+            width: 0;
+            visibility: hidden;
+        }
+        .sidebar-left-mini & {
+            width: @miniSidebarWidth;
+        }
+    }
+}
+
+// Inverted Menu
+.inverted {
+    #left& {
+        background-color: #fff !important;
+    }
+    #menu {
+        background-color: #fff !important;
+        color: #222;
+        .link-title {
+            font-weight: 600;
+        }
+        & > li:hover > a,
+        & > li:focus > a {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        & > li.active > a {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        &,
+        & ul,
+        & li,
+        & a {
+            color: #222;
+        }
+        ul {
+            background: rgba(0, 0, 0, .1);
+        }
+        .nav-header {
+            border-top: 1px solid rgba(0, 0, 0, 0.065);
+            -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+            text-shadow: none !important;
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+.sidebar-left-mini #menu > li > a > .link-title {
+    background-color: @mw-red !important;
+}
+.sidebar-left-mini #menu > li:hover > a > .link-title {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+.sidebar-left-mini #menu > li > a > i {
+    width: 20px;
+    text-align: center;
+}
+.bg-light.lter,
+.bg-light>.lter {
+    background-color: @off-white !important;
+}
+.bg-dark.dk,
+.bg-dark>.dk {
+    background-color: @bg-dark !important;
+}
+.sidebar-left-opened #left {
+    left: 0;
+}
+.sidebar-right-opened {
+    position: relative;
+    right: @SidebarWidth;
+    #right {
+        right: 0;
+    }
+    &.fixed .navbar-fixed-top {
+        right: @SidebarWidth;
+    }
+}
+.navbar-form {
+    margin-top: 3px;
+}
+
+/* --------------------------------------------------
+ * Right Sidebar
+   -------------------------------------------------- */
+
+#right {
+    right: 0;
+    top: 45px;
+    padding: 20px 15px;
+    width: 300px;
+    bottom: 0;
+    overflow-y: auto;
+    right: -@SidebarWidth;
+
+    &.open {
+        right: 0;
+        top: 50px;
+    }
+    ~ #content {
+       margin-right: 250px;
+
+       .container {
+           @media (min-width: @screen-md-min) {
+               width: @container-md - 250px;
+           }
+           @media (min-width: @screen-lg-min) {
+               width: @container-lg - 250px;
+           }
+       }
+   }
+   @media screen and (max-width: @screen-md) {
+     &.hidden-sm ~ #content {
+       margin-right: 0;
+     }
+   }
+   @media screen and (max-width: @screen-sm) {
+     &.hidden-xs ~ #content {
+       margin-right: 0;
+     }
+   }
+}
+
+/* --------------------------------------------------
+ * Table Page Layout
+   -------------------------------------------------- */
+
+#content > .full-table {
+    min-height: 0;
+    position:absolute;
+    top: 50px;
+    bottom: 0;
+    left:0;
+    right:0;
+    overflow: auto;
+
+    &.has-secondary-nav {
+        top: 90px;
+        margin-top: 0;
+    }
+    &.has-right-sidebar {
+        right: 275px;
+    }
+}
+#left ~ #content > .full-table {
+    left: 250px;
+}
+#content > .has-secondary-nav {
+    margin-top: 43px;
+}
+
+@media (min-width: @screen-sm-min) {
+    #content {
+        .transition(all .3s ease-in-out);
+    }
+    .sidebar-right-opened {
+        right: 0;
+        margin-right: @SidebarWidth;
+        .navbar-fixed-top {
+            margin-right: @SidebarWidth;
+        }
+    }
+}
+@media (min-width: @screen-lg-min) {
+    body.boxed {
+        margin-bottom: 0;
+        .Wrap, #wrap, .Footer, #top .navbar.navbar-fixed-top {
+            max-width: 1170px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .Footer, #footer {
+            position: relative;
+        }
+    }
+}
+
+/* ================== END Template Layout ============== */

@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Campaigns | DeploymentPro Application</title>
+
+    <!--IE Compatibility modes-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--"Mobile-first"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- BitTitan UI Kit (concatenated & compiled) -->
+    <link rel="stylesheet" type="text/css" href="../../libwork/bittitan-ui-kit/1.2.2/style.css" media="all">
+
+    <!--&lt;!&ndash; MetaBootstrap &ndash;&gt;-->
+    <!--<link rel="stylesheet" type="text/css" href="lib/metabootstrap-lite/0.1.0/meta-bootstrap-lite.css" media="all">-->
+
+    <!--&lt;!&ndash; Icon Fonts &ndash;&gt;-->
+    <!--<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="lib/bittitan-icons/1.0.0/bittitan-icons.css">-->
+
+    <!--&lt;!&ndash; MetaBootstrap Admin Layouts stylesheet &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="lib/metabootstrap-admin/0.3.2/style.css">-->
+
+    <!--&lt;!&ndash; MigrationWiz Admin Theme &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="lib/migrationwiz/1.2.2/style.css">-->
+
+
+    <style>
+
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    <!--[if lt IE 9]>
+  <script src="assets/lib/html5shiv/html5shiv.js"></script>
+  <script src="assets/lib/respond/respond.min.js"></script>
+    <![endif]-->
+
+    <!--Modernizr-->
+    <script src="assets/js/modernizr.min.js"></script>
+
+    <!-- Footer Scripts -->
+
+    <!--jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+
+    <!-- Prism CSS was removed -->
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>-->
+
+    <!--Bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- MetisMenu -->
+    <script src="assets/js/metisMenu.min.js"></script>
+
+    <!-- Screenfull -->
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/screenfull.js/2.0.0/screenfull.min.js"></script>-->
+
+    <!-- MetaBootstrap core scripts -->
+    <script src="assets/js/core.min.js"></script>
+
+    <!-- MetaBootstrap demo scripts -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- jQuery UI (for Selectable) -->
+    <script src="assets/js/jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('body').addClass('fade-in');
+            $('body').attr('style', '');
+            $('.nav-search input').focus(function () {
+                $('.nav-search').addClass('open');
+            });
+            $('.nav-search .fa-search').click(function () {
+                $('.nav-search').addClass('open');
+                $('.nav-search input').focus();
+            });
+            $('.nav-search input').blur(function () {
+                $('.nav-search').removeClass('open');
+            });
+
+//            $('.live-chat *').mousedown(function () {
+//                $('.live-chat').toggleClass('open');
+//            });
+//
+//            $('.expander, .toggle-menu, .expander-pin, #menu > .nav-header').click(function () {
+//                $('.toggle-menu').toggleClass('active');
+//                $('#left').toggleClass('open');
+//            });
+
+            $('i').delegate('', 'click', function () {
+                var $this = $(this);
+
+                if ($this.hasClass('i-sort')) {
+                    $this.removeClass('i-sort').addClass('i-sort-asc');
+                } else if ($this.hasClass('i-sort-asc')) {
+                    $this.removeClass('i-sort-asc').addClass('i-sort-desc');
+                } else if ($this.hasClass('i-sort-desc')) {
+                    $this.removeClass('i-sort-desc').addClass('i-sort');
+                }
+            });
+
+
+
+
+
+
+
+            $(window).unload(function () {
+                $('body').removeClass('fade-in');
+            });
+
+            $('#checkbox-master').click(function () {
+                if ($('#checkbox-master').is(':checked')) {
+                    $('input[type=checkbox]').prop('checked', true);
+                } else {
+                    $('input[type=checkbox]').prop('checked', false);
+                }
+            });
+
+            $("#selectable").bind("contextmenu", function(event) {
+                event.preventDefault();
+                $('.custom-menu').show().css({top: event.pageY + "px", left: event.pageX + "px"});
+            });
+
+            $("<div class='custom-menu'>" +
+                    "<small class='strong'>MENU</small>" +
+                    "<a href='#'><i class='i-play'></i> &nbsp;Trial Migration</a>" +
+                    "<a href='#'><i class='i-play'></i> &nbsp;Pre-Stage Migration</a>" +
+                    "<a href='#'><i class='i-play'></i> &nbsp;Full Migration</a>" +
+                    "<a href='#'><i class='i-creds'></i> &nbsp;Verify Credentials</a>" +
+                    "<a href='#'><i class='i-play'></i> &nbsp;Retry Errors</a>" +
+                    "<div class='row-divider'></div>" +
+                    "<a href='#'><i class='i-pause'></i> &nbsp;Pause</a>" +
+                    "<a href='#'><i class='i-trash'></i> &nbsp;Delete</a>" +
+                    "<a href='#'><i class='i-reset'></i> &nbsp;Reset</a>" +
+                    "<div class='row-divider'></div>" +
+                    "<a href='#'><i class='i-move'></i> &nbsp;Change Project</a>" +
+                    "<a href='#'><i class='i-creds'></i> &nbsp;Clear Credentials</a>" +
+                    "<div class='row-divider'></div>" +
+                    "<a href=''><i class='i-refresh'></i> &nbsp;Refresh</a>" +
+                    "</div>").appendTo("body");
+
+            $('*').click(function () {
+                $('.custom-menu').hide();
+            });
+
+            $("#selectable").selectable({
+                selecting: function( event, ui ) {
+                    $('input[type=checkbox]').prop('checked', false);
+                },
+                stop: function() {
+                    $( ".ui-selected", this ).each(function() {
+                        $(this).find('input[type=checkbox]').prop('checked', true);
+                    });
+                }
+            });
+
+            $('.context-panel').hide();
+
+            $('.custom-menu a').click(function () {
+                $('.underlay.one').fadeIn();
+                $('.context-panel.left').show();
+                setTimeout(function () {
+                    $('.context-panel.left').addClass('open').css('opacity', 1);
+                }, 1);
+                $('body').css('overflow-y', 'hidden');
+            });
+            $('.help-modal').click(function () {
+                $('.underlay.two').fadeIn();
+                $('.context-panel.right.errors').show();
+                setTimeout(function () {
+                    $('.context-panel.right.errors').addClass('open').css('opacity', 1);
+                }, 1);
+                $('body').css('overflow-y', 'hidden');
+            });
+            $('.kb-modal').click(function () {
+                $('.underlay.two').fadeIn();
+                $('.context-panel.kb').show();
+                setTimeout(function () {
+                    $('.context-panel.kb').addClass('open').css('opacity', 1);
+                }, 1);
+                $('body').css('overflow-y', 'hidden');
+            });
+
+
+            $('.users-modal').click(function () {
+                $('.underlay.one').fadeIn();
+                $('.context-panel.users').show();
+                setTimeout(function () {
+                    $('.context-panel.users').addClass('open').css('opacity', 1);
+                }, 1);
+                $('body').css('overflow-y', 'hidden');
+            });
+
+            $('.underlay, .context-panel a.btn.close-modal').click(function () {
+                $('.underlay').fadeOut();
+                $('.context-panel').removeClass('open').css('opacity', 0).hide();
+                $('body').css('overflow-y', 'initial');
+            });
+
+            $('.accordion .list-group-item').click(function () {
+                $('.accordion .list-group-item').removeClass('open');
+                $(this).addClass('open');
+            });
+
+
+
+            var $table = $('.headstuck').first();
+
+            if ($table.length) {
+                console.log($table)
+                $table.clone().addClass('floating-table-header').css('position', 'fixed').css('top', '43px')
+                        .insertAfter('.headstuck').find('tbody').remove();
+                $table.parent().css('position', 'relative');
+
+                setInterval(function () {
+                    $('.floating-table-header').css('left', $table.offset().left + 'px').css('width', $table.width() + 'px');
+                    // if (scrollTop > (tableOffsetTop + 70)) $('.floating-table-header').show();
+                }, 16);
+            }
+
+            // var tableOffsetTop = $table.offset().top;
+
+            $(window).scroll(function () {
+                var scrollTop = $(window).scrollTop();
+
+                if (scrollTop === 0) {
+                    $('body').removeClass('navbar-collapsed');
+                } else {
+                    $('body').addClass('navbar-collapsed');
+                }
+
+                if (scrollTop > 120) {
+                    $('.floating-table-header').show();
+                } else {
+                    $('.floating-table-header').hide();
+                }
+            });
+
+        });
+    </script>
+</head>
+<body class="dp">
+
+
+
+<!-- #top -->
+<div id="top">
+  
+  
+    <nav class="navbar navbar-default navbar-fixed-second navbar-thin">
+    <div class="">
+        <div class="collapse navbar-collapse remove-gutters">
+            <ul class="nav navbar-nav">
+                <li><a href="#"><i class="i-plus"></i> &nbsp;New Customer</a></li>
+                <li><a href="#"><i class="i-refresh"></i> &nbsp;Refresh</a></li>
+
+            </ul>
+            <form class="navbar-form navbar-left pull-right" role="search" style="margin-top: 3px;">
+                <div class="form-group">
+                    <input type="text" class="form-control inner-navbar-clear-inverse" placeholder="Search Project">
+                </div>
+                <button type="submit" class="btn btn-clear inner-navbar-clear-btn"><i class="i-search nudge down-1"></i></button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="i-sort"></i> &nbsp;Sort <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="i-filter"></i> &nbsp;Filter <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  
+  
+  
+  
+  
+    
+<!-- .navbar -->
+
+
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #009174;border-color: #009174;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">
+                <img src="//static.bittitan.com/Logos/2014/deploymentpro_100_alt_white.png" alt="">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              
+                  <li class="hidden-xs hidden-sm">
+                      <a href="index.html">
+                          <i class="i-arrow-up"></i>
+                      </a>
+                  </li>
+              
+
+                <li class="page-title hidden-xs hidden-sm">
+                    <a>
+                        <strong>Campaigns</strong>
+                    </a>
+                </li>
+            </ul>
+            <ul class="waffle nav navbar-nav navbar-right">
+
+
+                <li>
+                    <a href="projects.html#new"><i class="i-plus"></i>&nbsp; <span class="">New Project</span></a>
+                </li>
+                <li>
+                    <a href="customers.html"><i class="i-users"></i>&nbsp; <span class="">Customers</span></a>
+                </li>
+                <!--<li>-->
+                    <!--<a href="engagements.html"><i class="i-list"></i>&nbsp; <span class="">Engagements</span></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="projects.html"><i class="i-project"></i>&nbsp; <span class="">Projects</span></a>-->
+                <!--</li>-->
+
+
+                <li>
+                    <a href="#"><i class="i-credit"></i>&nbsp; <span class="">Licensing</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-user-alt"></i>&nbsp;<span>Account</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-support"></i>&nbsp;<span>Support</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-users"></i>&nbsp;<span>Partner Center</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-salesautomation-alt"></i>&nbsp;<span>Sales Automation</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-search"></i>&nbsp;<span>Bittitan Leads</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-secure"></i>&nbsp;<span>Cloud U</span></a>
+                </li>
+                <li class="hidden-xs">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="i-grid"></i>&nbsp; <i class="i-down"></i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <p class="text-center uppercase Strong">
+                            Welcome, BitTitan User
+                        </p>
+                        <div class="icons">
+                            <ul class="main">
+                                <li>
+                                    <a href=""><i class="i-user-alt"></i><span class="title">Account</span></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="i-support"></i><span class="title">Support</span></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="i-users"></i><span class="title">Partner Center</span></a>
+                                </li>
+                            </ul>
+                            <ul class="products">
+                                <li>
+                                    <a href=""><i class="i-salesautomation-alt"></i><span class="title">Sales Automation</span></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="i-search"></i><span class="title">Bittitan Leads</span></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="i-secure"></i><span class="title">Cloud U</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-9 text-center">
+                                <p>
+                                    © 2015 BitTitan, Inc. <a>Contact</a> | <a>Legal</a>
+                                </p>
+                            </div>
+                            <div class="col-xs-3 text-center">
+                                <p class="uppercase Strong">Logout</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  
+</div>
+<!-- /#top -->
+
+<div id="wrap">
+
+  
+
+    <!-- #content -->
+    <div id="content">
+        <!-- inner -->
+        <div class="full-table bg-light">
+
+            <!-- Page Content -->
+            
+<div class="row" style="padding-top:44px">
+    <div class="col-xs-12 bg-white">
+        <table class="table bg-white project-list headstuck mbn" style="margin-left:6px">
+            <thead>
+            <tr>
+                <th style="text-align:left">Campaign Name</th>
+                <th class="">Leads</th>
+                <th class="">Date Added</th>
+                <th class="">Start Date</th>
+                <th class="">End Date</th>
+                <th class="text-right"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a href="campaign.html" title="BitTitan Storage"><i class="i-play" title="call"></i><span> &nbsp;Another Campaign of Ben</span></a></td>
+                <td>
+                    <span class="text-grey" title="Not Migrated">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-primary" title="Waiting for User">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-info" title="Migrating">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-warning" title="Paused">
+                        -
+                    </span>
+                </td>
+                <td class="text-right">
+                    <span class="text-success" title="Completed">
+                        <a href="#"><i class="i-edit"></i></a>
+                        &nbsp;
+                        <a href="#"><i class="i-trash"></i></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="campaign.html" title="BitTitan Storage"><i class="i-play" title="call"></i><span> &nbsp;Another Campaign of Ben</span></a></td>
+                <td>
+                    <span class="text-grey" title="Not Migrated">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-primary" title="Waiting for User">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-info" title="Migrating">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-warning" title="Paused">
+                        -
+                    </span>
+                </td>
+                <td class="text-right">
+                    <span class="text-success" title="Completed">
+                        <a href="#"><i class="i-edit"></i></a>
+                        &nbsp;
+                        <a href="#"><i class="i-trash"></i></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="campaign.html" title="BitTitan Storage"><i class="i-play" title="call"></i><span> &nbsp;Another Campaign of Ben</span></a></td>
+                <td>
+                    <span class="text-grey" title="Not Migrated">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-primary" title="Waiting for User">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-info" title="Migrating">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-warning" title="Paused">
+                        -
+                    </span>
+                </td>
+                <td class="text-right">
+                    <span class="text-success" title="Completed">
+                        <a href="#"><i class="i-edit"></i></a>
+                        &nbsp;
+                        <a href="#"><i class="i-trash"></i></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="campaign.html" title="BitTitan Storage"><i class="i-play" title="call"></i><span> &nbsp;Another Campaign of Ben</span></a></td>
+                <td>
+                    <span class="text-grey" title="Not Migrated">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-primary" title="Waiting for User">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-info" title="Migrating">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-warning" title="Paused">
+                        -
+                    </span>
+                </td>
+                <td class="text-right">
+                    <span class="text-success" title="Completed">
+                        <a href="#"><i class="i-edit"></i></a>
+                        &nbsp;
+                        <a href="#"><i class="i-trash"></i></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="campaign.html" title="BitTitan Storage"><i class="i-play" title="call"></i><span> &nbsp;Another Campaign of Ben</span></a></td>
+                <td>
+                    <span class="text-grey" title="Not Migrated">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-primary" title="Waiting for User">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-info" title="Migrating">
+                        -
+                    </span>
+                </td>
+                <td>
+                    <span class="text-warning" title="Paused">
+                        -
+                    </span>
+                </td>
+                <td class="text-right">
+                    <span class="text-success" title="Completed">
+                        <a href="#"><i class="i-edit"></i></a>
+                        &nbsp;
+                        <a href="#"><i class="i-trash"></i></a>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<br><br><br><br><br>
+<br><br><br><br><br>
+
+<script>
+    $('body').addClass('has-second-navbar');
+</script>
+
+            <!-- /Page Content -->
+
+        </div>
+        <!-- /inner -->
+    </div>
+    <!-- /#content -->
+
+  
+
+</div>
+<!-- /#wrap -->
+
+
+
+<!-- #helpModal -->
+<div id="helpModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- /#helpModal -->
+
+
+
+
+
+<div class="underlay one"></div>
+<div class="context-panel left">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm ptxs Light"><i class="i-play Light"></i>&nbsp; Start a Full Migration to Office 365</h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <h4 class="mtn">What is a Full Migration? <a class="help" href="#"><i class="i-help"></i></a></h4>
+        <p>
+            <small>
+                Use this type of migration for "big bang" (single pass) migrations, or following an earlier pre-stage migration. Use this type of migration after MX record cutover, to make sure you are not missing any data.
+            </small>
+        </p>
+
+        <div class="row mtl">
+
+            <div class="col-xs-6 pvs">
+                <div class="stat-widget-sm success">
+                    <div class="icon">
+                        <i class="i-action-check"></i>
+                    </div>
+                    <div class="content">
+                        <strong>1</strong> Item Selected
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 pvs">
+                <div class="stat-widget-sm success">
+                    <div class="icon">
+                        <i class="i-action-plus"></i>
+                    </div>
+                    <div class="content">
+                        <strong>1</strong> Item Will Migrate
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 pvs">
+                <div class="stat-widget-sm success">
+                    <div class="icon">
+                        <i class="i-action-x"></i>
+                    </div>
+                    <div class="content">
+                        <strong>120</strong> Licenses Available
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xs-6 pvs">
+                <div class="stat-widget-sm success">
+                    <div class="icon">
+                        <i class="i-action-x"></i>
+                    </div>
+                    <div class="content">
+                        <strong>1</strong> Licenses Required
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-group accordion mtl">
+            <div class="list-group-item open">
+                <header>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="mtm ptxs Light">
+                                <i class="i-play Light"></i>&nbsp;
+                                Select What to Migrate
+                            </h4>
+                            <hr>
+                        </div>
+                    </div>
+                </header>
+                <div class="content phl pts">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Contacts
+                            </p>
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Journals
+                            </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Contacts
+                            </p>
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Journals
+                            </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Contacts
+                            </p>
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Journals
+                            </p>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Contacts
+                            </p>
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Journals
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-group-item open">
+                <header>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="mtm ptxs Light">
+                                <i class="i-project Light"></i>&nbsp;
+                                Migration Scheduling
+                            </h4>
+                            <hr>
+                        </div>
+                    </div>
+                </header>
+                <div class="content phl pts">
+                    <div class="row">
+                        <div class="box-body">
+                            <div class="checkbox mtn">
+                                <label>
+                                    <input id="ember8114" class="ember-view ember-checkbox" type="checkbox" name="delay-migration">
+                                    <script id="metamorph-2545-start" type="text/x-placeholder"></script>Automatically start the migration at<script id="metamorph-2545-end" type="text/x-placeholder"></script>&nbsp;
+                                </label>
+                                <a id="ember8116" class="ember-view i-help help" href="http://www.bittitan.com/kb/KB004158" title="Can I delay the start of my migration?"></a>
+                            </div>
+                            <script id="metamorph-2546-start" type="text/x-placeholder"></script>
+                            <div id="ember8145" class="ember-view row delay-migration-date">
+                                <div class="col-xs-2">
+                                    <select id="ember8152" class="ember-view ember-select input-sm form-control"><script id="metamorph-2566-start" type="text/x-placeholder"></script><option value=""><script id="metamorph-2567-start" type="text/x-placeholder"></script>Month<script id="metamorph-2567-end" type="text/x-placeholder"></script></option><script id="metamorph-2566-end" type="text/x-placeholder"></script><script id="metamorph-2568-start" type="text/x-placeholder"></script><script id="metamorph-2581-start" type="text/x-placeholder"></script><script id="metamorph-2569-start" type="text/x-placeholder"></script><option id="ember8174" class="ember-view" value="0"><script id="metamorph-2582-start" type="text/x-placeholder"></script>Jan<script id="metamorph-2582-end" type="text/x-placeholder"></script></option><script id="metamorph-2569-end" type="text/x-placeholder"></script><script id="metamorph-2570-start" type="text/x-placeholder"></script><option id="ember8175" class="ember-view" value="1"><script id="metamorph-2583-start" type="text/x-placeholder"></script>Feb<script id="metamorph-2583-end" type="text/x-placeholder"></script></option><script id="metamorph-2570-end" type="text/x-placeholder"></script><script id="metamorph-2571-start" type="text/x-placeholder"></script><option id="ember8176" class="ember-view" value="2"><script id="metamorph-2584-start" type="text/x-placeholder"></script>Mar<script id="metamorph-2584-end" type="text/x-placeholder"></script></option><script id="metamorph-2571-end" type="text/x-placeholder"></script><script id="metamorph-2572-start" type="text/x-placeholder"></script><option id="ember8177" class="ember-view" value="3"><script id="metamorph-2585-start" type="text/x-placeholder"></script>Apr<script id="metamorph-2585-end" type="text/x-placeholder"></script></option><script id="metamorph-2572-end" type="text/x-placeholder"></script><script id="metamorph-2573-start" type="text/x-placeholder"></script><option id="ember8178" class="ember-view" value="4"><script id="metamorph-2586-start" type="text/x-placeholder"></script>May<script id="metamorph-2586-end" type="text/x-placeholder"></script></option><script id="metamorph-2573-end" type="text/x-placeholder"></script><script id="metamorph-2574-start" type="text/x-placeholder"></script><option id="ember8179" class="ember-view" value="5"><script id="metamorph-2587-start" type="text/x-placeholder"></script>Jun<script id="metamorph-2587-end" type="text/x-placeholder"></script></option><script id="metamorph-2574-end" type="text/x-placeholder"></script><script id="metamorph-2575-start" type="text/x-placeholder"></script><option id="ember8180" class="ember-view" value="6"><script id="metamorph-2588-start" type="text/x-placeholder"></script>Jul<script id="metamorph-2588-end" type="text/x-placeholder"></script></option><script id="metamorph-2575-end" type="text/x-placeholder"></script><script id="metamorph-2576-start" type="text/x-placeholder"></script><option id="ember8181" class="ember-view" value="7"><script id="metamorph-2589-start" type="text/x-placeholder"></script>Aug<script id="metamorph-2589-end" type="text/x-placeholder"></script></option><script id="metamorph-2576-end" type="text/x-placeholder"></script><script id="metamorph-2577-start" type="text/x-placeholder"></script><option id="ember8182" class="ember-view" value="8"><script id="metamorph-2590-start" type="text/x-placeholder"></script>Sep<script id="metamorph-2590-end" type="text/x-placeholder"></script></option><script id="metamorph-2577-end" type="text/x-placeholder"></script><script id="metamorph-2578-start" type="text/x-placeholder"></script><option id="ember8183" class="ember-view" value="9"><script id="metamorph-2591-start" type="text/x-placeholder"></script>Oct<script id="metamorph-2591-end" type="text/x-placeholder"></script></option><script id="metamorph-2578-end" type="text/x-placeholder"></script><script id="metamorph-2579-start" type="text/x-placeholder"></script><option id="ember8184" class="ember-view" value="10"><script id="metamorph-2592-start" type="text/x-placeholder"></script>Nov<script id="metamorph-2592-end" type="text/x-placeholder"></script></option><script id="metamorph-2579-end" type="text/x-placeholder"></script><script id="metamorph-2580-start" type="text/x-placeholder"></script><option id="ember8185" class="ember-view" value="11"><script id="metamorph-2593-start" type="text/x-placeholder"></script>Dec<script id="metamorph-2593-end" type="text/x-placeholder"></script></option><script id="metamorph-2580-end" type="text/x-placeholder"></script><script id="metamorph-2581-end" type="text/x-placeholder"></script><script id="metamorph-2568-end" type="text/x-placeholder"></script></select>
+                                </div>
+                                <div class="col-xs-2">
+                                    <select id="ember8188" class="ember-view ember-select input-sm form-control"><script id="metamorph-2594-start" type="text/x-placeholder"></script><option value=""><script id="metamorph-2595-start" type="text/x-placeholder"></script>Day<script id="metamorph-2595-end" type="text/x-placeholder"></script></option><script id="metamorph-2594-end" type="text/x-placeholder"></script><script id="metamorph-2596-start" type="text/x-placeholder"></script><script id="metamorph-2628-start" type="text/x-placeholder"></script><script id="metamorph-2597-start" type="text/x-placeholder"></script><option id="ember8227" class="ember-view" value="1"><script id="metamorph-2629-start" type="text/x-placeholder"></script>1<script id="metamorph-2629-end" type="text/x-placeholder"></script></option><script id="metamorph-2597-end" type="text/x-placeholder"></script><script id="metamorph-2598-start" type="text/x-placeholder"></script><option id="ember8228" class="ember-view" value="2"><script id="metamorph-2630-start" type="text/x-placeholder"></script>2<script id="metamorph-2630-end" type="text/x-placeholder"></script></option><script id="metamorph-2598-end" type="text/x-placeholder"></script><script id="metamorph-2599-start" type="text/x-placeholder"></script><option id="ember8229" class="ember-view" value="3"><script id="metamorph-2631-start" type="text/x-placeholder"></script>3<script id="metamorph-2631-end" type="text/x-placeholder"></script></option><script id="metamorph-2599-end" type="text/x-placeholder"></script><script id="metamorph-2600-start" type="text/x-placeholder"></script><option id="ember8230" class="ember-view" value="4"><script id="metamorph-2632-start" type="text/x-placeholder"></script>4<script id="metamorph-2632-end" type="text/x-placeholder"></script></option><script id="metamorph-2600-end" type="text/x-placeholder"></script><script id="metamorph-2601-start" type="text/x-placeholder"></script><option id="ember8231" class="ember-view" value="5"><script id="metamorph-2633-start" type="text/x-placeholder"></script>5<script id="metamorph-2633-end" type="text/x-placeholder"></script></option><script id="metamorph-2601-end" type="text/x-placeholder"></script><script id="metamorph-2602-start" type="text/x-placeholder"></script><option id="ember8232" class="ember-view" value="6"><script id="metamorph-2634-start" type="text/x-placeholder"></script>6<script id="metamorph-2634-end" type="text/x-placeholder"></script></option><script id="metamorph-2602-end" type="text/x-placeholder"></script><script id="metamorph-2603-start" type="text/x-placeholder"></script><option id="ember8233" class="ember-view" value="7"><script id="metamorph-2635-start" type="text/x-placeholder"></script>7<script id="metamorph-2635-end" type="text/x-placeholder"></script></option><script id="metamorph-2603-end" type="text/x-placeholder"></script><script id="metamorph-2604-start" type="text/x-placeholder"></script><option id="ember8234" class="ember-view" value="8"><script id="metamorph-2636-start" type="text/x-placeholder"></script>8<script id="metamorph-2636-end" type="text/x-placeholder"></script></option><script id="metamorph-2604-end" type="text/x-placeholder"></script><script id="metamorph-2605-start" type="text/x-placeholder"></script><option id="ember8235" class="ember-view" value="9"><script id="metamorph-2637-start" type="text/x-placeholder"></script>9<script id="metamorph-2637-end" type="text/x-placeholder"></script></option><script id="metamorph-2605-end" type="text/x-placeholder"></script><script id="metamorph-2606-start" type="text/x-placeholder"></script><option id="ember8236" class="ember-view" value="10"><script id="metamorph-2638-start" type="text/x-placeholder"></script>10<script id="metamorph-2638-end" type="text/x-placeholder"></script></option><script id="metamorph-2606-end" type="text/x-placeholder"></script><script id="metamorph-2607-start" type="text/x-placeholder"></script><option id="ember8237" class="ember-view" value="11"><script id="metamorph-2639-start" type="text/x-placeholder"></script>11<script id="metamorph-2639-end" type="text/x-placeholder"></script></option><script id="metamorph-2607-end" type="text/x-placeholder"></script><script id="metamorph-2608-start" type="text/x-placeholder"></script><option id="ember8238" class="ember-view" value="12"><script id="metamorph-2640-start" type="text/x-placeholder"></script>12<script id="metamorph-2640-end" type="text/x-placeholder"></script></option><script id="metamorph-2608-end" type="text/x-placeholder"></script><script id="metamorph-2609-start" type="text/x-placeholder"></script><option id="ember8239" class="ember-view" value="13"><script id="metamorph-2641-start" type="text/x-placeholder"></script>13<script id="metamorph-2641-end" type="text/x-placeholder"></script></option><script id="metamorph-2609-end" type="text/x-placeholder"></script><script id="metamorph-2610-start" type="text/x-placeholder"></script><option id="ember8240" class="ember-view" value="14"><script id="metamorph-2642-start" type="text/x-placeholder"></script>14<script id="metamorph-2642-end" type="text/x-placeholder"></script></option><script id="metamorph-2610-end" type="text/x-placeholder"></script><script id="metamorph-2611-start" type="text/x-placeholder"></script><option id="ember8241" class="ember-view" value="15"><script id="metamorph-2643-start" type="text/x-placeholder"></script>15<script id="metamorph-2643-end" type="text/x-placeholder"></script></option><script id="metamorph-2611-end" type="text/x-placeholder"></script><script id="metamorph-2612-start" type="text/x-placeholder"></script><option id="ember8242" class="ember-view" value="16"><script id="metamorph-2644-start" type="text/x-placeholder"></script>16<script id="metamorph-2644-end" type="text/x-placeholder"></script></option><script id="metamorph-2612-end" type="text/x-placeholder"></script><script id="metamorph-2613-start" type="text/x-placeholder"></script><option id="ember8243" class="ember-view" value="17"><script id="metamorph-2645-start" type="text/x-placeholder"></script>17<script id="metamorph-2645-end" type="text/x-placeholder"></script></option><script id="metamorph-2613-end" type="text/x-placeholder"></script><script id="metamorph-2614-start" type="text/x-placeholder"></script><option id="ember8244" class="ember-view" value="18"><script id="metamorph-2646-start" type="text/x-placeholder"></script>18<script id="metamorph-2646-end" type="text/x-placeholder"></script></option><script id="metamorph-2614-end" type="text/x-placeholder"></script><script id="metamorph-2615-start" type="text/x-placeholder"></script><option id="ember8245" class="ember-view" value="19"><script id="metamorph-2647-start" type="text/x-placeholder"></script>19<script id="metamorph-2647-end" type="text/x-placeholder"></script></option><script id="metamorph-2615-end" type="text/x-placeholder"></script><script id="metamorph-2616-start" type="text/x-placeholder"></script><option id="ember8246" class="ember-view" value="20"><script id="metamorph-2648-start" type="text/x-placeholder"></script>20<script id="metamorph-2648-end" type="text/x-placeholder"></script></option><script id="metamorph-2616-end" type="text/x-placeholder"></script><script id="metamorph-2617-start" type="text/x-placeholder"></script><option id="ember8247" class="ember-view" value="21"><script id="metamorph-2649-start" type="text/x-placeholder"></script>21<script id="metamorph-2649-end" type="text/x-placeholder"></script></option><script id="metamorph-2617-end" type="text/x-placeholder"></script><script id="metamorph-2618-start" type="text/x-placeholder"></script><option id="ember8248" class="ember-view" value="22"><script id="metamorph-2650-start" type="text/x-placeholder"></script>22<script id="metamorph-2650-end" type="text/x-placeholder"></script></option><script id="metamorph-2618-end" type="text/x-placeholder"></script><script id="metamorph-2619-start" type="text/x-placeholder"></script><option id="ember8249" class="ember-view" value="23"><script id="metamorph-2651-start" type="text/x-placeholder"></script>23<script id="metamorph-2651-end" type="text/x-placeholder"></script></option><script id="metamorph-2619-end" type="text/x-placeholder"></script><script id="metamorph-2620-start" type="text/x-placeholder"></script><option id="ember8250" class="ember-view" value="24"><script id="metamorph-2652-start" type="text/x-placeholder"></script>24<script id="metamorph-2652-end" type="text/x-placeholder"></script></option><script id="metamorph-2620-end" type="text/x-placeholder"></script><script id="metamorph-2621-start" type="text/x-placeholder"></script><option id="ember8251" class="ember-view" value="25"><script id="metamorph-2653-start" type="text/x-placeholder"></script>25<script id="metamorph-2653-end" type="text/x-placeholder"></script></option><script id="metamorph-2621-end" type="text/x-placeholder"></script><script id="metamorph-2622-start" type="text/x-placeholder"></script><option id="ember8252" class="ember-view" value="26"><script id="metamorph-2654-start" type="text/x-placeholder"></script>26<script id="metamorph-2654-end" type="text/x-placeholder"></script></option><script id="metamorph-2622-end" type="text/x-placeholder"></script><script id="metamorph-2623-start" type="text/x-placeholder"></script><option id="ember8253" class="ember-view" value="27"><script id="metamorph-2655-start" type="text/x-placeholder"></script>27<script id="metamorph-2655-end" type="text/x-placeholder"></script></option><script id="metamorph-2623-end" type="text/x-placeholder"></script><script id="metamorph-2624-start" type="text/x-placeholder"></script><option id="ember8254" class="ember-view" value="28"><script id="metamorph-2656-start" type="text/x-placeholder"></script>28<script id="metamorph-2656-end" type="text/x-placeholder"></script></option><script id="metamorph-2624-end" type="text/x-placeholder"></script><script id="metamorph-2625-start" type="text/x-placeholder"></script><option id="ember8255" class="ember-view" value="29"><script id="metamorph-2657-start" type="text/x-placeholder"></script>29<script id="metamorph-2657-end" type="text/x-placeholder"></script></option><script id="metamorph-2625-end" type="text/x-placeholder"></script><script id="metamorph-2626-start" type="text/x-placeholder"></script><option id="ember8256" class="ember-view" value="30"><script id="metamorph-2658-start" type="text/x-placeholder"></script>30<script id="metamorph-2658-end" type="text/x-placeholder"></script></option><script id="metamorph-2626-end" type="text/x-placeholder"></script><script id="metamorph-2627-start" type="text/x-placeholder"></script><option id="ember8257" class="ember-view" value="31"><script id="metamorph-2659-start" type="text/x-placeholder"></script>31<script id="metamorph-2659-end" type="text/x-placeholder"></script></option><script id="metamorph-2627-end" type="text/x-placeholder"></script><script id="metamorph-2628-end" type="text/x-placeholder"></script><script id="metamorph-2596-end" type="text/x-placeholder"></script></select>
+                                </div>
+                                <div class="col-xs-2">
+                                    <select id="ember8260" class="ember-view ember-select input-sm form-control"><script id="metamorph-2660-start" type="text/x-placeholder"></script><option value=""><script id="metamorph-2661-start" type="text/x-placeholder"></script>Year<script id="metamorph-2661-end" type="text/x-placeholder"></script></option><script id="metamorph-2660-end" type="text/x-placeholder"></script><script id="metamorph-2662-start" type="text/x-placeholder"></script><script id="metamorph-2665-start" type="text/x-placeholder"></script><script id="metamorph-2663-start" type="text/x-placeholder"></script><option id="ember8270" class="ember-view" value="2014"><script id="metamorph-2666-start" type="text/x-placeholder"></script>2014<script id="metamorph-2666-end" type="text/x-placeholder"></script></option><script id="metamorph-2663-end" type="text/x-placeholder"></script><script id="metamorph-2664-start" type="text/x-placeholder"></script><option id="ember8271" class="ember-view" value="2015"><script id="metamorph-2667-start" type="text/x-placeholder"></script>2015<script id="metamorph-2667-end" type="text/x-placeholder"></script></option><script id="metamorph-2664-end" type="text/x-placeholder"></script><script id="metamorph-2665-end" type="text/x-placeholder"></script><script id="metamorph-2662-end" type="text/x-placeholder"></script></select>
+                                </div>
+                                <!--<div class="col-xs-1 text-center">-->
+                                <!--<span class="form-control-text">-->
+                                <!--<small><script id="metamorph-2668-start" type="text/x-placeholder"></script>at<script id="metamorph-2668-end" type="text/x-placeholder"></script></small>-->
+                                <!--</span>-->
+                                <!--</div>-->
+                                <div class="col-xs-2">
+                                    <select id="ember8275" class="ember-view ember-select input-sm form-control"><script id="metamorph-2669-start" type="text/x-placeholder"></script><option value=""><script id="metamorph-2670-start" type="text/x-placeholder"></script>Hour<script id="metamorph-2670-end" type="text/x-placeholder"></script></option><script id="metamorph-2669-end" type="text/x-placeholder"></script><script id="metamorph-2671-start" type="text/x-placeholder"></script><script id="metamorph-2696-start" type="text/x-placeholder"></script><script id="metamorph-2672-start" type="text/x-placeholder"></script><option id="ember8307" class="ember-view" value="0"><script id="metamorph-2697-start" type="text/x-placeholder"></script>0<script id="metamorph-2697-end" type="text/x-placeholder"></script></option><script id="metamorph-2672-end" type="text/x-placeholder"></script><script id="metamorph-2673-start" type="text/x-placeholder"></script><option id="ember8308" class="ember-view" value="1"><script id="metamorph-2698-start" type="text/x-placeholder"></script>1<script id="metamorph-2698-end" type="text/x-placeholder"></script></option><script id="metamorph-2673-end" type="text/x-placeholder"></script><script id="metamorph-2674-start" type="text/x-placeholder"></script><option id="ember8309" class="ember-view" value="2"><script id="metamorph-2699-start" type="text/x-placeholder"></script>2<script id="metamorph-2699-end" type="text/x-placeholder"></script></option><script id="metamorph-2674-end" type="text/x-placeholder"></script><script id="metamorph-2675-start" type="text/x-placeholder"></script><option id="ember8310" class="ember-view" value="3"><script id="metamorph-2700-start" type="text/x-placeholder"></script>3<script id="metamorph-2700-end" type="text/x-placeholder"></script></option><script id="metamorph-2675-end" type="text/x-placeholder"></script><script id="metamorph-2676-start" type="text/x-placeholder"></script><option id="ember8311" class="ember-view" value="4"><script id="metamorph-2701-start" type="text/x-placeholder"></script>4<script id="metamorph-2701-end" type="text/x-placeholder"></script></option><script id="metamorph-2676-end" type="text/x-placeholder"></script><script id="metamorph-2677-start" type="text/x-placeholder"></script><option id="ember8312" class="ember-view" value="5"><script id="metamorph-2702-start" type="text/x-placeholder"></script>5<script id="metamorph-2702-end" type="text/x-placeholder"></script></option><script id="metamorph-2677-end" type="text/x-placeholder"></script><script id="metamorph-2678-start" type="text/x-placeholder"></script><option id="ember8313" class="ember-view" value="6"><script id="metamorph-2703-start" type="text/x-placeholder"></script>6<script id="metamorph-2703-end" type="text/x-placeholder"></script></option><script id="metamorph-2678-end" type="text/x-placeholder"></script><script id="metamorph-2679-start" type="text/x-placeholder"></script><option id="ember8314" class="ember-view" value="7"><script id="metamorph-2704-start" type="text/x-placeholder"></script>7<script id="metamorph-2704-end" type="text/x-placeholder"></script></option><script id="metamorph-2679-end" type="text/x-placeholder"></script><script id="metamorph-2680-start" type="text/x-placeholder"></script><option id="ember8315" class="ember-view" value="8"><script id="metamorph-2705-start" type="text/x-placeholder"></script>8<script id="metamorph-2705-end" type="text/x-placeholder"></script></option><script id="metamorph-2680-end" type="text/x-placeholder"></script><script id="metamorph-2681-start" type="text/x-placeholder"></script><option id="ember8316" class="ember-view" value="9"><script id="metamorph-2706-start" type="text/x-placeholder"></script>9<script id="metamorph-2706-end" type="text/x-placeholder"></script></option><script id="metamorph-2681-end" type="text/x-placeholder"></script><script id="metamorph-2682-start" type="text/x-placeholder"></script><option id="ember8317" class="ember-view" value="10"><script id="metamorph-2707-start" type="text/x-placeholder"></script>10<script id="metamorph-2707-end" type="text/x-placeholder"></script></option><script id="metamorph-2682-end" type="text/x-placeholder"></script><script id="metamorph-2683-start" type="text/x-placeholder"></script><option id="ember8318" class="ember-view" value="11"><script id="metamorph-2708-start" type="text/x-placeholder"></script>11<script id="metamorph-2708-end" type="text/x-placeholder"></script></option><script id="metamorph-2683-end" type="text/x-placeholder"></script><script id="metamorph-2684-start" type="text/x-placeholder"></script><option id="ember8319" class="ember-view" value="12"><script id="metamorph-2709-start" type="text/x-placeholder"></script>12<script id="metamorph-2709-end" type="text/x-placeholder"></script></option><script id="metamorph-2684-end" type="text/x-placeholder"></script><script id="metamorph-2685-start" type="text/x-placeholder"></script><option id="ember8320" class="ember-view" value="13"><script id="metamorph-2710-start" type="text/x-placeholder"></script>13<script id="metamorph-2710-end" type="text/x-placeholder"></script></option><script id="metamorph-2685-end" type="text/x-placeholder"></script><script id="metamorph-2686-start" type="text/x-placeholder"></script><option id="ember8321" class="ember-view" value="14"><script id="metamorph-2711-start" type="text/x-placeholder"></script>14<script id="metamorph-2711-end" type="text/x-placeholder"></script></option><script id="metamorph-2686-end" type="text/x-placeholder"></script><script id="metamorph-2687-start" type="text/x-placeholder"></script><option id="ember8322" class="ember-view" value="15"><script id="metamorph-2712-start" type="text/x-placeholder"></script>15<script id="metamorph-2712-end" type="text/x-placeholder"></script></option><script id="metamorph-2687-end" type="text/x-placeholder"></script><script id="metamorph-2688-start" type="text/x-placeholder"></script><option id="ember8323" class="ember-view" value="16"><script id="metamorph-2713-start" type="text/x-placeholder"></script>16<script id="metamorph-2713-end" type="text/x-placeholder"></script></option><script id="metamorph-2688-end" type="text/x-placeholder"></script><script id="metamorph-2689-start" type="text/x-placeholder"></script><option id="ember8324" class="ember-view" value="17"><script id="metamorph-2714-start" type="text/x-placeholder"></script>17<script id="metamorph-2714-end" type="text/x-placeholder"></script></option><script id="metamorph-2689-end" type="text/x-placeholder"></script><script id="metamorph-2690-start" type="text/x-placeholder"></script><option id="ember8325" class="ember-view" value="18"><script id="metamorph-2715-start" type="text/x-placeholder"></script>18<script id="metamorph-2715-end" type="text/x-placeholder"></script></option><script id="metamorph-2690-end" type="text/x-placeholder"></script><script id="metamorph-2691-start" type="text/x-placeholder"></script><option id="ember8326" class="ember-view" value="19"><script id="metamorph-2716-start" type="text/x-placeholder"></script>19<script id="metamorph-2716-end" type="text/x-placeholder"></script></option><script id="metamorph-2691-end" type="text/x-placeholder"></script><script id="metamorph-2692-start" type="text/x-placeholder"></script><option id="ember8327" class="ember-view" value="20"><script id="metamorph-2717-start" type="text/x-placeholder"></script>20<script id="metamorph-2717-end" type="text/x-placeholder"></script></option><script id="metamorph-2692-end" type="text/x-placeholder"></script><script id="metamorph-2693-start" type="text/x-placeholder"></script><option id="ember8328" class="ember-view" value="21"><script id="metamorph-2718-start" type="text/x-placeholder"></script>21<script id="metamorph-2718-end" type="text/x-placeholder"></script></option><script id="metamorph-2693-end" type="text/x-placeholder"></script><script id="metamorph-2694-start" type="text/x-placeholder"></script><option id="ember8329" class="ember-view" value="22"><script id="metamorph-2719-start" type="text/x-placeholder"></script>22<script id="metamorph-2719-end" type="text/x-placeholder"></script></option><script id="metamorph-2694-end" type="text/x-placeholder"></script><script id="metamorph-2695-start" type="text/x-placeholder"></script><option id="ember8330" class="ember-view" value="23"><script id="metamorph-2720-start" type="text/x-placeholder"></script>23<script id="metamorph-2720-end" type="text/x-placeholder"></script></option><script id="metamorph-2695-end" type="text/x-placeholder"></script><script id="metamorph-2696-end" type="text/x-placeholder"></script><script id="metamorph-2671-end" type="text/x-placeholder"></script></select>
+                                </div>
+                                <div class="col-xs-2">
+                                    <select id="ember8333" class="ember-view ember-select input-sm form-control"><script id="metamorph-2721-start" type="text/x-placeholder"></script><option value=""><script id="metamorph-2722-start" type="text/x-placeholder"></script>Minute<script id="metamorph-2722-end" type="text/x-placeholder"></script></option><script id="metamorph-2721-end" type="text/x-placeholder"></script><script id="metamorph-2723-start" type="text/x-placeholder"></script><script id="metamorph-2728-start" type="text/x-placeholder"></script><script id="metamorph-2724-start" type="text/x-placeholder"></script><option id="ember8345" class="ember-view" value="0"><script id="metamorph-2729-start" type="text/x-placeholder"></script>0<script id="metamorph-2729-end" type="text/x-placeholder"></script></option><script id="metamorph-2724-end" type="text/x-placeholder"></script><script id="metamorph-2725-start" type="text/x-placeholder"></script><option id="ember8346" class="ember-view" value="15"><script id="metamorph-2730-start" type="text/x-placeholder"></script>15<script id="metamorph-2730-end" type="text/x-placeholder"></script></option><script id="metamorph-2725-end" type="text/x-placeholder"></script><script id="metamorph-2726-start" type="text/x-placeholder"></script><option id="ember8347" class="ember-view" value="30"><script id="metamorph-2731-start" type="text/x-placeholder"></script>30<script id="metamorph-2731-end" type="text/x-placeholder"></script></option><script id="metamorph-2726-end" type="text/x-placeholder"></script><script id="metamorph-2727-start" type="text/x-placeholder"></script><option id="ember8348" class="ember-view" value="45"><script id="metamorph-2732-start" type="text/x-placeholder"></script>45<script id="metamorph-2732-end" type="text/x-placeholder"></script></option><script id="metamorph-2727-end" type="text/x-placeholder"></script><script id="metamorph-2728-end" type="text/x-placeholder"></script><script id="metamorph-2723-end" type="text/x-placeholder"></script></select>
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                <span class="form-control-text nudge down-7">
+                                    <small>(<script id="metamorph-2733-start" type="text/x-placeholder"></script>Local Time<script id="metamorph-2733-end" type="text/x-placeholder"></script>)</small>
+                                </span>
+                                </div>
+                            </div>
+                            <script id="metamorph-2546-end" type="text/x-placeholder"></script>
+                            <script id="metamorph-2547-start" type="text/x-placeholder"></script><script id="metamorph-2547-end" type="text/x-placeholder"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default close-modal">Cancel</a>
+            <a href="#" class="btn btn-primary close-modal">Start</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="underlay two"></div>
+<div class="context-panel right errors">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm ptxs Light"><i class="i-plus Light"></i>&nbsp; Create Project</h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="pam">
+            <h4 class="mtn">Create a DeploymentPro Project</h4>
+
+
+
+
+
+            <div class="row mtl">
+                <div class="col-md-12">
+
+
+                    <div class="list-group accordion">
+
+
+                        <div class="list-group-item open">
+                            <header>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h4 class="mtm Light">
+                                            <a href="#" class="kb-modal one pull-right btn mts btn-sm btn-default nudge up-5"><i class="i-plus"></i> &nbsp;New Customer</a>
+                                            <i class="i-user"></i>&nbsp;
+                                            Select a Customer
+                                        </h4>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="content">
+                                <form class="form-horizontal">
+
+
+                                    <fieldset>
+
+
+
+                                        <div class="form-group">
+
+                                            <label for="select" class="col-xs-12">Select a Customer</label>
+                                            <div class="col-xs-12">
+                                                <select class="form-control" id="select-customer">
+                                                    <option>Select a Customer</option>
+                                                    <option>Kmart</option>
+                                                    <option>Costco</option>
+                                                    <option>BitTitan</option>
+                                                    <option>Microsoft</option>
+                                                    <option>Verizon</option>
+                                                </select>
+
+                                                <p class="mtl">
+                                                    <i class="i-help"></i>&nbsp;
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur atque eaque eum eveniet facilis, fugit ipsa ipsam laboriosam necessitatibus nesciunt perferendis perspiciatis placeat porro quos temporibus, voluptatem voluptatibus!
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group ptl">
+                                            <div class="col-lg-12 text-right">
+                                                <a href="javascript:gotoStep(4)" class="btn btn-primary">Next</a>
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <div class="list-group-item">
+                            <header>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h4 class="mtm Light">
+                                            <a href="#" class="kb-modal two pull-right btn mts btn-sm btn-default nudge up-5"><i class="i-plus"></i> &nbsp;New Engagement</a>
+                                            <i class="i-list-alt"></i>&nbsp;
+                                            Select an Engagement
+                                        </h4>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="content">
+                                <form class="form-horizontal">
+
+
+                                    <fieldset>
+
+
+
+                                        <div class="form-group">
+
+                                            <label for="select" class="col-xs-12">Select an Existing Engagement</label>
+                                            <div class="col-xs-12">
+                                                <select class="form-control" id="select">
+                                                    <option>Select an Engagement</option>
+                                                    <option>Engagement #1</option>
+                                                    <option>Engagement #2</option>
+                                                    <option>Engagement #3</option>
+                                                    <option>Engagement #4</option>
+                                                </select>
+
+
+
+                                                <p class="mtl">
+                                                    <i class="i-help"></i>&nbsp;
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur atque eaque eum eveniet facilis, fugit ipsa ipsam laboriosam necessitatibus nesciunt perferendis perspiciatis placeat porro quos temporibus, voluptatem voluptatibus!
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <br><br><br>
+
+                                        <div class="form-group ptl">
+                                            <div class="col-lg-12 text-right">
+                                                <a href="javascript:gotoStep(3)" class="btn btn-default">Back</a>
+                                                <a href="javascript:gotoStep(5)" class="btn btn-primary">Next</a>
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <div class="list-group-item">
+                            <header>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h4 class="mtm Light">
+                                            <!--<a href="#" class="pull-right btn mts btn-sm btn-default nudge up-5"><i class="i-plus"></i> &nbsp;Create a New Dialog</a>-->
+                                            <i class="i-project"></i>&nbsp;
+                                            Project Information
+                                        </h4>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="content">
+                                <form class="form-horizontal">
+
+
+                                    <fieldset>
+
+
+
+                                        <div class="form-group">
+                                            <label class="col-xs-12">Project Name</label>
+                                            <div class="col-xs-12">
+                                                <input type="text" id="projectName" class="form-control" placeholder="Enter a Name for this Project">
+                                            </div>
+                                        </div>
+
+                                        <p class="mtl">
+                                            <i class="i-help"></i>&nbsp;
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur atque eaque eum eveniet facilis, fugit ipsa ipsam laboriosam necessitatibus nesciunt perferendis perspiciatis placeat porro quos temporibus, voluptatem voluptatibus!
+                                        </p>
+
+                                        <div class="form-group ptl">
+                                            <div class="col-lg-12 text-right">
+                                                <a href="javascript:gotoStep(4)" class="btn btn-default">Back</a>
+                                                <a href="#" class="lastStep btn btn-primary close-modal hidden">
+                                                    Complete&nbsp;
+                                                    <i class="i-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default close-modal">
+                <i class="i-x"></i>&nbsp;
+                Cancel
+            </a>
+            <a href="#" class="lastStep btn btn-primary hidden close-modal">
+                Complete&nbsp;
+                <i class="i-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function gotoStep (step) {
+        step = parseInt(step) - 1;
+        console.log(step);
+        $('.accordion .list-group-item').removeClass('open');
+        $('.accordion .list-group-item').eq(step).addClass('open');
+    }
+    $(document).ready(function () {
+        $('.kb-modal.one').on('click', function () {
+            $('.kb .textOne').html("Create a New Customer");
+            $('.kb .textTwo').html("Create a New Customer Entity");
+        });
+        $('.kb-modal.two').on('click', function () {
+            $('.kb .textOne').html("Create a New Engagement");
+            $('.kb .textTwo').html("Create a New Engagement for Customer #1");
+        });
+        $('#projectName').bind('keyup blur change', function () {
+            if ($(this).val().length !== 0) $('.lastStep').removeClass('hidden');
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+       $('.back-to-errors').click(function () {
+           $('.context-panel.kb').removeClass('open').css('opacity', 0);
+       });
+    });
+</script>
+
+<div class="context-panel right kb" style="z-index:999999999999999">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm Light">
+
+                    <a href="#" class="btn btn-xs btn-warning pull-right mtm">OPEN IN NEW WINDOW&nbsp; <i class="i-arrow-right"></i></a>
+                    <a class="btn cursor-pointer btn-default back-to-errors">
+                        <i class="i-arrow-left"></i>
+                    </a>&nbsp;
+                    <span class="textOne nudge down-3">
+                        Create a New Customer
+                    </span>
+                </h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="pal">
+            <h4 class="mtn textTwo">
+                Create a New Customer Entity
+            </h4>
+
+            <div class="row">
+                <div class="well">
+                    <form action="#" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-xs-12">Name</label>
+                            <div class="col-xs-12">
+                                <input type="text" id="customerName" class="form-control" placeholder="Enter a Name for this Customer">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-xs-12">Domain</label>
+                            <div class="col-xs-12">
+                                <input type="text" class="form-control" placeholder="Example: customerdomain.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-xs-12">Primary Email</label>
+                            <div class="col-xs-12">
+                                <input type="text" class="form-control" placeholder="email@customerdomain.com">
+                            </div>
+                        </div>
+                    </form>
+
+                    <small>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet autem blanditiis eius error fugit ipsa omnis quod. Amet aspernatur dolorem eaque laborum molestias mollitia, necessitatibus pariatur perspiciatis quia quidem recusandae?
+                    </small>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default back-to-errors">
+                <i class="i-left"></i>&nbsp;
+                Back
+            </a>
+            <a href="#" class="btn btn-primary back-to-errors two">
+                Save&nbsp;
+                <i class="i-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.back-to-errors.two').click(function () {
+            $('#select-customer').append('<option selected>'+$('#customerName').val()+'</option>')
+        });
+    });
+</script>
+
+
+
+<div class="context-panel right users">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm ptxs Light"><i class="i-plus Light"></i>&nbsp; Add Users from MigrationWiz</h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="pam">
+            <h4 class="mtn">Select a MigrationWiz Project</h4>
+
+
+            <div class="row mtl">
+                <div class="col-md-12">
+
+
+                    <div class="well">
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Project #1:</strong> 147 Users - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Project #2:</strong> 325 Users - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Project #3:</strong> 532 Users - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Project #4:</strong> 325 Users - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Project #5:</strong> 532 Users - 10/11/2015
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default close-modal">
+                <i class="i-x"></i>&nbsp;
+                Cancel
+            </a>
+            <a href="#" class="lastStep btn btn-primary users-modal2">
+                Next&nbsp;
+                <i class="i-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function gotoStep (step) {
+        step = parseInt(step) - 1;
+        $('.accordion .list-group-item').removeClass('open');
+        $('.accordion .list-group-item').eq(step).addClass('open');
+    }
+    $(document).ready(function () {
+        $('.kb-modal.one').on('click', function () {
+            $('.kb .textOne').html("Create a New Customer");
+            $('.kb .textTwo').html("Create a New Customer Entity");
+        });
+        $('.kb-modal.two').on('click', function () {
+            $('.kb .textOne').html("Create a New Engagement");
+            $('.kb .textTwo').html("Create a New Engagement for Customer #1");
+        });
+        $('#projectName').bind('keyup blur change', function () {
+            if ($(this).val().length !== 0) $('.lastStep').removeClass('hidden');
+        });
+        $('.users-modal2').click(function () {
+            $('.underlay.three').fadeIn();
+            $('.context-panel.users2').show();
+            setTimeout(function () {
+                $('.context-panel.users2').addClass('open').css('opacity', 1);
+            }, 1);
+            $('body').css('overflow-y', 'hidden');
+        });
+        $('.deploy-agent').click(function () {
+            $('.underlay.one').fadeIn();
+            $('.context-panel.deploy-agent.right').show();
+            setTimeout(function () {
+                $('.context-panel.deploy-agent.right').addClass('open').css('opacity', 1);
+            }, 1);
+            $('body').css('overflow-y', 'hidden');
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.back-to-errors').click(function () {
+            $('.context-panel.users2').removeClass('open').css('opacity', 0);
+        });
+    });
+</script>
+
+<div class="context-panel right users2" style="z-index:999999999999999">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm Light">
+
+                    <!--<a href="#" class="btn btn-xs btn-warning pull-right mtm">OPEN IN NEW WINDOW&nbsp; <i class="i-arrow-right"></i></a>-->
+                    <a class="btn cursor-pointer btn-default back-to-errors">
+                        <i class="i-arrow-left"></i>
+                    </a>&nbsp;
+                    <span class="textOne nudge down-3">
+                        Select users
+                    </span>
+                </h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="pal">
+            <h4 class="mtn textTwo">
+                Select which users you would like to deploy the DesktopWiz agent to:
+            </h4>
+
+            <div class="row mtl">
+                <div class="col-md-12">
+
+
+                    <div class="well">
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>Select All Users</strong> 10 Users - 18 Machines
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default back-to-errors">
+                <i class="i-left"></i>&nbsp;
+                Back
+            </a>
+            <a href="#" class="btn btn-primary close-modal two">
+                Save&nbsp;
+                <i class="i-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.back-to-errors.two').click(function () {
+            $('#select-customer').append('<option selected>'+$('#customerName').val()+'</option>')
+        });
+    });
+</script>
+
+
+
+
+<div class="underlay three"></div>
+<div class="context-panel right deploy-agent">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm ptxs Light"><i class="i-plus Light"></i>&nbsp; Deploy Agent to Users</h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="pam">
+            <h4 class="mtn mbn">Select a Method for Deploying the DesktopWiz Agent</h4>
+
+
+            <div class="row mtl">
+                <div class="col-md-12">
+                    <div class="well">
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Install Agent from Email</strong>
+                        </p>
+                        <p class="man">
+                            <input type="radio" name="foo">&nbsp; <strong>Install Agent using Group Policy</strong>
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <h4 class="mbn">Customize your Email Message</h4>
+
+
+            <div class="row mtl">
+                <div class="col-md-12">
+                    <div class="well">
+
+                        <form action="" class="form-horizontal">
+
+                            <div class="form-group">
+                                <label  class="col-xs-12">Send as Email Address (Optional)</label>
+                                <div class="col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Example: foo@yourdomain.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-xs-12">Subject Notification Message (Optional)</label>
+                                <div class="col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Your Administrator would like you to install DesktopWiz">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label  class="col-xs-12">Message (Optional)</label>
+                                <div class="col-xs-12">
+                                    <textarea name="" id="" cols="30" rows="10" class="form-control">Hi,
+This email is for you to use to determine if you meet all the system requirements for Office 365.
+
+To complete the compatibility check:
+1.  Please click on the following link and run the program to install the HealthCheck Agent. [Link]
+2.  Enter the code below when you are prompted by the Office 365 HealthCheck.
+
+Your authentication code is: [Code]
+
+Once you enter your code, keep working normally.  That's all you need to do! A report of the HealthCheck will be sent to your admin.
+                                    </textarea>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default close-modal">
+                <i class="i-x"></i>&nbsp;
+                Cancel
+            </a>
+            <a href="#" class="lastStep btn btn-primary users-modal2">
+                Next&nbsp;
+                <i class="i-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function gotoStep (step) {
+        step = parseInt(step) - 1;
+        $('.accordion .list-group-item').removeClass('open');
+        $('.accordion .list-group-item').eq(step).addClass('open');
+    }
+    $(document).ready(function () {
+        $('.kb-modal.one').on('click', function () {
+            $('.kb .textOne').html("Create a New Customer");
+            $('.kb .textTwo').html("Create a New Customer Entity");
+        });
+        $('.kb-modal.two').on('click', function () {
+            $('.kb .textOne').html("Create a New Engagement");
+            $('.kb .textTwo').html("Create a New Engagement for Customer #1");
+        });
+        $('#projectName').bind('keyup blur change', function () {
+            if ($(this).val().length !== 0) $('.lastStep').removeClass('hidden');
+        });
+        $('.users-modal2').click(function () {
+            $('.underlay.three').fadeIn();
+            $('.context-panel.users2').show();
+            setTimeout(function () {
+                $('.context-panel.users2').addClass('open').css('opacity', 1);
+            }, 1);
+            $('body').css('overflow-y', 'hidden');
+        });
+    });
+</script>
+
+
+</body>
+</html>

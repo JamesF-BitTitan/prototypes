@@ -1,0 +1,173 @@
+/**
+ * Menu styles
+ */
+// Resets
+#menu {
+    &,
+    & ul,
+    & li,
+    & a {
+        padding: 0;
+        margin: 0;
+        color: @f4;
+    }
+    &,
+    & ul {
+        list-style: none;
+    }
+    & li,
+    & a {
+        position: relative;
+        display: block;
+    }
+    & a,
+    & a:hover,
+    & a:focus,
+    & a:active {
+        text-decoration: none;
+    }
+    ul {
+        background: @shader-black2;
+    }
+}
+
+// First Level
+#menu > li {
+    > a {
+        border-top: 1px solid @shader-black4;
+        .box-shadow(inset 0 1px 0 @shader-white2);
+        text-shadow: 0 1px 0 @shader-black3;
+        padding: 10px 0 10px 15px;
+    }
+    &.active > a {
+        background-color: @shader-black4;
+        .box-shadow(0px 1px 3px @shader-black4 inset);
+    }
+    &:hover > a,
+    &:focus > a {
+        background-color: @shader-black4;
+        outline: none;
+        .box-shadow(none);
+    }
+}
+
+// Second, Third, ... level
+#menu > li ul {
+    .box-shadow(inset 0 1px 0 @shader-white2);
+    border-left-width: 0;
+    a {
+        padding: 11px 0 11px 30px;
+        font-size: 13px;
+        &:hover {
+            background-color: @shader-black4;
+        }
+    }
+}
+#menu.affix {
+    position: fixed;
+    width: @SidebarWidth;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    &:hover {
+        overflow-y: scroll;
+    }
+}
+
+// Hiding Level 2
+@media (min-width: @screen-sm-min) {
+    body:not(.sidebar-left-mini) #menu li.active > ul,
+    #menu.affix li > ul {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+    }
+    body:not(.sidebar-left-mini) #menu:not(.affix) li.active > ul {
+        display: inherit;
+    }
+    #menu li > ul,
+    .sidebar-left-mini #menu li > ul {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        .box-shadow(none);
+        min-width: 200px;
+        z-index: 1;
+    }
+    #menu:not(.affix) li > ul,
+    .sidebar-left-mini #menu:not(.affix) li > ul {
+        display: none;
+    }
+    .sidebar-left-mini #menu > li > ul {
+        top: 100%;
+    }
+    #menu li > ul > li > ul {
+        top: 0;
+    }
+    .side-right #menu li > ul {
+        left: auto;
+        right: 100%;
+    }
+    #menu:not(.affix) li:hover > ul {
+        visibility: visible;
+    }
+    .sidebar-left-mini #menu.affix {
+        position: relative !important;
+    }
+}
+@media (min-width: @screen-sm-min) {
+    .sidebar-left-mini #menu {
+        > li > a {
+            .link-title {
+                border-top: 1px solid @shader-black4;
+                border-right: 1px solid @shader-black4;
+                .box-shadow(inset 0 1px 0 @shader-white2);
+                position: absolute;
+                left: 100%;
+                top: -1px;
+                z-index: 1;
+                background: @shader-black8;
+                display: none;
+                padding: 10px 30px;
+            }
+        }
+        > li:hover > a > .link-title {
+            display: block;
+            min-width: 200px;
+        }
+    }
+    .sidebar-left-mini.side-right #menu > li > a .link-title {
+        border-right-width: 0;
+        border-left: 1px solid @shader-black4;
+        left: auto;
+        right: 100%;
+    }
+}
+body:not(.sidebar-left-mini) #menu {
+    .nav-header {
+        padding: 3px 15px !important;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 12px;
+        border-top: 1px solid @shader-black4;
+        .box-shadow(0px 1px 0px @shader-white2 inset);
+        text-shadow: 0 1px 0 @shader-black3;
+        background: @shader-black4;
+    }
+}
+#menu .nav-divider {
+    height: 1rem;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.2);
+    .box-shadow(0px 1px 3px @shader-black4 inset);
+}
+.sidebar-left-mini #menu .nav-header {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+}

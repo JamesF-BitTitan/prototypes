@@ -1,0 +1,246 @@
+/**
+ * Styles for left sidebar
+ */
+#left {
+    font-size: 12px;
+    line-height: 1.5em;
+    font-weight: lighter;
+    transition: all 300ms ease-in-out;
+    width: 0;
+    opacity: 0;
+    position: fixed;
+    height: 100vh;
+    background: @bg-dark;
+    top: 45px;
+    overflow-y: auto;
+    left: -@SidebarWidth;
+    &.has-secondary-nav {
+        top: 87px;
+    }
+    li {
+        position: relative;
+        ul {
+            margin-left: -999px;
+        }
+    }
+    .link-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 10px;
+        i {
+            margin-right: 2px;
+            margin-top: 1px;
+        }
+    }
+}
+.lefty {
+    position: fixed;
+    z-index: @lefty;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 15px;
+    background: @shader-black4;
+}
+#left.open,
+#left:hover,
+.lefty:hover + #wrap #left {
+    width: 250px;
+    opacity: 1;
+}
+#left.open li ul,
+#left:hover li ul,
+.lefty:hover + #wrap #left li ul {
+    margin-left: 0;
+}
+#menu {
+    background-color: @dropdown-hover !important;
+    > li {
+        > a {
+            color: @ccc;
+            text-shadow: none !important;
+            padding: 13px 0 12px 15px;
+            border-top: 1px solid @shader-black5;
+            -webkit-box-shadow: inset 0 1px 0 @shader-white;
+            box-shadow: inset 0 1px 0 @shader-white;
+            text-shadow: 0 1px 0 @shader-black3;
+            padding: 10px 0 10px 15px;
+            + ul a {
+                font-size: 11px;
+            }
+        }
+        ul {
+            background-color: @dark-blue;
+            a {
+                padding: 11px 0 11px 15px;
+            }
+        }
+    }
+    &.advanced {
+        li {
+            a,
+            a div > div {
+                width: 245px;
+                margin-right: 5px;
+                padding-right: 8px;
+            }
+            > a {
+                border-top: 1px solid @shader-black4;
+                box-shadow: inset 0 1px 0 @shader-white2;
+            }
+            a {
+                padding: 10px 0 10px 15px;
+                small {
+                    display: block;
+                    div {
+                        width: 174px;
+                        display: inline-block;
+                        position: relative;
+                        top: 6px;
+                        margin-top: -4px;
+                    }
+                }
+                .util {
+                    display: none;
+                }
+                .lb {
+                    padding: 0 3px;
+                    background: @shader-white3;
+                    color: @dark-blue2;
+                    border-radius: 3px;
+                }
+            }
+            &.active {
+                > a {
+                    background-color: @shader-black4;
+                    box-shadow: 0 1px 3px @shader-black4 inset;
+                }
+                a .util {
+                    display: inline;
+                }
+            }
+            &:hover a .lb {
+                background: @shader-white4;
+            }
+            &.tab-project.active,
+            &.tab-project:hover {
+                border-left: 3px solid @shader-white3;
+            }
+        }
+    }
+}
+#menu,
+#menu ul,
+#menu li,
+#menu a {
+    color: @ddd;
+}
+@media (min-width: @screen-sm-min) {
+    #left {
+        left: auto;
+        .sidebar-left-hidden & {
+            width: 0;
+            visibility: hidden;
+        }
+        .sidebar-left-mini & {
+            width: @miniSidebarWidth;
+        }
+    }
+}
+
+// Inverted Menu
+.inverted {
+    #left& {
+        background-color: @white !important;
+    }
+    #menu {
+        background-color: @white !important;
+        color: @222;
+        .link-title {
+            font-weight: 600;
+        }
+        & > li:hover > a,
+        & > li:focus > a {
+            background-color: @shader-black6;
+        }
+        & > li.active > a {
+            background-color: @shader-black6;
+        }
+        &,
+        & ul,
+        & li,
+        & a {
+            color: @222;
+        }
+        .nav-header {
+            border-top: 1px solid @shader-black7;
+            -webkit-box-shadow: 0 1px 0 @shader-black6 inset;
+            box-shadow: 0 1px 0 @shader-black6 inset;
+            text-shadow: none !important;
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+.sidebar-left-mini #menu > li > a > .link-title {
+    background-color: @mw-red !important;
+}
+.sidebar-left-mini #menu > li:hover > a > .link-title {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+.sidebar-left-mini #menu > li > a > i {
+    width: 20px;
+    text-align: center;
+}
+.sidebar-left-opened #left {
+    left: 0;
+}
+@media screen and (max-width: @screen-lg) {
+    #left.show-mobile.open {
+        display:block;
+        width: 100%;
+        height: 45px;
+        overflow:visible;
+        left: 0;
+
+        #menu {
+            background-color: transparent !important;
+
+            li{
+                display:block;
+                float: left;
+                white-space: nowrap;
+
+                &.nav-header {
+                    display:none;
+                }
+                a,{
+                    padding: 13px 10px;
+                    border-top: 0px;
+
+                    &.active, &:hover {
+                        background-color: @shader-black8;
+                    }
+                }
+                &.active > a {
+                    background-color: @shader-black8;
+                }
+                ul {
+                    display:none;
+                }
+            }
+        }
+        & ~ #content {
+            padding-top: 90px;
+        }
+    }
+}
+@media screen and (max-width: @screen-sm) {
+    #left.show-mobile.open #menu li a {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

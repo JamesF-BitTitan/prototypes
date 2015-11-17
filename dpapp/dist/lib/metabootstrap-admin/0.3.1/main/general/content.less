@@ -1,0 +1,56 @@
+/**
+ * Style for primary content area
+ */
+#content {
+    .transition(width .4s);
+    margin-bottom: -21px !important;
+    padding-top: 45px;
+    > .full-table {
+        min-height: 0;
+        position: absolute;
+        top: 45px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
+        &.has-secondary-nav {
+            top: 90px;
+            margin-top: 0;
+        }
+        &.has-right-sidebar {
+            right: 300px;
+        }
+        > .table-body th {
+            padding: 0;
+            height: 0;
+        }
+    }
+    > .has-secondary-nav {
+        margin-top: 43px;
+    }
+    @media screen and (min-width: @screen-sm-min) {
+        .transition(all .3s ease-in-out);
+    }
+}
+.outer {
+    padding: 10px;
+    background-color: @6e;
+    .clearfix();
+}
+.inner {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+    background: @white;
+    border: 10px solid @e4;
+    @media screen and (min-width: @screen-sm-min) {
+        float: left;
+        width: 100%;
+    }
+}
+@media screen and (min-width: @screen-lg) {
+    #left ~ #content > .full-table {
+        left: 250px;
+    }
+}

@@ -1,0 +1,237 @@
+/* --------------------------------------------------
+ * Application Theme v0.2.1
+ * James Futhey, BitTitan
+   -------------------------------------------------- */
+
+@import (reference) '../../bootstrap/3.3.5/bootstrap';
+@import (reference) '../../bittitan-app/bittitan-app';
+
+
+
+/* --------------------------------------------------
+ * Live Chat Mockup
+   -------------------------------------------------- */
+.live-chat {
+  position: fixed;
+  bottom: -200px;
+  right: 20px;
+  transition: all 300ms ease-in-out;
+}
+.live-chat .header {
+  padding: 9px 21px 6px;
+  border-radius: 5px 5px 0 0;
+  color: @white;
+  background-color: @live-chat-header;
+  font-size: 15px;
+  font-weight: 300;
+}
+.live-chat .body {
+  height: 200px;
+  background: @white;
+}
+.live-chat.open {
+  bottom: 0;
+}
+
+
+/* --------------------------------------------------
+ * UI Selectable
+   -------------------------------------------------- */
+#selectable .ui-selecting { background: @ui-selecting; }
+#selectable .ui-selected { background: @ui-selected; color: @white !important; }
+#selectable .ui-selected a { color: @white !important; }
+
+
+/* --------------------------------------------------
+ * Help
+   -------------------------------------------------- */
+.help {
+  font-size: 1.5rem;
+}
+.help:hover {
+  text-decoration: none;
+}
+
+
+/* --------------------------------------------------
+ * Color Utilities
+   -------------------------------------------------- */
+.bg-link-color {
+  background-color: @link-color;
+  border-color: @link-color;
+}
+.Bg-link-color {
+  background-color: @link-color !important;
+  border-color: @link-color !important;
+}
+
+
+// Table stuffs =====
+.table-inline-button {
+  padding: 2px 3px;
+}
+.checkbox-adjust {
+  label {
+    margin: 0;
+    padding: 0;
+    top: 1px;
+    left: -2px;
+  }
+  input[type=checkbox] {
+    margin-left: 15px;
+  }
+  th& input[type=checkbox] {
+    margin-top: -15px;
+  }
+}
+table td:first-of-type, table th:first-of-type {
+  padding-left: 15px !important;
+}
+
+
+// Star tags =====
+.category-tag {
+  padding: 4px 7px;
+  cursor: pointer;
+}
+.tag-0 {
+  color: #ccc;
+}
+.tag-1 {
+  color: #f63723 !important;
+}
+.tag-2 {
+  color: #80b856 !important;
+}
+.tag-3 {
+  color: #4ba3ff !important;
+}
+.tag-4 {
+  color: #ffa62f !important;
+}
+.tag-5 {
+  color: #5254a3 !important;
+}
+.tag-6 {
+  color: #00cca3 !important;
+}
+
+
+// Expander Pin
+.expander {
+  display: none;
+}
+.expander-pin i {
+  opacity: 0.25;
+  &.active {
+    opacity: 0.75;
+  }
+}
+.expander:hover {
+  background: rgba(255,255,255,0.025);
+}
+
+
+// Custom =====
+.admin-creds,
+.admin-creds-2,
+hr.admin-creds,
+hr.admin-creds-2 {
+  display: none;
+}
+.toggle-menu {
+  padding: 2px 0;
+}
+@media (max-width:768px) {
+  .form-horizontal .control-label {
+    padding-bottom: 2px !important;
+  }
+}
+
+
+// a =====
+a {
+  &.text-clouds:hover {
+    color: @ccc;
+  }
+}
+
+
+// Box shadows =====
+.panel, .panel-heading, .stat-card, .navbar, .alert, .list-group, #left, .shadow {
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.025);
+}
+.panel .list-group {
+  box-shadow: none;
+}
+
+
+/* Boxed-corners option to disable border-radius */
+.boxed-corners {
+  .panel, .panel-heading, .stat-card, .stat-card .icon, .stat-widget-sm, .stat-widget-sm .icon {
+    border-radius: 0 !important;
+  }
+}
+
+
+// Fix for content =====
+#content {
+  white-space: inherit;
+}
+
+
+/* --------------------------------------------------
+ * Utilities
+   -------------------------------------------------- */
+.Pan {
+  padding: 0 !important;
+}
+.Mbn {
+  margin-bottom: 0 !important;
+}
+.rotate-90-degs {
+  transform: rotate(90deg);
+}
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.width-78 {
+  width: 78px;
+}
+.height-30 {
+  height: 30px;
+}
+.pl-2px {
+  padding-left: 2px;
+}
+.margin-top-m-50 {
+  margin-top: -50px;
+}
+
+
+/* --------------------------------------------------
+ * Custom
+   -------------------------------------------------- */
+.caret {
+  position: relative;
+  top: -1px;
+  left: 2px;
+}
+.w-30 {
+  width: 45px;
+  //text-align: center;
+}
+.project-list {
+  th, td {
+    text-align: center;
+  }
+  td:first-of-type {
+    text-align: left;
+  }
+}
+//.project-items td:nth-of-type(3),
+//.project-items td:nth-of-type(4) {
+//  text-align: left;
+//}

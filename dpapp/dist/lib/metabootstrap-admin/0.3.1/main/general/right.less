@@ -1,0 +1,43 @@
+/**
+ * Right sidebar styles
+ */
+.sidebar-right-opened {
+    position: relative;
+    right: @SidebarWidth;
+    #right {
+        right: 0;
+    }
+    &.fixed .navbar-fixed-top {
+        right: @SidebarWidth;
+    }
+    @media (min-width: @screen-sm-min) {
+        right: 0;
+        margin-right: @SidebarWidth;
+        .navbar-fixed-top {
+            margin-right: @SidebarWidth;
+        }
+    }
+}
+#right {
+    right: 0;
+    top: 45px;
+    padding: 20px 15px;
+    width: 300px;
+    bottom: 0;
+    overflow-y: auto;
+    right: -@SidebarWidth;
+    &.open {
+        right: 0;
+        top: 50px;
+    }
+    @media screen and (max-width: @screen-md) {
+        &.hidden-sm ~ #content {
+            margin-right: 0;
+        }
+    }
+    @media screen and (max-width: @screen-sm) {
+        &.hidden-xs ~ #content {
+            margin-right: 0;
+        }
+    }
+}

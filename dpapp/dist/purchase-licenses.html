@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Purchase Licenses | DeploymentPro Application</title>
+
+    <!--IE Compatibility modes-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--"Mobile-first"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- BitTitan UI Kit (concatenated & compiled) -->
+    <link rel="stylesheet" type="text/css" href="../../libwork/bittitan-ui-kit/1.2.2/style.css" media="all">
+
+    <!--&lt;!&ndash; MetaBootstrap &ndash;&gt;-->
+    <!--<link rel="stylesheet" type="text/css" href="lib/metabootstrap-lite/0.1.0/meta-bootstrap-lite.css" media="all">-->
+
+    <!--&lt;!&ndash; Icon Fonts &ndash;&gt;-->
+    <!--<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="lib/bittitan-icons/1.0.0/bittitan-icons.css">-->
+
+    <!--&lt;!&ndash; MetaBootstrap Admin Layouts stylesheet &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="lib/metabootstrap-admin/0.3.2/style.css">-->
+
+    <!--&lt;!&ndash; MigrationWiz Admin Theme &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="lib/migrationwiz/1.2.2/style.css">-->
+
+
+    <style>
+
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    <!--[if lt IE 9]>
+  <script src="assets/lib/html5shiv/html5shiv.js"></script>
+  <script src="assets/lib/respond/respond.min.js"></script>
+    <![endif]-->
+
+    <!--Modernizr-->
+    <script src="assets/js/modernizr.min.js"></script>
+
+    <!-- Footer Scripts -->
+
+    <!--jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+
+    <!-- Prism CSS was removed -->
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>-->
+
+    <!--Bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- MetisMenu -->
+    <script src="assets/js/metisMenu.min.js"></script>
+
+    <!-- Screenfull -->
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/screenfull.js/2.0.0/screenfull.min.js"></script>-->
+
+    <!-- MetaBootstrap core scripts -->
+    <script src="assets/js/core.min.js"></script>
+
+    <!-- MetaBootstrap demo scripts -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- jQuery UI (for Selectable) -->
+    <script src="assets/js/jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('body').addClass('fade-in');
+            $('body').attr('style', '');
+            $('.nav-search input').focus(function () {
+                $('.nav-search').addClass('open');
+            });
+            $('.nav-search .fa-search').click(function () {
+                $('.nav-search').addClass('open');
+                $('.nav-search input').focus();
+            });
+            $('.nav-search input').blur(function () {
+                $('.nav-search').removeClass('open');
+            });
+
+//            $('.live-chat *').mousedown(function () {
+//                $('.live-chat').toggleClass('open');
+//            });
+//
+//            $('.expander, .toggle-menu, .expander-pin, #menu > .nav-header').click(function () {
+//                $('.toggle-menu').toggleClass('active');
+//                $('#left').toggleClass('open');
+//            });
+
+            $('i').delegate('', 'click', function () {
+                var $this = $(this);
+
+                if ($this.hasClass('i-sort')) {
+                    $this.removeClass('i-sort').addClass('i-sort-asc');
+                } else if ($this.hasClass('i-sort-asc')) {
+                    $this.removeClass('i-sort-asc').addClass('i-sort-desc');
+                } else if ($this.hasClass('i-sort-desc')) {
+                    $this.removeClass('i-sort-desc').addClass('i-sort');
+                }
+            });
+
+
+
+
+
+
+
+            $(window).unload(function () {
+                $('body').removeClass('fade-in');
+            });
+
+            $('#checkbox-master').click(function () {
+                if ($('#checkbox-master').is(':checked')) {
+                    $('input[type=checkbox]').prop('checked', true);
+                } else {
+                    $('input[type=checkbox]').prop('checked', false);
+                }
+            });
+
+            $("#selectable").bind("contextmenu", function(event) {
+                event.preventDefault();
+                $('.custom-menu').show().css({top: event.pageY + "px", left: event.pageX + "px"});
+            });
+
+            $("<div class='custom-menu'>" +
+                    "<small class='strong'>MENU</small>" +
+                    "<a href='#'><i class='i-play'></i> &nbsp;Trial Migration</a>" +
+                    "<a href='#'><i class='i-play'></i> &nbsp;Pre-Stage Migration</a>" +
+                    "<a href='#'><i class='i-play'></i> &nbsp;Full Migration</a>" +
+                    "<a href='#'><i class='i-creds'></i> &nbsp;Verify Credentials</a>" +
+                    "<a href='#'><i class='i-play'></i> &nbsp;Retry Errors</a>" +
+                    "<div class='row-divider'></div>" +
+                    "<a href='#'><i class='i-pause'></i> &nbsp;Pause</a>" +
+                    "<a href='#'><i class='i-trash'></i> &nbsp;Delete</a>" +
+                    "<a href='#'><i class='i-reset'></i> &nbsp;Reset</a>" +
+                    "<div class='row-divider'></div>" +
+                    "<a href='#'><i class='i-move'></i> &nbsp;Change Project</a>" +
+                    "<a href='#'><i class='i-creds'></i> &nbsp;Clear Credentials</a>" +
+                    "<div class='row-divider'></div>" +
+                    "<a href=''><i class='i-refresh'></i> &nbsp;Refresh</a>" +
+                    "</div>").appendTo("body");
+
+            $('*').click(function () {
+                $('.custom-menu').hide();
+            });
+
+            $("#selectable").selectable({
+                selecting: function( event, ui ) {
+                    $('input[type=checkbox]').prop('checked', false);
+                },
+                stop: function() {
+                    $( ".ui-selected", this ).each(function() {
+                        $(this).find('input[type=checkbox]').prop('checked', true);
+                    });
+                }
+            });
+
+            $('.context-panel').hide();
+
+            $('.custom-menu a').click(function () {
+                $('.underlay.one').fadeIn();
+                $('.context-panel.left').show();
+                setTimeout(function () {
+                    $('.context-panel.left').addClass('open').css('opacity', 1);
+                }, 1);
+                $('body').css('overflow-y', 'hidden');
+            });
+            $('.help-modal').click(function () {
+                $('.underlay.two').fadeIn();
+                $('.context-panel.right.errors').show();
+                setTimeout(function () {
+                    $('.context-panel.right.errors').addClass('open').css('opacity', 1);
+                }, 1);
+                $('body').css('overflow-y', 'hidden');
+            });
+            $('.kb-modal').click(function () {
+                $('.underlay.two').fadeIn();
+                $('.context-panel.kb').show();
+                setTimeout(function () {
+                    $('.context-panel.kb').addClass('open').css('opacity', 1);
+                }, 1);
+                $('body').css('overflow-y', 'hidden');
+            });
+
+
+            $('.users-modal').click(function () {
+                $('.underlay.one').fadeIn();
+                $('.context-panel.users').show();
+                setTimeout(function () {
+                    $('.context-panel.users').addClass('open').css('opacity', 1);
+                }, 1);
+                $('body').css('overflow-y', 'hidden');
+            });
+
+            $('.underlay, .context-panel a.btn.close-modal').click(function () {
+                $('.underlay').fadeOut();
+                $('.context-panel').removeClass('open').css('opacity', 0).hide();
+                $('body').css('overflow-y', 'initial');
+            });
+
+            $('.accordion .list-group-item').click(function () {
+                $('.accordion .list-group-item').removeClass('open');
+                $(this).addClass('open');
+            });
+
+
+
+            var $table = $('.headstuck').first();
+
+            if ($table.length) {
+                console.log($table)
+                $table.clone().addClass('floating-table-header').css('position', 'fixed').css('top', '43px')
+                        .insertAfter('.headstuck').find('tbody').remove();
+                $table.parent().css('position', 'relative');
+
+                setInterval(function () {
+                    $('.floating-table-header').css('left', $table.offset().left + 'px').css('width', $table.width() + 'px');
+                    // if (scrollTop > (tableOffsetTop + 70)) $('.floating-table-header').show();
+                }, 16);
+            }
+
+            // var tableOffsetTop = $table.offset().top;
+
+            $(window).scroll(function () {
+                var scrollTop = $(window).scrollTop();
+
+                if (scrollTop === 0) {
+                    $('body').removeClass('navbar-collapsed');
+                } else {
+                    $('body').addClass('navbar-collapsed');
+                }
+
+                if (scrollTop > 120) {
+                    $('.floating-table-header').show();
+                } else {
+                    $('.floating-table-header').hide();
+                }
+            });
+
+        });
+    </script>
+</head>
+<body class="dp">
+
+
+
+<!-- #top -->
+<div id="top">
+  
+  
+  
+  
+  
+  
+    
+<!-- .navbar -->
+
+
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #009174;border-color: #009174;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">
+                <img src="//static.bittitan.com/Logos/2014/deploymentpro_100_alt_white.png" alt="">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              
+                  <li class="hidden-xs hidden-sm">
+                      <a href="index.html">
+                          <i class="i-arrow-up"></i>
+                      </a>
+                  </li>
+              
+
+                <li class="page-title hidden-xs hidden-sm">
+                    <a>
+                        <strong>Purchase Licenses</strong>
+                    </a>
+                </li>
+            </ul>
+            <ul class="waffle nav navbar-nav navbar-right">
+
+
+                <li>
+                    <a href="projects.html#new"><i class="i-plus"></i>&nbsp; <span class="">New Project</span></a>
+                </li>
+                <li>
+                    <a href="customers.html"><i class="i-users"></i>&nbsp; <span class="">Customers</span></a>
+                </li>
+                <!--<li>-->
+                    <!--<a href="engagements.html"><i class="i-list"></i>&nbsp; <span class="">Engagements</span></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="projects.html"><i class="i-project"></i>&nbsp; <span class="">Projects</span></a>-->
+                <!--</li>-->
+
+
+                <li>
+                    <a href="#"><i class="i-credit"></i>&nbsp; <span class="">Licensing</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-user-alt"></i>&nbsp;<span>Account</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-support"></i>&nbsp;<span>Support</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-users"></i>&nbsp;<span>Partner Center</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-salesautomation-alt"></i>&nbsp;<span>Sales Automation</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-search"></i>&nbsp;<span>Bittitan Leads</span></a>
+                </li>
+                <li class="visible-xs">
+                    <a href=""><i class="i-secure"></i>&nbsp;<span>Cloud U</span></a>
+                </li>
+                <li class="hidden-xs">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="i-grid"></i>&nbsp; <i class="i-down"></i></a>
+                    <div class="dropdown-menu" role="menu">
+                        <p class="text-center uppercase Strong">
+                            Welcome, BitTitan User
+                        </p>
+                        <div class="icons">
+                            <ul class="main">
+                                <li>
+                                    <a href=""><i class="i-user-alt"></i><span class="title">Account</span></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="i-support"></i><span class="title">Support</span></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="i-users"></i><span class="title">Partner Center</span></a>
+                                </li>
+                            </ul>
+                            <ul class="products">
+                                <li>
+                                    <a href=""><i class="i-salesautomation-alt"></i><span class="title">Sales Automation</span></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="i-search"></i><span class="title">Bittitan Leads</span></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="i-secure"></i><span class="title">Cloud U</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-9 text-center">
+                                <p>
+                                    © 2015 BitTitan, Inc. <a>Contact</a> | <a>Legal</a>
+                                </p>
+                            </div>
+                            <div class="col-xs-3 text-center">
+                                <p class="uppercase Strong">Logout</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  
+</div>
+<!-- /#top -->
+
+<div id="wrap">
+
+  
+
+    <!-- #content -->
+    <div id="content">
+        <!-- inner -->
+        <div class="full-table bg-light">
+
+            <!-- Page Content -->
+            
+<script>
+    $(document).ready(function () {
+        $('.hipaa').on('mousedown', function () {
+            $(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
+        });
+        $('.list-group-item').on('click', function () {
+            $(this).find('input[type=number]').focus().select();
+        });
+    });
+</script>
+
+<div class="pal">
+    <div class="row">
+        <div class="col-md-9">
+            <ul class="nav nav-tabs">
+                <span class="pull-right ptm hidden-xs">Current Subtotal: $324.81</span>
+                <li class="active"><a href="#home" data-toggle="tab"><span class="badge strong nudge up-2">1</span>&nbsp; <span class="hidden-xs">Select Licenses</span></a></li>
+                <li><a href="#profile" data-toggle="tab"><span class="badge strong nudge up-2">2</span>&nbsp; <span class="hidden-xs">Billing Information</span></a></li>
+                <li><a href="#dropdown1" data-toggle="tab"><span class="badge strong nudge up-2">3</span>&nbsp; <span class="hidden-xs">Complete Purchase</span></a></li>
+            </ul>
+            <div class="panel panel-info">
+                <div class="panel-body bg-white panel-borders">
+
+                    <div id="myTabContent" class="tab-content bg-white">
+                        <div class="tab-pane fade active in" id="home">
+                            <div class="list-group">
+                                <a class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-8">
+                                            <h4 class="list-group-item-heading"><i class="i-mailbox"></i> &nbsp;Mailbox Migration</h4>
+                                            <p class="list-group-item-text">
+                                                <i class="i-license"></i>&nbsp;
+                                                150 Mailbox Licenses Remaining.
+                                                Migrates up to 50 GB with up to 10 migration passes per license.
+                                            </p>
+                                            <p class="ptm mbn hipaa cursor-pointer">
+                                                <input type="checkbox"/>&nbsp;
+                                                Add HIPAA Compliance
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm text-center">
+                                            <h3 class="text-success man">$11.99</h3>
+                                            <small>Per License</small>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm mts">
+                                            <input type="number" class="form-control" value="0">
+                                        </div>
+                                    </div>
+
+
+
+                                </a>
+                                <a class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-8">
+                                            <h4 class="list-group-item-heading"><i class="i-mailbox"></i> &nbsp;Mailbox Migration</h4>
+                                            <p class="list-group-item-text">
+                                                <i class="i-license"></i>&nbsp;
+                                                150 Mailbox Licenses Remaining.
+                                                Migrates up to 50 GB with up to 10 migration passes per license.
+                                            </p>
+                                            <p class="ptm mbn hipaa cursor-pointer">
+                                                <input type="checkbox"/>&nbsp;
+                                                Add HIPAA Compliance
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm text-center">
+                                            <h3 class="text-success man">$11.99</h3>
+                                            <small>Per License</small>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm mts">
+                                            <input type="number" class="form-control" value="0">
+                                        </div>
+                                    </div>
+
+
+
+                                </a>
+                                <a class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-8">
+                                            <h4 class="list-group-item-heading"><i class="i-mailbox"></i> &nbsp;Mailbox Migration</h4>
+                                            <p class="list-group-item-text">
+                                                <i class="i-license"></i>&nbsp;
+                                                150 Mailbox Licenses Remaining.
+                                                Migrates up to 50 GB with up to 10 migration passes per license.
+                                            </p>
+                                            <p class="ptm mbn hipaa cursor-pointer">
+                                                <input type="checkbox"/>&nbsp;
+                                                Add HIPAA Compliance
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm text-center">
+                                            <h3 class="text-success man">$11.99</h3>
+                                            <small>Per License</small>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm mts">
+                                            <input type="number" class="form-control" value="0">
+                                        </div>
+                                    </div>
+
+
+
+                                </a>
+                                <a class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-8">
+                                            <h4 class="list-group-item-heading"><i class="i-mailbox"></i> &nbsp;Mailbox Migration</h4>
+                                            <p class="list-group-item-text">
+                                                <i class="i-license"></i>&nbsp;
+                                                150 Mailbox Licenses Remaining.
+                                                Migrates up to 50 GB with up to 10 migration passes per license.
+                                            </p>
+                                            <p class="ptm mbn hipaa cursor-pointer">
+                                                <input type="checkbox"/>&nbsp;
+                                                Add HIPAA Compliance
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm text-center">
+                                            <h3 class="text-success man">$11.99</h3>
+                                            <small>Per License</small>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm mts">
+                                            <input type="number" class="form-control" value="0">
+                                        </div>
+                                    </div>
+
+
+
+                                </a>
+                                <a class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-8">
+                                            <h4 class="list-group-item-heading"><i class="i-mailbox"></i> &nbsp;Mailbox Migration</h4>
+                                            <p class="list-group-item-text">
+                                                <i class="i-license"></i>&nbsp;
+                                                150 Mailbox Licenses Remaining.
+                                                Migrates up to 50 GB with up to 10 migration passes per license.
+                                            </p>
+                                            <p class="ptm mbn hipaa cursor-pointer">
+                                                <input type="checkbox"/>&nbsp;
+                                                Add HIPAA Compliance
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm text-center">
+                                            <h3 class="text-success man">$11.99</h3>
+                                            <small>Per License</small>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm mts">
+                                            <input type="number" class="form-control" value="0">
+                                        </div>
+                                    </div>
+
+
+
+                                </a>
+                                <a class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-8">
+                                            <h4 class="list-group-item-heading"><i class="i-mailbox"></i> &nbsp;Mailbox Migration</h4>
+                                            <p class="list-group-item-text">
+                                                <i class="i-license"></i>&nbsp;
+                                                150 Mailbox Licenses Remaining.
+                                                Migrates up to 50 GB with up to 10 migration passes per license.
+                                            </p>
+                                            <p class="ptm mbn hipaa cursor-pointer">
+                                                <input type="checkbox"/>&nbsp;
+                                                Add HIPAA Compliance
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm text-center">
+                                            <h3 class="text-success man">$11.99</h3>
+                                            <small>Per License</small>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm mts">
+                                            <input type="number" class="form-control" value="0">
+                                        </div>
+                                    </div>
+
+
+
+                                </a>
+                                <a class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-8">
+                                            <h4 class="list-group-item-heading"><i class="i-mailbox"></i> &nbsp;Mailbox Migration</h4>
+                                            <p class="list-group-item-text">
+                                                <i class="i-license"></i>&nbsp;
+                                                150 Mailbox Licenses Remaining.
+                                                Migrates up to 50 GB with up to 10 migration passes per license.
+                                            </p>
+                                            <p class="ptm mbn hipaa cursor-pointer">
+                                                <input type="checkbox"/>&nbsp;
+                                                Add HIPAA Compliance
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm text-center">
+                                            <h3 class="text-success man">$11.99</h3>
+                                            <small>Per License</small>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm mts">
+                                            <input type="number" class="form-control" value="0">
+                                        </div>
+                                    </div>
+
+
+
+                                </a>
+                                <a class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-8">
+                                            <h4 class="list-group-item-heading"><i class="i-mailbox"></i> &nbsp;Mailbox Migration</h4>
+                                            <p class="list-group-item-text">
+                                                <i class="i-license"></i>&nbsp;
+                                                150 Mailbox Licenses Remaining.
+                                                Migrates up to 50 GB with up to 10 migration passes per license.
+                                            </p>
+                                            <p class="ptm mbn hipaa cursor-pointer">
+                                                <input type="checkbox"/>&nbsp;
+                                                Add HIPAA Compliance
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm text-center">
+                                            <h3 class="text-success man">$11.99</h3>
+                                            <small>Per License</small>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm mts">
+                                            <input type="number" class="form-control" value="0">
+                                        </div>
+                                    </div>
+
+
+
+                                </a>
+                                <a class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-8">
+                                            <h4 class="list-group-item-heading"><i class="i-mailbox"></i> &nbsp;Mailbox Migration</h4>
+                                            <p class="list-group-item-text">
+                                                <i class="i-license"></i>&nbsp;
+                                                150 Mailbox Licenses Remaining.
+                                                Migrates up to 50 GB with up to 10 migration passes per license.
+                                            </p>
+                                            <p class="ptm mbn hipaa cursor-pointer">
+                                                <input type="checkbox"/>&nbsp;
+                                                Add HIPAA Compliance
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm text-center">
+                                            <h3 class="text-success man">$11.99</h3>
+                                            <small>Per License</small>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm mts">
+                                            <input type="number" class="form-control" value="0">
+                                        </div>
+                                    </div>
+
+
+
+                                </a>
+                                <a class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-8">
+                                            <h4 class="list-group-item-heading"><i class="i-mailbox"></i> &nbsp;Mailbox Migration</h4>
+                                            <p class="list-group-item-text">
+                                                <i class="i-license"></i>&nbsp;
+                                                150 Mailbox Licenses Remaining.
+                                                Migrates up to 50 GB with up to 10 migration passes per license.
+                                            </p>
+                                            <p class="ptm mbn hipaa cursor-pointer">
+                                                <input type="checkbox"/>&nbsp;
+                                                Add HIPAA Compliance
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm text-center">
+                                            <h3 class="text-success man">$11.99</h3>
+                                            <small>Per License</small>
+                                        </div>
+                                        <div class="col-sm-3 col-md-2 ptm mts">
+                                            <input type="number" class="form-control" value="0">
+                                        </div>
+                                    </div>
+
+
+
+                                </a>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile">
+                            <div class="list-group">
+
+                                <div class="phx ptl">
+                                    <form method="post" class="row margin-top">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="section-heading">
+                                                        <button type="submit" class="btn btn-default btn-xs pull-right hidden-xs-inline" data-ember-action="4641">
+                                                            <i class="i-partners"></i>Use partner address
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <div class="form-group">
+                                                        <label for="billing-name">Full Name</label>
+                                                        <input id="billing-name" class="ember-view ember-text-field form-control" name="billing-name" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div class="form-group">
+                                                        <label for="billing-phone-number">Phone Number</label>
+                                                        <input id="billing-phone-number" class="ember-view ember-text-field form-control" name="phone" type="tel">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>Email Address</label>
+                                                        <input id="billing-email" class="ember-view ember-text-field form-control" name="email" type="email">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="billing-address-1">Address Line 1</label>
+                                                <input id="billing-address-1" class="ember-view ember-text-field form-control" name="address1" type="text">
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="billing-address-2">Address Line 2</label>
+                                                <input id="billing-address-2" class="ember-view ember-text-field form-control" name="address2" type="text">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="billing-suite">Apt/Suite</label>
+                                                <input id="billing-suite" class="ember-view ember-text-field form-control" name="suite" type="text">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-8">
+                                                    <div class="form-group">
+                                                        <label for="billing-city">City</label>
+                                                        <input id="billing-city" class="ember-view ember-text-field form-control" name="city" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <div class="form-group">
+                                                        <label for="billing-postal-code">ZIP/Postal Code</label>
+                                                        <input id="billing-postal-code" class="ember-view ember-text-field form-control" name="postal-code" type="text">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <div class="form-group">
+                                                        <label for="billing-country">Country</label>
+                                                        <select id="billing-country" class="ember-view ember-select form-control" name="country" prompt="-- Select One --"><option value="">-- Select One --</option><option id="ember4645" class="ember-view" value="AF">Afghanistan</option><option id="ember4647" class="ember-view" value="AL">Albania</option><option id="ember4649" class="ember-view" value="DZ">Algeria</option><option id="ember4651" class="ember-view" value="AS">American Samoa</option><option id="ember4653" class="ember-view" value="AD">Andorra</option><option id="ember4655" class="ember-view" value="AI">Anguilla</option><option id="ember4657" class="ember-view" value="AQ">Antarctica</option><option id="ember4659" class="ember-view" value="AG">Antiqua and Barbuda</option><option id="ember4661" class="ember-view" value="AR">Argentina</option><option id="ember4663" class="ember-view" value="AM">Armenia</option><option id="ember4665" class="ember-view" value="AW">Aruba</option><option id="ember4667" class="ember-view" value="AU">Australia</option><option id="ember4669" class="ember-view" value="AT">Austria</option><option id="ember4671" class="ember-view" value="AZ">Azerbaijan</option><option id="ember4673" class="ember-view" value="BS">Bahamas</option><option id="ember4675" class="ember-view" value="BH">Bahrain</option><option id="ember4677" class="ember-view" value="BD">Bangladesh</option><option id="ember4679" class="ember-view" value="BB">Barbados</option><option id="ember4681" class="ember-view" value="BY">Belarus</option><option id="ember4683" class="ember-view" value="BE">Belgium</option><option id="ember4685" class="ember-view" value="BZ">Belize</option><option id="ember4687" class="ember-view" value="BJ">Benin</option><option id="ember4689" class="ember-view" value="BM">Bermuda</option><option id="ember4691" class="ember-view" value="BT">Bhutan</option><option id="ember4693" class="ember-view" value="BO">Bolivia</option><option id="ember4695" class="ember-view" value="BV">Bouvet Islands</option><option id="ember4697" class="ember-view" value="BR">Brazil</option><option id="ember4699" class="ember-view" value="IO">British Indian Ocean Territory</option><option id="ember4701" class="ember-view" value="VI">British Virgin Islands</option><option id="ember4703" class="ember-view" value="BN">Brunei</option><option id="ember4705" class="ember-view" value="BG">Bulgaria</option><option id="ember4707" class="ember-view" value="BF">Burkina Faso</option><option id="ember4709" class="ember-view" value="BI">Burundi</option><option id="ember4711" class="ember-view" value="KH">Cambodia</option><option id="ember4713" class="ember-view" value="CM">Cameroon</option><option id="ember4715" class="ember-view" value="CA">Canada</option><option id="ember4717" class="ember-view" value="CV">Cape Verde</option><option id="ember4719" class="ember-view" value="KY">Cayman Islands</option><option id="ember4721" class="ember-view" value="CF">Central African Republic</option><option id="ember4723" class="ember-view" value="TD">Chad</option><option id="ember4725" class="ember-view" value="CL">Chile</option><option id="ember4727" class="ember-view" value="CN">China</option><option id="ember4729" class="ember-view" value="CO">Colombia</option><option id="ember4731" class="ember-view" value="KM">Comoros</option><option id="ember4733" class="ember-view" value="CG">Congo</option><option id="ember4735" class="ember-view" value="CR">Costa Rica</option><option id="ember4737" class="ember-view" value="CI">Cote D&amp;#39;Ivoire</option><option id="ember4739" class="ember-view" value="HR">Croatia</option><option id="ember4741" class="ember-view" value="CY">Cyprus</option><option id="ember4743" class="ember-view" value="CZ">Czech Republic</option><option id="ember4745" class="ember-view" value="DK">Denmark</option><option id="ember4747" class="ember-view" value="DJ">Djibouti</option><option id="ember4749" class="ember-view" value="DM">Dominica</option><option id="ember4751" class="ember-view" value="DO">Dominican Republic</option><option id="ember4753" class="ember-view" value="EG">Egypt</option><option id="ember4755" class="ember-view" value="SV">El Salvador</option><option id="ember4757" class="ember-view" value="EC">Equador</option><option id="ember4759" class="ember-view" value="GQ">Equatorial Guinea</option><option id="ember4761" class="ember-view" value="ER">Eritrea</option><option id="ember4763" class="ember-view" value="EE">Estonia</option><option id="ember4765" class="ember-view" value="ET">Ethiopia</option><option id="ember4767" class="ember-view" value="FK">Falkland Islands</option><option id="ember4769" class="ember-view" value="FO">Faroe Islands</option><option id="ember4771" class="ember-view" value="FM">Federated States of Micronesia</option><option id="ember4773" class="ember-view" value="FJ">Fiji</option><option id="ember4775" class="ember-view" value="FI">Finland</option><option id="ember4777" class="ember-view" value="FR">France</option><option id="ember4779" class="ember-view" value="GF">French Guiana</option><option id="ember4781" class="ember-view" value="PF">French Polynesia</option><option id="ember4783" class="ember-view" value="GA">Gabon</option><option id="ember4785" class="ember-view" value="GM">Gambia</option><option id="ember4787" class="ember-view" value="GE">Georgia</option><option id="ember4789" class="ember-view" value="DE">Germany</option><option id="ember4791" class="ember-view" value="GH">Ghana</option><option id="ember4793" class="ember-view" value="GI">Gibraltar</option><option id="ember4795" class="ember-view" value="GR">Greece</option><option id="ember4797" class="ember-view" value="GL">Greenland</option><option id="ember4799" class="ember-view" value="GD">Grenada</option><option id="ember4801" class="ember-view" value="GP">Guadeloupe</option><option id="ember4803" class="ember-view" value="GU">Guam</option><option id="ember4805" class="ember-view" value="GT">Guatemala</option><option id="ember4807" class="ember-view" value="GN">Guinea</option><option id="ember4809" class="ember-view" value="GW">Guinea-Bissau</option><option id="ember4811" class="ember-view" value="GY">Guyana</option><option id="ember4813" class="ember-view" value="HT">Haiti</option><option id="ember4815" class="ember-view" value="HN">Honduras</option><option id="ember4817" class="ember-view" value="HK">Hong Kong</option><option id="ember4819" class="ember-view" value="HU">Hungary</option><option id="ember4821" class="ember-view" value="IS">Iceland</option><option id="ember4823" class="ember-view" value="IN">India</option><option id="ember4825" class="ember-view" value="ID">Indonesia</option><option id="ember4827" class="ember-view" value="IE">Ireland</option><option id="ember4829" class="ember-view" value="IL">Israel</option><option id="ember4831" class="ember-view" value="IT">Italy</option><option id="ember4833" class="ember-view" value="JM">Jamaica</option><option id="ember4835" class="ember-view" value="JP">Japan</option><option id="ember4837" class="ember-view" value="JO">Jordan</option><option id="ember4839" class="ember-view" value="KZ">Kazakhstan</option><option id="ember4841" class="ember-view" value="KE">Kenya</option><option id="ember4843" class="ember-view" value="KI">Kiribati</option><option id="ember4845" class="ember-view" value="KW">Kuwait</option><option id="ember4847" class="ember-view" value="KG">Kyrgyzstan</option><option id="ember4849" class="ember-view" value="LA">Laos</option><option id="ember4851" class="ember-view" value="LV">Latvia</option><option id="ember4853" class="ember-view" value="LB">Lebanon</option><option id="ember4855" class="ember-view" value="LS">Lesotho</option><option id="ember4857" class="ember-view" value="LR">Liberia</option><option id="ember4859" class="ember-view" value="LI">Liechtenstein</option><option id="ember4861" class="ember-view" value="LT">Lithuania</option><option id="ember4863" class="ember-view" value="LU">Luxembourg</option><option id="ember4865" class="ember-view" value="MO">Macau</option><option id="ember4867" class="ember-view" value="MK">Macedonia, Former Yugoslav Republic of </option><option id="ember4869" class="ember-view" value="MG">Madagascar</option><option id="ember4871" class="ember-view" value="MW">Malawi</option><option id="ember4873" class="ember-view" value="MY">Malaysia</option><option id="ember4875" class="ember-view" value="MV">Maldives</option><option id="ember4877" class="ember-view" value="ML">Mali</option><option id="ember4879" class="ember-view" value="MT">Malta</option><option id="ember4881" class="ember-view" value="MH">Marshall Islands</option><option id="ember4883" class="ember-view" value="MQ">Martinique</option><option id="ember4885" class="ember-view" value="MR">Mauritania</option><option id="ember4887" class="ember-view" value="YT">Mayotte</option><option id="ember4889" class="ember-view" value="FX">Metropolitan France</option><option id="ember4891" class="ember-view" value="MX">Mexico</option><option id="ember4893" class="ember-view" value="MD">Moldova</option><option id="ember4895" class="ember-view" value="MN">Mongolia</option><option id="ember4897" class="ember-view" value="MA">Morocco</option><option id="ember4899" class="ember-view" value="MZ">Mozambique</option><option id="ember4901" class="ember-view" value="NA">Namibia</option><option id="ember4903" class="ember-view" value="NR">Nauru</option><option id="ember4905" class="ember-view" value="NP">Nepal</option><option id="ember4907" class="ember-view" value="NL">Netherlands</option><option id="ember4909" class="ember-view" value="AN">Netherlands Antilles</option><option id="ember4911" class="ember-view" value="NC">New Caledonia</option><option id="ember4913" class="ember-view" value="NZ">New Zealand</option><option id="ember4915" class="ember-view" value="NI">Nicaragua</option><option id="ember4917" class="ember-view" value="NE">Niger</option><option id="ember4919" class="ember-view" value="NG">Nigeria</option><option id="ember4921" class="ember-view" value="MP">Northern Mariana Islands</option><option id="ember4923" class="ember-view" value="NO">Norway</option><option id="ember4925" class="ember-view" value="OM">Oman</option><option id="ember4927" class="ember-view" value="PK">Pakistan</option><option id="ember4929" class="ember-view" value="PW">Palau</option><option id="ember4931" class="ember-view" value="PA">Panama</option><option id="ember4933" class="ember-view" value="PG">Papua New Guinea</option><option id="ember4935" class="ember-view" value="PY">Paraguay</option><option id="ember4937" class="ember-view" value="PE">Peru</option><option id="ember4939" class="ember-view" value="PH">Philippines</option><option id="ember4941" class="ember-view" value="PN">Pitcairn</option><option id="ember4943" class="ember-view" value="PL">Poland</option><option id="ember4945" class="ember-view" value="PT">Portugal</option><option id="ember4947" class="ember-view" value="PR">Puerto Rico</option><option id="ember4949" class="ember-view" value="QA">Qatar</option><option id="ember4951" class="ember-view" value="KR">Republic of Korea</option><option id="ember4953" class="ember-view" value="RE">Reunion</option><option id="ember4955" class="ember-view" value="RO">Romania</option><option id="ember4957" class="ember-view" value="RU">Russia</option><option id="ember4959" class="ember-view" value="SM">San Marino</option><option id="ember4961" class="ember-view" value="ST">Sao Tome and Principe</option><option id="ember4963" class="ember-view" value="SA">Saudi Arabia</option><option id="ember4965" class="ember-view" value="SN">Senegal</option><option id="ember4967" class="ember-view" value="SC">Seychelles</option><option id="ember4969" class="ember-view" value="SL">Sierra Leone</option><option id="ember4971" class="ember-view" value="SG">Singapore</option><option id="ember4973" class="ember-view" value="SK">Slovakia</option><option id="ember4975" class="ember-view" value="SI">Slovenia</option><option id="ember4977" class="ember-view" value="SB">Solomon Islands</option><option id="ember4979" class="ember-view" value="SO">Somalia</option><option id="ember4981" class="ember-view" value="ZA">South Africa</option><option id="ember4983" class="ember-view" value="ES">Spain</option><option id="ember4985" class="ember-view" value="LK">Sri Lanka</option><option id="ember4987" class="ember-view" value="SH">St. Helena</option><option id="ember4989" class="ember-view" value="KN">St. Kitts and Nevis</option><option id="ember4991" class="ember-view" value="LC">St. Lucia</option><option id="ember4993" class="ember-view" value="VC">St. Vincent and the Grenadines</option><option id="ember4995" class="ember-view" value="SD">Sudan</option><option id="ember4997" class="ember-view" value="SR">Suriname</option><option id="ember4999" class="ember-view" value="SJ">Svalbard and Jan Mayen Islands</option><option id="ember5001" class="ember-view" value="SZ">Swaziland</option><option id="ember5003" class="ember-view" value="SE">Sweden</option><option id="ember5005" class="ember-view" value="CH">Switzerland</option><option id="ember5007" class="ember-view" value="SY">Syria</option><option id="ember5009" class="ember-view" value="TW">Taiwan</option><option id="ember5011" class="ember-view" value="TJ">Tajikistan</option><option id="ember5013" class="ember-view" value="TZ">Tanzania</option><option id="ember5015" class="ember-view" value="TH">Thailand</option><option id="ember5017" class="ember-view" value="TG">Togo</option><option id="ember5019" class="ember-view" value="TO">Tonga</option><option id="ember5021" class="ember-view" value="TT">Trinidad and Tobago</option><option id="ember5023" class="ember-view" value="TR">Turkey</option><option id="ember5025" class="ember-view" value="TM">Turkmenistan</option><option id="ember5027" class="ember-view" value="TC">Turks and Caicos Islands</option><option id="ember5029" class="ember-view" value="TV">Tuvalu</option><option id="ember5031" class="ember-view" value="UG">Uganda</option><option id="ember5033" class="ember-view" value="UA">Ukraine</option><option id="ember5035" class="ember-view" value="AE">United Arab Emirates</option><option id="ember5037" class="ember-view" value="GB">United Kingdom</option><option id="ember5039" class="ember-view" value="US">United States</option><option id="ember5041" class="ember-view" value="UY">Uruguay</option><option id="ember5043" class="ember-view" value="UZ">Uzbekistan</option><option id="ember5045" class="ember-view" value="VU">Vanuatu</option><option id="ember5047" class="ember-view" value="VA">Vatican City</option><option id="ember5049" class="ember-view" value="VE">Venezuela</option><option id="ember5051" class="ember-view" value="VN">Vietnam</option><option id="ember5053" class="ember-view" value="EH">Western Sahara</option><option id="ember5055" class="ember-view" value="YE">Yemen</option><option id="ember5057" class="ember-view" value="YU">Yugoslavia</option><option id="ember5059" class="ember-view" value="ZR">Zaire</option><option id="ember5061" class="ember-view" value="ZM">Zambia</option><option id="ember5063" class="ember-view" value="ZW">Zimbabwe</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div class="form-group">
+                                                        <label for="billing-state">State/Province</label>
+                                                        <select id="billing-state" class="ember-view ember-select form-control" name="state" prompt="-- Select One --"><option value="">-- Select One --</option><option id="ember5066" class="ember-view" value="AL">Alabama</option><option id="ember5068" class="ember-view" value="AK">Alaska</option><option id="ember5070" class="ember-view" value="AZ">Arizona</option><option id="ember5072" class="ember-view" value="AE">Armed Forces Europe</option><option id="ember5074" class="ember-view" value="AR">Arkansas</option><option id="ember5076" class="ember-view" value="CA">California</option><option id="ember5078" class="ember-view" value="CO">Colorado</option><option id="ember5080" class="ember-view" value="CT">Connecticut</option><option id="ember5082" class="ember-view" value="DE">Delaware</option><option id="ember5084" class="ember-view" value="DC">District of Columbia</option><option id="ember5086" class="ember-view" value="FL">Florida</option><option id="ember5088" class="ember-view" value="GA">Georgia</option><option id="ember5090" class="ember-view" value="HI">Hawaii</option><option id="ember5092" class="ember-view" value="ID">Idaho</option><option id="ember5094" class="ember-view" value="IL">Illinois</option><option id="ember5096" class="ember-view" value="IN">Indiana</option><option id="ember5098" class="ember-view" value="IA">Iowa</option><option id="ember5100" class="ember-view" value="KS">Kansas</option><option id="ember5102" class="ember-view" value="KY">Kentucky</option><option id="ember5104" class="ember-view" value="LA">Louisiana</option><option id="ember5106" class="ember-view" value="ME">Maine</option><option id="ember5108" class="ember-view" value="MD">Maryland</option><option id="ember5110" class="ember-view" value="MA">Massachusetts</option><option id="ember5112" class="ember-view" value="MI">Michigan</option><option id="ember5114" class="ember-view" value="MN">Minnesota</option><option id="ember5116" class="ember-view" value="MS">Mississippi</option><option id="ember5118" class="ember-view" value="MO">Missouri</option><option id="ember5120" class="ember-view" value="MT">Montana</option><option id="ember5122" class="ember-view" value="NE">Nebraska</option><option id="ember5124" class="ember-view" value="NV">Nevada</option><option id="ember5126" class="ember-view" value="NH">New Hampshire</option><option id="ember5128" class="ember-view" value="NJ">New Jersey</option><option id="ember5130" class="ember-view" value="NM">New Mexico</option><option id="ember5132" class="ember-view" value="NY">New York</option><option id="ember5134" class="ember-view" value="NC">North Carolina</option><option id="ember5136" class="ember-view" value="ND">North Dakota</option><option id="ember5138" class="ember-view" value="OH">Ohio</option><option id="ember5140" class="ember-view" value="OK">Oklahoma</option><option id="ember5142" class="ember-view" value="OR">Oregon</option><option id="ember5144" class="ember-view" value="PA">Pennsylvania</option><option id="ember5146" class="ember-view" value="RI">Rhode Island</option><option id="ember5148" class="ember-view" value="SC">South Carolina</option><option id="ember5150" class="ember-view" value="SD">South Dakota</option><option id="ember5152" class="ember-view" value="TN">Tenessee</option><option id="ember5154" class="ember-view" value="TX">Texas</option><option id="ember5156" class="ember-view" value="UT">Utah</option><option id="ember5158" class="ember-view" value="VT">Vermont</option><option id="ember5160" class="ember-view" value="VA">Virginia</option><option id="ember5162" class="ember-view" value="VI">Virgin Islands</option><option id="ember5164" class="ember-view" value="WA">Washington</option><option id="ember5166" class="ember-view" value="WV">West Virginia</option><option id="ember5168" class="ember-view" value="WI">Wisconsin</option><option id="ember5170" class="ember-view" value="WY">Wyoming</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="ember4636" class="ember-view ember-checkbox" type="checkbox" name="shipping-same-as-billing">
+                                                    Ship to billing address
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="dropdown1">
+                            <div class="list-group">
+
+
+                            </div>
+                        </div>
+                        <p class="pull-right ptm">
+                            <a href="#" class="btn btn-default">Cancel</a>
+                            <a href="#" class="btn btn-primary" onclick="$('.nav-tabs li').eq(1).find('a').click()">Next</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Pricing Summary</h3>
+                </div>
+                <div class="panel-body bg-white">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th><script id="metamorph-2303-start" type="text/x-placeholder"></script>License Type<script id="metamorph-2303-end" type="text/x-placeholder"></script></th>
+                            <th class="text-right"><script id="metamorph-2304-start" type="text/x-placeholder"></script>Quantity<script id="metamorph-2304-end" type="text/x-placeholder"></script></th>
+                            <th class="text-right"><script id="metamorph-2305-start" type="text/x-placeholder"></script>Price<script id="metamorph-2305-end" type="text/x-placeholder"></script></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <script id="metamorph-2307-start" type="text/x-placeholder"></script><script id="metamorph-2306-start" type="text/x-placeholder"></script>
+                        <tr>
+                            <td><script id="metamorph-2308-start" type="text/x-placeholder"></script>Mailbox Migration<script id="metamorph-2308-end" type="text/x-placeholder"></script></td>
+                            <td class="text-right"><script id="metamorph-2309-start" type="text/x-placeholder"></script>1<script id="metamorph-2309-end" type="text/x-placeholder"></script></td>
+                            <td class="text-right"><script id="metamorph-2310-start" type="text/x-placeholder"></script>$11.39<script id="metamorph-2310-end" type="text/x-placeholder"></script></td>
+                        </tr>
+                        <script id="metamorph-2306-end" type="text/x-placeholder"></script><script id="metamorph-2307-end" type="text/x-placeholder"></script>
+                        <tr>
+                            <td><script id="metamorph-2311-start" type="text/x-placeholder"></script>Tax<script id="metamorph-2311-end" type="text/x-placeholder"></script></td>
+                            <td colspan="2" class="text-right"><script id="metamorph-2312-start" type="text/x-placeholder"></script>$0.00<script id="metamorph-2312-end" type="text/x-placeholder"></script></td>
+                        </tr>
+                        <tr>
+                            <th><script id="metamorph-2313-start" type="text/x-placeholder"></script>Subtotal<script id="metamorph-2313-end" type="text/x-placeholder"></script></th>
+                            <th colspan="2" class="text-right"><script id="metamorph-2314-start" type="text/x-placeholder"></script>$11.39<script id="metamorph-2314-end" type="text/x-placeholder"></script></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn-group btn-group-justified">
+                        <a href="#" class="btn btn-default">Cancel</a>
+                        <a href="#" class="btn btn-primary" onclick="$('.nav-tabs li').eq(1).find('a').click()">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            <!-- /Page Content -->
+
+        </div>
+        <!-- /inner -->
+    </div>
+    <!-- /#content -->
+
+  
+
+</div>
+<!-- /#wrap -->
+
+
+
+<!-- #helpModal -->
+<div id="helpModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- /#helpModal -->
+
+
+
+
+
+<div class="underlay one"></div>
+<div class="context-panel left">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm ptxs Light"><i class="i-play Light"></i>&nbsp; Start a Full Migration to Office 365</h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <h4 class="mtn">What is a Full Migration? <a class="help" href="#"><i class="i-help"></i></a></h4>
+        <p>
+            <small>
+                Use this type of migration for "big bang" (single pass) migrations, or following an earlier pre-stage migration. Use this type of migration after MX record cutover, to make sure you are not missing any data.
+            </small>
+        </p>
+
+        <div class="row mtl">
+
+            <div class="col-xs-6 pvs">
+                <div class="stat-widget-sm success">
+                    <div class="icon">
+                        <i class="i-action-check"></i>
+                    </div>
+                    <div class="content">
+                        <strong>1</strong> Item Selected
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 pvs">
+                <div class="stat-widget-sm success">
+                    <div class="icon">
+                        <i class="i-action-plus"></i>
+                    </div>
+                    <div class="content">
+                        <strong>1</strong> Item Will Migrate
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 pvs">
+                <div class="stat-widget-sm success">
+                    <div class="icon">
+                        <i class="i-action-x"></i>
+                    </div>
+                    <div class="content">
+                        <strong>120</strong> Licenses Available
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xs-6 pvs">
+                <div class="stat-widget-sm success">
+                    <div class="icon">
+                        <i class="i-action-x"></i>
+                    </div>
+                    <div class="content">
+                        <strong>1</strong> Licenses Required
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-group accordion mtl">
+            <div class="list-group-item open">
+                <header>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="mtm ptxs Light">
+                                <i class="i-play Light"></i>&nbsp;
+                                Select What to Migrate
+                            </h4>
+                            <hr>
+                        </div>
+                    </div>
+                </header>
+                <div class="content phl pts">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Contacts
+                            </p>
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Journals
+                            </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Contacts
+                            </p>
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Journals
+                            </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Contacts
+                            </p>
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Journals
+                            </p>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Contacts
+                            </p>
+                            <p>
+                                <input type="checkbox"/>&nbsp;
+                                Journals
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-group-item open">
+                <header>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="mtm ptxs Light">
+                                <i class="i-project Light"></i>&nbsp;
+                                Migration Scheduling
+                            </h4>
+                            <hr>
+                        </div>
+                    </div>
+                </header>
+                <div class="content phl pts">
+                    <div class="row">
+                        <div class="box-body">
+                            <div class="checkbox mtn">
+                                <label>
+                                    <input id="ember8114" class="ember-view ember-checkbox" type="checkbox" name="delay-migration">
+                                    <script id="metamorph-2545-start" type="text/x-placeholder"></script>Automatically start the migration at<script id="metamorph-2545-end" type="text/x-placeholder"></script>&nbsp;
+                                </label>
+                                <a id="ember8116" class="ember-view i-help help" href="http://www.bittitan.com/kb/KB004158" title="Can I delay the start of my migration?"></a>
+                            </div>
+                            <script id="metamorph-2546-start" type="text/x-placeholder"></script>
+                            <div id="ember8145" class="ember-view row delay-migration-date">
+                                <div class="col-xs-2">
+                                    <select id="ember8152" class="ember-view ember-select input-sm form-control"><script id="metamorph-2566-start" type="text/x-placeholder"></script><option value=""><script id="metamorph-2567-start" type="text/x-placeholder"></script>Month<script id="metamorph-2567-end" type="text/x-placeholder"></script></option><script id="metamorph-2566-end" type="text/x-placeholder"></script><script id="metamorph-2568-start" type="text/x-placeholder"></script><script id="metamorph-2581-start" type="text/x-placeholder"></script><script id="metamorph-2569-start" type="text/x-placeholder"></script><option id="ember8174" class="ember-view" value="0"><script id="metamorph-2582-start" type="text/x-placeholder"></script>Jan<script id="metamorph-2582-end" type="text/x-placeholder"></script></option><script id="metamorph-2569-end" type="text/x-placeholder"></script><script id="metamorph-2570-start" type="text/x-placeholder"></script><option id="ember8175" class="ember-view" value="1"><script id="metamorph-2583-start" type="text/x-placeholder"></script>Feb<script id="metamorph-2583-end" type="text/x-placeholder"></script></option><script id="metamorph-2570-end" type="text/x-placeholder"></script><script id="metamorph-2571-start" type="text/x-placeholder"></script><option id="ember8176" class="ember-view" value="2"><script id="metamorph-2584-start" type="text/x-placeholder"></script>Mar<script id="metamorph-2584-end" type="text/x-placeholder"></script></option><script id="metamorph-2571-end" type="text/x-placeholder"></script><script id="metamorph-2572-start" type="text/x-placeholder"></script><option id="ember8177" class="ember-view" value="3"><script id="metamorph-2585-start" type="text/x-placeholder"></script>Apr<script id="metamorph-2585-end" type="text/x-placeholder"></script></option><script id="metamorph-2572-end" type="text/x-placeholder"></script><script id="metamorph-2573-start" type="text/x-placeholder"></script><option id="ember8178" class="ember-view" value="4"><script id="metamorph-2586-start" type="text/x-placeholder"></script>May<script id="metamorph-2586-end" type="text/x-placeholder"></script></option><script id="metamorph-2573-end" type="text/x-placeholder"></script><script id="metamorph-2574-start" type="text/x-placeholder"></script><option id="ember8179" class="ember-view" value="5"><script id="metamorph-2587-start" type="text/x-placeholder"></script>Jun<script id="metamorph-2587-end" type="text/x-placeholder"></script></option><script id="metamorph-2574-end" type="text/x-placeholder"></script><script id="metamorph-2575-start" type="text/x-placeholder"></script><option id="ember8180" class="ember-view" value="6"><script id="metamorph-2588-start" type="text/x-placeholder"></script>Jul<script id="metamorph-2588-end" type="text/x-placeholder"></script></option><script id="metamorph-2575-end" type="text/x-placeholder"></script><script id="metamorph-2576-start" type="text/x-placeholder"></script><option id="ember8181" class="ember-view" value="7"><script id="metamorph-2589-start" type="text/x-placeholder"></script>Aug<script id="metamorph-2589-end" type="text/x-placeholder"></script></option><script id="metamorph-2576-end" type="text/x-placeholder"></script><script id="metamorph-2577-start" type="text/x-placeholder"></script><option id="ember8182" class="ember-view" value="8"><script id="metamorph-2590-start" type="text/x-placeholder"></script>Sep<script id="metamorph-2590-end" type="text/x-placeholder"></script></option><script id="metamorph-2577-end" type="text/x-placeholder"></script><script id="metamorph-2578-start" type="text/x-placeholder"></script><option id="ember8183" class="ember-view" value="9"><script id="metamorph-2591-start" type="text/x-placeholder"></script>Oct<script id="metamorph-2591-end" type="text/x-placeholder"></script></option><script id="metamorph-2578-end" type="text/x-placeholder"></script><script id="metamorph-2579-start" type="text/x-placeholder"></script><option id="ember8184" class="ember-view" value="10"><script id="metamorph-2592-start" type="text/x-placeholder"></script>Nov<script id="metamorph-2592-end" type="text/x-placeholder"></script></option><script id="metamorph-2579-end" type="text/x-placeholder"></script><script id="metamorph-2580-start" type="text/x-placeholder"></script><option id="ember8185" class="ember-view" value="11"><script id="metamorph-2593-start" type="text/x-placeholder"></script>Dec<script id="metamorph-2593-end" type="text/x-placeholder"></script></option><script id="metamorph-2580-end" type="text/x-placeholder"></script><script id="metamorph-2581-end" type="text/x-placeholder"></script><script id="metamorph-2568-end" type="text/x-placeholder"></script></select>
+                                </div>
+                                <div class="col-xs-2">
+                                    <select id="ember8188" class="ember-view ember-select input-sm form-control"><script id="metamorph-2594-start" type="text/x-placeholder"></script><option value=""><script id="metamorph-2595-start" type="text/x-placeholder"></script>Day<script id="metamorph-2595-end" type="text/x-placeholder"></script></option><script id="metamorph-2594-end" type="text/x-placeholder"></script><script id="metamorph-2596-start" type="text/x-placeholder"></script><script id="metamorph-2628-start" type="text/x-placeholder"></script><script id="metamorph-2597-start" type="text/x-placeholder"></script><option id="ember8227" class="ember-view" value="1"><script id="metamorph-2629-start" type="text/x-placeholder"></script>1<script id="metamorph-2629-end" type="text/x-placeholder"></script></option><script id="metamorph-2597-end" type="text/x-placeholder"></script><script id="metamorph-2598-start" type="text/x-placeholder"></script><option id="ember8228" class="ember-view" value="2"><script id="metamorph-2630-start" type="text/x-placeholder"></script>2<script id="metamorph-2630-end" type="text/x-placeholder"></script></option><script id="metamorph-2598-end" type="text/x-placeholder"></script><script id="metamorph-2599-start" type="text/x-placeholder"></script><option id="ember8229" class="ember-view" value="3"><script id="metamorph-2631-start" type="text/x-placeholder"></script>3<script id="metamorph-2631-end" type="text/x-placeholder"></script></option><script id="metamorph-2599-end" type="text/x-placeholder"></script><script id="metamorph-2600-start" type="text/x-placeholder"></script><option id="ember8230" class="ember-view" value="4"><script id="metamorph-2632-start" type="text/x-placeholder"></script>4<script id="metamorph-2632-end" type="text/x-placeholder"></script></option><script id="metamorph-2600-end" type="text/x-placeholder"></script><script id="metamorph-2601-start" type="text/x-placeholder"></script><option id="ember8231" class="ember-view" value="5"><script id="metamorph-2633-start" type="text/x-placeholder"></script>5<script id="metamorph-2633-end" type="text/x-placeholder"></script></option><script id="metamorph-2601-end" type="text/x-placeholder"></script><script id="metamorph-2602-start" type="text/x-placeholder"></script><option id="ember8232" class="ember-view" value="6"><script id="metamorph-2634-start" type="text/x-placeholder"></script>6<script id="metamorph-2634-end" type="text/x-placeholder"></script></option><script id="metamorph-2602-end" type="text/x-placeholder"></script><script id="metamorph-2603-start" type="text/x-placeholder"></script><option id="ember8233" class="ember-view" value="7"><script id="metamorph-2635-start" type="text/x-placeholder"></script>7<script id="metamorph-2635-end" type="text/x-placeholder"></script></option><script id="metamorph-2603-end" type="text/x-placeholder"></script><script id="metamorph-2604-start" type="text/x-placeholder"></script><option id="ember8234" class="ember-view" value="8"><script id="metamorph-2636-start" type="text/x-placeholder"></script>8<script id="metamorph-2636-end" type="text/x-placeholder"></script></option><script id="metamorph-2604-end" type="text/x-placeholder"></script><script id="metamorph-2605-start" type="text/x-placeholder"></script><option id="ember8235" class="ember-view" value="9"><script id="metamorph-2637-start" type="text/x-placeholder"></script>9<script id="metamorph-2637-end" type="text/x-placeholder"></script></option><script id="metamorph-2605-end" type="text/x-placeholder"></script><script id="metamorph-2606-start" type="text/x-placeholder"></script><option id="ember8236" class="ember-view" value="10"><script id="metamorph-2638-start" type="text/x-placeholder"></script>10<script id="metamorph-2638-end" type="text/x-placeholder"></script></option><script id="metamorph-2606-end" type="text/x-placeholder"></script><script id="metamorph-2607-start" type="text/x-placeholder"></script><option id="ember8237" class="ember-view" value="11"><script id="metamorph-2639-start" type="text/x-placeholder"></script>11<script id="metamorph-2639-end" type="text/x-placeholder"></script></option><script id="metamorph-2607-end" type="text/x-placeholder"></script><script id="metamorph-2608-start" type="text/x-placeholder"></script><option id="ember8238" class="ember-view" value="12"><script id="metamorph-2640-start" type="text/x-placeholder"></script>12<script id="metamorph-2640-end" type="text/x-placeholder"></script></option><script id="metamorph-2608-end" type="text/x-placeholder"></script><script id="metamorph-2609-start" type="text/x-placeholder"></script><option id="ember8239" class="ember-view" value="13"><script id="metamorph-2641-start" type="text/x-placeholder"></script>13<script id="metamorph-2641-end" type="text/x-placeholder"></script></option><script id="metamorph-2609-end" type="text/x-placeholder"></script><script id="metamorph-2610-start" type="text/x-placeholder"></script><option id="ember8240" class="ember-view" value="14"><script id="metamorph-2642-start" type="text/x-placeholder"></script>14<script id="metamorph-2642-end" type="text/x-placeholder"></script></option><script id="metamorph-2610-end" type="text/x-placeholder"></script><script id="metamorph-2611-start" type="text/x-placeholder"></script><option id="ember8241" class="ember-view" value="15"><script id="metamorph-2643-start" type="text/x-placeholder"></script>15<script id="metamorph-2643-end" type="text/x-placeholder"></script></option><script id="metamorph-2611-end" type="text/x-placeholder"></script><script id="metamorph-2612-start" type="text/x-placeholder"></script><option id="ember8242" class="ember-view" value="16"><script id="metamorph-2644-start" type="text/x-placeholder"></script>16<script id="metamorph-2644-end" type="text/x-placeholder"></script></option><script id="metamorph-2612-end" type="text/x-placeholder"></script><script id="metamorph-2613-start" type="text/x-placeholder"></script><option id="ember8243" class="ember-view" value="17"><script id="metamorph-2645-start" type="text/x-placeholder"></script>17<script id="metamorph-2645-end" type="text/x-placeholder"></script></option><script id="metamorph-2613-end" type="text/x-placeholder"></script><script id="metamorph-2614-start" type="text/x-placeholder"></script><option id="ember8244" class="ember-view" value="18"><script id="metamorph-2646-start" type="text/x-placeholder"></script>18<script id="metamorph-2646-end" type="text/x-placeholder"></script></option><script id="metamorph-2614-end" type="text/x-placeholder"></script><script id="metamorph-2615-start" type="text/x-placeholder"></script><option id="ember8245" class="ember-view" value="19"><script id="metamorph-2647-start" type="text/x-placeholder"></script>19<script id="metamorph-2647-end" type="text/x-placeholder"></script></option><script id="metamorph-2615-end" type="text/x-placeholder"></script><script id="metamorph-2616-start" type="text/x-placeholder"></script><option id="ember8246" class="ember-view" value="20"><script id="metamorph-2648-start" type="text/x-placeholder"></script>20<script id="metamorph-2648-end" type="text/x-placeholder"></script></option><script id="metamorph-2616-end" type="text/x-placeholder"></script><script id="metamorph-2617-start" type="text/x-placeholder"></script><option id="ember8247" class="ember-view" value="21"><script id="metamorph-2649-start" type="text/x-placeholder"></script>21<script id="metamorph-2649-end" type="text/x-placeholder"></script></option><script id="metamorph-2617-end" type="text/x-placeholder"></script><script id="metamorph-2618-start" type="text/x-placeholder"></script><option id="ember8248" class="ember-view" value="22"><script id="metamorph-2650-start" type="text/x-placeholder"></script>22<script id="metamorph-2650-end" type="text/x-placeholder"></script></option><script id="metamorph-2618-end" type="text/x-placeholder"></script><script id="metamorph-2619-start" type="text/x-placeholder"></script><option id="ember8249" class="ember-view" value="23"><script id="metamorph-2651-start" type="text/x-placeholder"></script>23<script id="metamorph-2651-end" type="text/x-placeholder"></script></option><script id="metamorph-2619-end" type="text/x-placeholder"></script><script id="metamorph-2620-start" type="text/x-placeholder"></script><option id="ember8250" class="ember-view" value="24"><script id="metamorph-2652-start" type="text/x-placeholder"></script>24<script id="metamorph-2652-end" type="text/x-placeholder"></script></option><script id="metamorph-2620-end" type="text/x-placeholder"></script><script id="metamorph-2621-start" type="text/x-placeholder"></script><option id="ember8251" class="ember-view" value="25"><script id="metamorph-2653-start" type="text/x-placeholder"></script>25<script id="metamorph-2653-end" type="text/x-placeholder"></script></option><script id="metamorph-2621-end" type="text/x-placeholder"></script><script id="metamorph-2622-start" type="text/x-placeholder"></script><option id="ember8252" class="ember-view" value="26"><script id="metamorph-2654-start" type="text/x-placeholder"></script>26<script id="metamorph-2654-end" type="text/x-placeholder"></script></option><script id="metamorph-2622-end" type="text/x-placeholder"></script><script id="metamorph-2623-start" type="text/x-placeholder"></script><option id="ember8253" class="ember-view" value="27"><script id="metamorph-2655-start" type="text/x-placeholder"></script>27<script id="metamorph-2655-end" type="text/x-placeholder"></script></option><script id="metamorph-2623-end" type="text/x-placeholder"></script><script id="metamorph-2624-start" type="text/x-placeholder"></script><option id="ember8254" class="ember-view" value="28"><script id="metamorph-2656-start" type="text/x-placeholder"></script>28<script id="metamorph-2656-end" type="text/x-placeholder"></script></option><script id="metamorph-2624-end" type="text/x-placeholder"></script><script id="metamorph-2625-start" type="text/x-placeholder"></script><option id="ember8255" class="ember-view" value="29"><script id="metamorph-2657-start" type="text/x-placeholder"></script>29<script id="metamorph-2657-end" type="text/x-placeholder"></script></option><script id="metamorph-2625-end" type="text/x-placeholder"></script><script id="metamorph-2626-start" type="text/x-placeholder"></script><option id="ember8256" class="ember-view" value="30"><script id="metamorph-2658-start" type="text/x-placeholder"></script>30<script id="metamorph-2658-end" type="text/x-placeholder"></script></option><script id="metamorph-2626-end" type="text/x-placeholder"></script><script id="metamorph-2627-start" type="text/x-placeholder"></script><option id="ember8257" class="ember-view" value="31"><script id="metamorph-2659-start" type="text/x-placeholder"></script>31<script id="metamorph-2659-end" type="text/x-placeholder"></script></option><script id="metamorph-2627-end" type="text/x-placeholder"></script><script id="metamorph-2628-end" type="text/x-placeholder"></script><script id="metamorph-2596-end" type="text/x-placeholder"></script></select>
+                                </div>
+                                <div class="col-xs-2">
+                                    <select id="ember8260" class="ember-view ember-select input-sm form-control"><script id="metamorph-2660-start" type="text/x-placeholder"></script><option value=""><script id="metamorph-2661-start" type="text/x-placeholder"></script>Year<script id="metamorph-2661-end" type="text/x-placeholder"></script></option><script id="metamorph-2660-end" type="text/x-placeholder"></script><script id="metamorph-2662-start" type="text/x-placeholder"></script><script id="metamorph-2665-start" type="text/x-placeholder"></script><script id="metamorph-2663-start" type="text/x-placeholder"></script><option id="ember8270" class="ember-view" value="2014"><script id="metamorph-2666-start" type="text/x-placeholder"></script>2014<script id="metamorph-2666-end" type="text/x-placeholder"></script></option><script id="metamorph-2663-end" type="text/x-placeholder"></script><script id="metamorph-2664-start" type="text/x-placeholder"></script><option id="ember8271" class="ember-view" value="2015"><script id="metamorph-2667-start" type="text/x-placeholder"></script>2015<script id="metamorph-2667-end" type="text/x-placeholder"></script></option><script id="metamorph-2664-end" type="text/x-placeholder"></script><script id="metamorph-2665-end" type="text/x-placeholder"></script><script id="metamorph-2662-end" type="text/x-placeholder"></script></select>
+                                </div>
+                                <!--<div class="col-xs-1 text-center">-->
+                                <!--<span class="form-control-text">-->
+                                <!--<small><script id="metamorph-2668-start" type="text/x-placeholder"></script>at<script id="metamorph-2668-end" type="text/x-placeholder"></script></small>-->
+                                <!--</span>-->
+                                <!--</div>-->
+                                <div class="col-xs-2">
+                                    <select id="ember8275" class="ember-view ember-select input-sm form-control"><script id="metamorph-2669-start" type="text/x-placeholder"></script><option value=""><script id="metamorph-2670-start" type="text/x-placeholder"></script>Hour<script id="metamorph-2670-end" type="text/x-placeholder"></script></option><script id="metamorph-2669-end" type="text/x-placeholder"></script><script id="metamorph-2671-start" type="text/x-placeholder"></script><script id="metamorph-2696-start" type="text/x-placeholder"></script><script id="metamorph-2672-start" type="text/x-placeholder"></script><option id="ember8307" class="ember-view" value="0"><script id="metamorph-2697-start" type="text/x-placeholder"></script>0<script id="metamorph-2697-end" type="text/x-placeholder"></script></option><script id="metamorph-2672-end" type="text/x-placeholder"></script><script id="metamorph-2673-start" type="text/x-placeholder"></script><option id="ember8308" class="ember-view" value="1"><script id="metamorph-2698-start" type="text/x-placeholder"></script>1<script id="metamorph-2698-end" type="text/x-placeholder"></script></option><script id="metamorph-2673-end" type="text/x-placeholder"></script><script id="metamorph-2674-start" type="text/x-placeholder"></script><option id="ember8309" class="ember-view" value="2"><script id="metamorph-2699-start" type="text/x-placeholder"></script>2<script id="metamorph-2699-end" type="text/x-placeholder"></script></option><script id="metamorph-2674-end" type="text/x-placeholder"></script><script id="metamorph-2675-start" type="text/x-placeholder"></script><option id="ember8310" class="ember-view" value="3"><script id="metamorph-2700-start" type="text/x-placeholder"></script>3<script id="metamorph-2700-end" type="text/x-placeholder"></script></option><script id="metamorph-2675-end" type="text/x-placeholder"></script><script id="metamorph-2676-start" type="text/x-placeholder"></script><option id="ember8311" class="ember-view" value="4"><script id="metamorph-2701-start" type="text/x-placeholder"></script>4<script id="metamorph-2701-end" type="text/x-placeholder"></script></option><script id="metamorph-2676-end" type="text/x-placeholder"></script><script id="metamorph-2677-start" type="text/x-placeholder"></script><option id="ember8312" class="ember-view" value="5"><script id="metamorph-2702-start" type="text/x-placeholder"></script>5<script id="metamorph-2702-end" type="text/x-placeholder"></script></option><script id="metamorph-2677-end" type="text/x-placeholder"></script><script id="metamorph-2678-start" type="text/x-placeholder"></script><option id="ember8313" class="ember-view" value="6"><script id="metamorph-2703-start" type="text/x-placeholder"></script>6<script id="metamorph-2703-end" type="text/x-placeholder"></script></option><script id="metamorph-2678-end" type="text/x-placeholder"></script><script id="metamorph-2679-start" type="text/x-placeholder"></script><option id="ember8314" class="ember-view" value="7"><script id="metamorph-2704-start" type="text/x-placeholder"></script>7<script id="metamorph-2704-end" type="text/x-placeholder"></script></option><script id="metamorph-2679-end" type="text/x-placeholder"></script><script id="metamorph-2680-start" type="text/x-placeholder"></script><option id="ember8315" class="ember-view" value="8"><script id="metamorph-2705-start" type="text/x-placeholder"></script>8<script id="metamorph-2705-end" type="text/x-placeholder"></script></option><script id="metamorph-2680-end" type="text/x-placeholder"></script><script id="metamorph-2681-start" type="text/x-placeholder"></script><option id="ember8316" class="ember-view" value="9"><script id="metamorph-2706-start" type="text/x-placeholder"></script>9<script id="metamorph-2706-end" type="text/x-placeholder"></script></option><script id="metamorph-2681-end" type="text/x-placeholder"></script><script id="metamorph-2682-start" type="text/x-placeholder"></script><option id="ember8317" class="ember-view" value="10"><script id="metamorph-2707-start" type="text/x-placeholder"></script>10<script id="metamorph-2707-end" type="text/x-placeholder"></script></option><script id="metamorph-2682-end" type="text/x-placeholder"></script><script id="metamorph-2683-start" type="text/x-placeholder"></script><option id="ember8318" class="ember-view" value="11"><script id="metamorph-2708-start" type="text/x-placeholder"></script>11<script id="metamorph-2708-end" type="text/x-placeholder"></script></option><script id="metamorph-2683-end" type="text/x-placeholder"></script><script id="metamorph-2684-start" type="text/x-placeholder"></script><option id="ember8319" class="ember-view" value="12"><script id="metamorph-2709-start" type="text/x-placeholder"></script>12<script id="metamorph-2709-end" type="text/x-placeholder"></script></option><script id="metamorph-2684-end" type="text/x-placeholder"></script><script id="metamorph-2685-start" type="text/x-placeholder"></script><option id="ember8320" class="ember-view" value="13"><script id="metamorph-2710-start" type="text/x-placeholder"></script>13<script id="metamorph-2710-end" type="text/x-placeholder"></script></option><script id="metamorph-2685-end" type="text/x-placeholder"></script><script id="metamorph-2686-start" type="text/x-placeholder"></script><option id="ember8321" class="ember-view" value="14"><script id="metamorph-2711-start" type="text/x-placeholder"></script>14<script id="metamorph-2711-end" type="text/x-placeholder"></script></option><script id="metamorph-2686-end" type="text/x-placeholder"></script><script id="metamorph-2687-start" type="text/x-placeholder"></script><option id="ember8322" class="ember-view" value="15"><script id="metamorph-2712-start" type="text/x-placeholder"></script>15<script id="metamorph-2712-end" type="text/x-placeholder"></script></option><script id="metamorph-2687-end" type="text/x-placeholder"></script><script id="metamorph-2688-start" type="text/x-placeholder"></script><option id="ember8323" class="ember-view" value="16"><script id="metamorph-2713-start" type="text/x-placeholder"></script>16<script id="metamorph-2713-end" type="text/x-placeholder"></script></option><script id="metamorph-2688-end" type="text/x-placeholder"></script><script id="metamorph-2689-start" type="text/x-placeholder"></script><option id="ember8324" class="ember-view" value="17"><script id="metamorph-2714-start" type="text/x-placeholder"></script>17<script id="metamorph-2714-end" type="text/x-placeholder"></script></option><script id="metamorph-2689-end" type="text/x-placeholder"></script><script id="metamorph-2690-start" type="text/x-placeholder"></script><option id="ember8325" class="ember-view" value="18"><script id="metamorph-2715-start" type="text/x-placeholder"></script>18<script id="metamorph-2715-end" type="text/x-placeholder"></script></option><script id="metamorph-2690-end" type="text/x-placeholder"></script><script id="metamorph-2691-start" type="text/x-placeholder"></script><option id="ember8326" class="ember-view" value="19"><script id="metamorph-2716-start" type="text/x-placeholder"></script>19<script id="metamorph-2716-end" type="text/x-placeholder"></script></option><script id="metamorph-2691-end" type="text/x-placeholder"></script><script id="metamorph-2692-start" type="text/x-placeholder"></script><option id="ember8327" class="ember-view" value="20"><script id="metamorph-2717-start" type="text/x-placeholder"></script>20<script id="metamorph-2717-end" type="text/x-placeholder"></script></option><script id="metamorph-2692-end" type="text/x-placeholder"></script><script id="metamorph-2693-start" type="text/x-placeholder"></script><option id="ember8328" class="ember-view" value="21"><script id="metamorph-2718-start" type="text/x-placeholder"></script>21<script id="metamorph-2718-end" type="text/x-placeholder"></script></option><script id="metamorph-2693-end" type="text/x-placeholder"></script><script id="metamorph-2694-start" type="text/x-placeholder"></script><option id="ember8329" class="ember-view" value="22"><script id="metamorph-2719-start" type="text/x-placeholder"></script>22<script id="metamorph-2719-end" type="text/x-placeholder"></script></option><script id="metamorph-2694-end" type="text/x-placeholder"></script><script id="metamorph-2695-start" type="text/x-placeholder"></script><option id="ember8330" class="ember-view" value="23"><script id="metamorph-2720-start" type="text/x-placeholder"></script>23<script id="metamorph-2720-end" type="text/x-placeholder"></script></option><script id="metamorph-2695-end" type="text/x-placeholder"></script><script id="metamorph-2696-end" type="text/x-placeholder"></script><script id="metamorph-2671-end" type="text/x-placeholder"></script></select>
+                                </div>
+                                <div class="col-xs-2">
+                                    <select id="ember8333" class="ember-view ember-select input-sm form-control"><script id="metamorph-2721-start" type="text/x-placeholder"></script><option value=""><script id="metamorph-2722-start" type="text/x-placeholder"></script>Minute<script id="metamorph-2722-end" type="text/x-placeholder"></script></option><script id="metamorph-2721-end" type="text/x-placeholder"></script><script id="metamorph-2723-start" type="text/x-placeholder"></script><script id="metamorph-2728-start" type="text/x-placeholder"></script><script id="metamorph-2724-start" type="text/x-placeholder"></script><option id="ember8345" class="ember-view" value="0"><script id="metamorph-2729-start" type="text/x-placeholder"></script>0<script id="metamorph-2729-end" type="text/x-placeholder"></script></option><script id="metamorph-2724-end" type="text/x-placeholder"></script><script id="metamorph-2725-start" type="text/x-placeholder"></script><option id="ember8346" class="ember-view" value="15"><script id="metamorph-2730-start" type="text/x-placeholder"></script>15<script id="metamorph-2730-end" type="text/x-placeholder"></script></option><script id="metamorph-2725-end" type="text/x-placeholder"></script><script id="metamorph-2726-start" type="text/x-placeholder"></script><option id="ember8347" class="ember-view" value="30"><script id="metamorph-2731-start" type="text/x-placeholder"></script>30<script id="metamorph-2731-end" type="text/x-placeholder"></script></option><script id="metamorph-2726-end" type="text/x-placeholder"></script><script id="metamorph-2727-start" type="text/x-placeholder"></script><option id="ember8348" class="ember-view" value="45"><script id="metamorph-2732-start" type="text/x-placeholder"></script>45<script id="metamorph-2732-end" type="text/x-placeholder"></script></option><script id="metamorph-2727-end" type="text/x-placeholder"></script><script id="metamorph-2728-end" type="text/x-placeholder"></script><script id="metamorph-2723-end" type="text/x-placeholder"></script></select>
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                <span class="form-control-text nudge down-7">
+                                    <small>(<script id="metamorph-2733-start" type="text/x-placeholder"></script>Local Time<script id="metamorph-2733-end" type="text/x-placeholder"></script>)</small>
+                                </span>
+                                </div>
+                            </div>
+                            <script id="metamorph-2546-end" type="text/x-placeholder"></script>
+                            <script id="metamorph-2547-start" type="text/x-placeholder"></script><script id="metamorph-2547-end" type="text/x-placeholder"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default close-modal">Cancel</a>
+            <a href="#" class="btn btn-primary close-modal">Start</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="underlay two"></div>
+<div class="context-panel right errors">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm ptxs Light"><i class="i-plus Light"></i>&nbsp; Create Project</h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="pam">
+            <h4 class="mtn">Create a DeploymentPro Project</h4>
+
+
+
+
+
+            <div class="row mtl">
+                <div class="col-md-12">
+
+
+                    <div class="list-group accordion">
+
+
+                        <div class="list-group-item open">
+                            <header>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h4 class="mtm Light">
+                                            <a href="#" class="kb-modal one pull-right btn mts btn-sm btn-default nudge up-5"><i class="i-plus"></i> &nbsp;New Customer</a>
+                                            <i class="i-user"></i>&nbsp;
+                                            Select a Customer
+                                        </h4>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="content">
+                                <form class="form-horizontal">
+
+
+                                    <fieldset>
+
+
+
+                                        <div class="form-group">
+
+                                            <label for="select" class="col-xs-12">Select a Customer</label>
+                                            <div class="col-xs-12">
+                                                <select class="form-control" id="select-customer">
+                                                    <option>Select a Customer</option>
+                                                    <option>Kmart</option>
+                                                    <option>Costco</option>
+                                                    <option>BitTitan</option>
+                                                    <option>Microsoft</option>
+                                                    <option>Verizon</option>
+                                                </select>
+
+                                                <p class="mtl">
+                                                    <i class="i-help"></i>&nbsp;
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur atque eaque eum eveniet facilis, fugit ipsa ipsam laboriosam necessitatibus nesciunt perferendis perspiciatis placeat porro quos temporibus, voluptatem voluptatibus!
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group ptl">
+                                            <div class="col-lg-12 text-right">
+                                                <a href="javascript:gotoStep(4)" class="btn btn-primary">Next</a>
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <div class="list-group-item">
+                            <header>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h4 class="mtm Light">
+                                            <a href="#" class="kb-modal two pull-right btn mts btn-sm btn-default nudge up-5"><i class="i-plus"></i> &nbsp;New Engagement</a>
+                                            <i class="i-list-alt"></i>&nbsp;
+                                            Select an Engagement
+                                        </h4>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="content">
+                                <form class="form-horizontal">
+
+
+                                    <fieldset>
+
+
+
+                                        <div class="form-group">
+
+                                            <label for="select" class="col-xs-12">Select an Existing Engagement</label>
+                                            <div class="col-xs-12">
+                                                <select class="form-control" id="select">
+                                                    <option>Select an Engagement</option>
+                                                    <option>Engagement #1</option>
+                                                    <option>Engagement #2</option>
+                                                    <option>Engagement #3</option>
+                                                    <option>Engagement #4</option>
+                                                </select>
+
+
+
+                                                <p class="mtl">
+                                                    <i class="i-help"></i>&nbsp;
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur atque eaque eum eveniet facilis, fugit ipsa ipsam laboriosam necessitatibus nesciunt perferendis perspiciatis placeat porro quos temporibus, voluptatem voluptatibus!
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <br><br><br>
+
+                                        <div class="form-group ptl">
+                                            <div class="col-lg-12 text-right">
+                                                <a href="javascript:gotoStep(3)" class="btn btn-default">Back</a>
+                                                <a href="javascript:gotoStep(5)" class="btn btn-primary">Next</a>
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <div class="list-group-item">
+                            <header>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h4 class="mtm Light">
+                                            <!--<a href="#" class="pull-right btn mts btn-sm btn-default nudge up-5"><i class="i-plus"></i> &nbsp;Create a New Dialog</a>-->
+                                            <i class="i-project"></i>&nbsp;
+                                            Project Information
+                                        </h4>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="content">
+                                <form class="form-horizontal">
+
+
+                                    <fieldset>
+
+
+
+                                        <div class="form-group">
+                                            <label class="col-xs-12">Project Name</label>
+                                            <div class="col-xs-12">
+                                                <input type="text" id="projectName" class="form-control" placeholder="Enter a Name for this Project">
+                                            </div>
+                                        </div>
+
+                                        <p class="mtl">
+                                            <i class="i-help"></i>&nbsp;
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur atque eaque eum eveniet facilis, fugit ipsa ipsam laboriosam necessitatibus nesciunt perferendis perspiciatis placeat porro quos temporibus, voluptatem voluptatibus!
+                                        </p>
+
+                                        <div class="form-group ptl">
+                                            <div class="col-lg-12 text-right">
+                                                <a href="javascript:gotoStep(4)" class="btn btn-default">Back</a>
+                                                <a href="#" class="lastStep btn btn-primary close-modal hidden">
+                                                    Complete&nbsp;
+                                                    <i class="i-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default close-modal">
+                <i class="i-x"></i>&nbsp;
+                Cancel
+            </a>
+            <a href="#" class="lastStep btn btn-primary hidden close-modal">
+                Complete&nbsp;
+                <i class="i-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function gotoStep (step) {
+        step = parseInt(step) - 1;
+        console.log(step);
+        $('.accordion .list-group-item').removeClass('open');
+        $('.accordion .list-group-item').eq(step).addClass('open');
+    }
+    $(document).ready(function () {
+        $('.kb-modal.one').on('click', function () {
+            $('.kb .textOne').html("Create a New Customer");
+            $('.kb .textTwo').html("Create a New Customer Entity");
+        });
+        $('.kb-modal.two').on('click', function () {
+            $('.kb .textOne').html("Create a New Engagement");
+            $('.kb .textTwo').html("Create a New Engagement for Customer #1");
+        });
+        $('#projectName').bind('keyup blur change', function () {
+            if ($(this).val().length !== 0) $('.lastStep').removeClass('hidden');
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+       $('.back-to-errors').click(function () {
+           $('.context-panel.kb').removeClass('open').css('opacity', 0);
+       });
+    });
+</script>
+
+<div class="context-panel right kb" style="z-index:999999999999999">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm Light">
+
+                    <a href="#" class="btn btn-xs btn-warning pull-right mtm">OPEN IN NEW WINDOW&nbsp; <i class="i-arrow-right"></i></a>
+                    <a class="btn cursor-pointer btn-default back-to-errors">
+                        <i class="i-arrow-left"></i>
+                    </a>&nbsp;
+                    <span class="textOne nudge down-3">
+                        Create a New Customer
+                    </span>
+                </h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="pal">
+            <h4 class="mtn textTwo">
+                Create a New Customer Entity
+            </h4>
+
+            <div class="row">
+                <div class="well">
+                    <form action="#" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-xs-12">Name</label>
+                            <div class="col-xs-12">
+                                <input type="text" id="customerName" class="form-control" placeholder="Enter a Name for this Customer">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-xs-12">Domain</label>
+                            <div class="col-xs-12">
+                                <input type="text" class="form-control" placeholder="Example: customerdomain.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-xs-12">Primary Email</label>
+                            <div class="col-xs-12">
+                                <input type="text" class="form-control" placeholder="email@customerdomain.com">
+                            </div>
+                        </div>
+                    </form>
+
+                    <small>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet autem blanditiis eius error fugit ipsa omnis quod. Amet aspernatur dolorem eaque laborum molestias mollitia, necessitatibus pariatur perspiciatis quia quidem recusandae?
+                    </small>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default back-to-errors">
+                <i class="i-left"></i>&nbsp;
+                Back
+            </a>
+            <a href="#" class="btn btn-primary back-to-errors two">
+                Save&nbsp;
+                <i class="i-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.back-to-errors.two').click(function () {
+            $('#select-customer').append('<option selected>'+$('#customerName').val()+'</option>')
+        });
+    });
+</script>
+
+
+
+<div class="context-panel right users">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm ptxs Light"><i class="i-plus Light"></i>&nbsp; Add Users from MigrationWiz</h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="pam">
+            <h4 class="mtn">Select a MigrationWiz Project</h4>
+
+
+            <div class="row mtl">
+                <div class="col-md-12">
+
+
+                    <div class="well">
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Project #1:</strong> 147 Users - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Project #2:</strong> 325 Users - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Project #3:</strong> 532 Users - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Project #4:</strong> 325 Users - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Project #5:</strong> 532 Users - 10/11/2015
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default close-modal">
+                <i class="i-x"></i>&nbsp;
+                Cancel
+            </a>
+            <a href="#" class="lastStep btn btn-primary users-modal2">
+                Next&nbsp;
+                <i class="i-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function gotoStep (step) {
+        step = parseInt(step) - 1;
+        $('.accordion .list-group-item').removeClass('open');
+        $('.accordion .list-group-item').eq(step).addClass('open');
+    }
+    $(document).ready(function () {
+        $('.kb-modal.one').on('click', function () {
+            $('.kb .textOne').html("Create a New Customer");
+            $('.kb .textTwo').html("Create a New Customer Entity");
+        });
+        $('.kb-modal.two').on('click', function () {
+            $('.kb .textOne').html("Create a New Engagement");
+            $('.kb .textTwo').html("Create a New Engagement for Customer #1");
+        });
+        $('#projectName').bind('keyup blur change', function () {
+            if ($(this).val().length !== 0) $('.lastStep').removeClass('hidden');
+        });
+        $('.users-modal2').click(function () {
+            $('.underlay.three').fadeIn();
+            $('.context-panel.users2').show();
+            setTimeout(function () {
+                $('.context-panel.users2').addClass('open').css('opacity', 1);
+            }, 1);
+            $('body').css('overflow-y', 'hidden');
+        });
+        $('.deploy-agent').click(function () {
+            $('.underlay.one').fadeIn();
+            $('.context-panel.deploy-agent.right').show();
+            setTimeout(function () {
+                $('.context-panel.deploy-agent.right').addClass('open').css('opacity', 1);
+            }, 1);
+            $('body').css('overflow-y', 'hidden');
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.back-to-errors').click(function () {
+            $('.context-panel.users2').removeClass('open').css('opacity', 0);
+        });
+    });
+</script>
+
+<div class="context-panel right users2" style="z-index:999999999999999">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm Light">
+
+                    <!--<a href="#" class="btn btn-xs btn-warning pull-right mtm">OPEN IN NEW WINDOW&nbsp; <i class="i-arrow-right"></i></a>-->
+                    <a class="btn cursor-pointer btn-default back-to-errors">
+                        <i class="i-arrow-left"></i>
+                    </a>&nbsp;
+                    <span class="textOne nudge down-3">
+                        Select users
+                    </span>
+                </h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="pal">
+            <h4 class="mtn textTwo">
+                Select which users you would like to deploy the DesktopWiz agent to:
+            </h4>
+
+            <div class="row mtl">
+                <div class="col-md-12">
+
+
+                    <div class="well">
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>Select All Users</strong> 10 Users - 18 Machines
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default back-to-errors">
+                <i class="i-left"></i>&nbsp;
+                Back
+            </a>
+            <a href="#" class="btn btn-primary close-modal two">
+                Save&nbsp;
+                <i class="i-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.back-to-errors.two').click(function () {
+            $('#select-customer').append('<option selected>'+$('#customerName').val()+'</option>')
+        });
+    });
+</script>
+
+
+
+
+<div class="underlay three"></div>
+<div class="context-panel right deploy-agent">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm ptxs Light"><i class="i-plus Light"></i>&nbsp; Deploy Agent to Users</h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="pam">
+            <h4 class="mtn mbn">Select a Method for Deploying the DesktopWiz Agent</h4>
+
+
+            <div class="row mtl">
+                <div class="col-md-12">
+                    <div class="well">
+                        <p>
+                            <input type="radio" name="foo">&nbsp; <strong>Install Agent from Email</strong>
+                        </p>
+                        <p class="man">
+                            <input type="radio" name="foo">&nbsp; <strong>Install Agent using Group Policy</strong>
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <h4 class="mbn">Customize your Email Message</h4>
+
+
+            <div class="row mtl">
+                <div class="col-md-12">
+                    <div class="well">
+
+                        <form action="" class="form-horizontal">
+
+                            <div class="form-group">
+                                <label  class="col-xs-12">Send as Email Address (Optional)</label>
+                                <div class="col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Example: foo@yourdomain.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-xs-12">Subject Notification Message (Optional)</label>
+                                <div class="col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Your Administrator would like you to install DesktopWiz">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label  class="col-xs-12">Message (Optional)</label>
+                                <div class="col-xs-12">
+                                    <textarea name="" id="" cols="30" rows="10" class="form-control">Hi,
+This email is for you to use to determine if you meet all the system requirements for Office 365.
+
+To complete the compatibility check:
+1.  Please click on the following link and run the program to install the HealthCheck Agent. [Link]
+2.  Enter the code below when you are prompted by the Office 365 HealthCheck.
+
+Your authentication code is: [Code]
+
+Once you enter your code, keep working normally.  That's all you need to do! A report of the HealthCheck will be sent to your admin.
+                                    </textarea>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default close-modal">
+                <i class="i-x"></i>&nbsp;
+                Cancel
+            </a>
+            <a href="#" class="lastStep btn btn-primary users-modal2">
+                Next&nbsp;
+                <i class="i-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function gotoStep (step) {
+        step = parseInt(step) - 1;
+        $('.accordion .list-group-item').removeClass('open');
+        $('.accordion .list-group-item').eq(step).addClass('open');
+    }
+    $(document).ready(function () {
+        $('.kb-modal.one').on('click', function () {
+            $('.kb .textOne').html("Create a New Customer");
+            $('.kb .textTwo').html("Create a New Customer Entity");
+        });
+        $('.kb-modal.two').on('click', function () {
+            $('.kb .textOne').html("Create a New Engagement");
+            $('.kb .textTwo').html("Create a New Engagement for Customer #1");
+        });
+        $('#projectName').bind('keyup blur change', function () {
+            if ($(this).val().length !== 0) $('.lastStep').removeClass('hidden');
+        });
+        $('.users-modal2').click(function () {
+            $('.underlay.three').fadeIn();
+            $('.context-panel.users2').show();
+            setTimeout(function () {
+                $('.context-panel.users2').addClass('open').css('opacity', 1);
+            }, 1);
+            $('body').css('overflow-y', 'hidden');
+        });
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+/**
+ * Styles for the global waffle menu
+ */
+.waffle {
+	margin-right: 0;
+	color: @white;
+
+	a {
+		color: @bright-blue
+	}
+	.dropdown-menu {
+		width: 320px;
+		padding: 4px;
+
+		ul {
+			padding: 0;
+
+			&:after {
+				display:block;
+				clear:both;
+				content: '';
+			}
+		}
+		li {
+			display:block;
+			float: left;
+			width: 33%;
+
+			a {
+				width: 100%;
+				text-align: center;
+				display:block;
+				box-sizing:border-box;
+				padding: 15px 0;
+				color: @bg-dark;
+				text-transform: uppercase;
+
+				&:hover {
+					text-decoration: none;
+				}
+				i {
+					display:block;
+					font-size: 30px;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+	.icons {
+		background: @white;
+		margin: 4px 0;
+		padding: 15px 0;
+		.title {
+			font-size: 9px;
+			margin-top:2px;
+			font-weight: bold;
+			display:block;
+		}
+	}
+	.row {
+		margin: 0;
+		div {
+			padding: 0;
+		}
+	}
+	p {
+		margin: 0;
+	}
+}

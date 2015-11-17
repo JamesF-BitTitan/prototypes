@@ -1,0 +1,119 @@
+/**
+ * Template Layout
+ */
+* {
+    -webkit-backface-visibility: none;
+}
+body {
+    .transition(all .3s ease-in-out);
+    transition: opacity 200ms ease-in-out;
+    margin: 0 !important;
+    padding-top: 0;
+}
+section {
+    padding: 0 !important;
+}
+#wrap,
+#top,
+.head,
+.Footer {
+    .clearfix();
+}
+#wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100vh;
+}
+.Wrap,
+#wrap {
+    margin: 0 auto;
+    position: relative;
+}
+#left,
+#right {
+    .transition(all .3s ease-in-out);
+    width: @SidebarWidth;
+    z-index: 999;
+    position: fixed;
+}
+.navbar-collapsed {
+    #left,
+    #right,
+    #content {
+        top: 0;
+        padding-top: 0;
+    }
+}
+#wrap,
+#content {
+    background: @f1f2f7;
+}
+#right,
+#left,
+.lefty {
+    display: none;
+}
+#content .container {
+    width: 100%;
+    max-width: @container-lg;
+    margin-left: 0;
+    margin-right: 0;
+
+    &.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+// Large screens
+@media screen and (min-width: @screen-lg) {
+    #right,
+    #left,
+    .lefty {
+        display: block;
+    }
+    #left ~ #content {
+        margin-left: 250px;
+    }
+    #right {
+        padding-left: 0;
+         ~ #content {
+            margin-right: 300px;
+        }
+    }
+    #left ~ #right ~ #content {
+        margin-left: 250px;
+    }
+}
+// Medium screens
+@media screen and (max-width: @screen-lg) {
+    #left,
+    #right {
+        display: none;
+    }
+    #left ~ #content {
+        margin-left: 0;
+        >.full-table {
+            left: 0;
+        }
+    }
+    #right ~ #content {
+        margin-right: 0;
+        >.full-table {
+            right: 0;
+        }
+    }
+    #content .container {
+        max-width: @container-md
+    }
+}
+// Small screens
+@media screen and (max-width: @screen-sm) {
+    #left ~ #content {
+        margin-left: 0;
+    }
+    #content .container {
+        max-width: @container-sm
+    }
+}

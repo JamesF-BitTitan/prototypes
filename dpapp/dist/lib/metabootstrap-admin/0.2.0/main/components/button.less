@@ -1,0 +1,109 @@
+//
+// Gradient Buttons
+// --------------------------------------------------
+.btn-gradient(@btn-color: #555) {
+  #gradient > .vertical(@start-color: @btn-color; @end-color: darken(@btn-color, 12%));
+  background-repeat: repeat-x;
+  border-color: darken(@btn-color, 14%);
+
+  &:hover,
+  &:focus {
+    background-color: darken(@btn-color, 12%);
+    background-position: 0 -15px;
+  }
+
+  &:active,
+  &.active {
+    background-color: darken(@btn-color, 12%);
+    border-color: darken(@btn-color, 14%);
+  }
+}
+
+//
+// Line Buttons
+// -----------------------------------------------
+.btn-line-states(@color, @background, @border) {
+  color: @background;
+  background-color: #fff;
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    background-color: darken(@background, 5%);
+    color:@color;
+    border-color: darken(@border, 10%);
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: @color;
+      border-color: @border
+    }
+  }
+}
+
+
+
+.btn-circle {
+  border-radius: 500px;
+  .square(40px);
+  padding: 8px 10px;
+
+  &.btn-lg {
+    .square(60px);
+    padding: 14px 16px;
+  }
+  &.btn-sm {
+    .square(30px);
+    padding: 5px 10px;
+  }
+  &.btn-xs {
+    .square(20px);
+    padding: 0 5px;
+  }
+}
+.btn-rect {
+  border-radius: 0 !important;
+}
+.btn-round {
+  &.btn {border-radius: 28px;}
+  &.btn-xs {border-radius: 28px;}
+  &.btn-sm {border-radius: 28px;}
+  &.btn-lg {border-radius: 28px;}
+}
+
+.btn-line {
+  &.btn-default {
+    .btn-line-states(@btn-default-bg, @btn-default-color, @btn-default-border);
+  }
+  &.btn-primary {
+    .btn-line-states(@btn-primary-color, @btn-primary-bg, @btn-primary-border);
+  }
+  &.btn-warning {
+    .btn-line-states(@btn-warning-color, @btn-warning-bg, @btn-warning-border);
+  }
+  // Danger and error appear as red
+  &.btn-danger {
+    .btn-line-states(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
+  }
+  // Success appears as green
+  &.btn-success {
+    .btn-line-states(@btn-success-color, @btn-success-bg, @btn-success-border);
+  }
+  // Info appears as blue-green
+  &.btn-info {
+    .btn-line-states(@btn-info-color, @btn-info-bg, @btn-info-border);
+  }
+}
+
+.btn-flat {
+  border-width:0 !important;
+}

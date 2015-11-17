@@ -1,0 +1,21 @@
+{
+  "name": "bittitan-icons",
+  "version": "1.0.1",
+  "homepage": "https://github.com/kidGodzilla/BitTitan-CSS",
+  "authors": [
+    "James Futhey <futhey@gmail.com>"
+  ],
+  "description": "Shared BitTitan Custom Application Icons",
+  "main": "bittitan-icons.css",
+  "keywords": [
+    "bittitan"
+  ],
+  "license": "None",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
