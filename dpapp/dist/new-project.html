@@ -299,19 +299,19 @@
                 <li>
                     <a href="projects.html#new"><i class="i-plus"></i>&nbsp; <span class="">New Project</span></a>
                 </li>
-                <li>
-                    <a href="customers.html"><i class="i-users"></i>&nbsp; <span class="">Customers</span></a>
-                </li>
+                <!--<li>-->
+                    <!--<a href="customers.html"><i class="i-users"></i>&nbsp; <span class="">Customers</span></a>-->
+                <!--</li>-->
                 <!--<li>-->
                     <!--<a href="engagements.html"><i class="i-list"></i>&nbsp; <span class="">Engagements</span></a>-->
                 <!--</li>-->
-                <!--<li>-->
-                    <!--<a href="projects.html"><i class="i-project"></i>&nbsp; <span class="">Projects</span></a>-->
-                <!--</li>-->
+                <li>
+                    <a href="projects.html"><i class="i-project"></i>&nbsp; <span class="">Projects</span></a>
+                </li>
 
 
                 <li>
-                    <a href="#"><i class="i-credit"></i>&nbsp; <span class="">Licensing</span></a>
+                    <a href="purchase-licenses.html"><i class="i-credit"></i>&nbsp; <span class="">Licensing</span></a>
                 </li>
                 <li class="visible-xs">
                     <a href=""><i class="i-user-alt"></i>&nbsp;<span>Account</span></a>
@@ -1749,10 +1749,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur
                 <div class="col-md-12">
                     <div class="well">
                         <p>
-                            <input type="radio" name="foo">&nbsp; <strong>Install Agent from Email</strong>
+                            <input class="radio1" type="radio" name="foo" value="1">&nbsp; <strong>Install Agent from Email</strong>
                         </p>
                         <p class="man">
-                            <input type="radio" name="foo">&nbsp; <strong>Install Agent using Group Policy</strong>
+                            <input class="radio2" type="radio" name="foo">&nbsp; <strong>Install Agent using Group Policy</strong>
                         </p>
                     </div>
 
@@ -1760,10 +1760,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur
                 </div>
             </div>
 
-            <h4 class="mbn">Customize your Email Message</h4>
+            <h4 class="mbn optionTitle">Customize your Email Message</h4>
 
 
-            <div class="row mtl">
+            <div class="row mtl option1">
                 <div class="col-md-12">
                     <div class="well">
 
@@ -1806,6 +1806,32 @@ Once you enter your code, keep working normally.  That's all you need to do! A r
 
                 </div>
             </div>
+            <div class="row mtl option2">
+                <div class="col-md-12">
+                    <div class="well">
+                        <div class="input-group deploy-instructions">
+                            <ol>
+                                <li>
+                                    Download the agent
+                                </li>
+                                <li>
+                                    Load to a share
+                                </li>
+                                <li>
+                                    Create script:
+                                    <ul>
+                                        <li>
+                                            healthcheck.exe 671828bc-8d63-11e5-9447-00155d000b52
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
 
 
 
@@ -1837,6 +1863,8 @@ Once you enter your code, keep working normally.  That's all you need to do! A r
         $('.accordion .list-group-item').eq(step).addClass('open');
     }
     $(document).ready(function () {
+        $('.option2').hide();
+
         $('.kb-modal.one').on('click', function () {
             $('.kb .textOne').html("Create a New Customer");
             $('.kb .textTwo').html("Create a New Customer Entity");
@@ -1855,6 +1883,16 @@ Once you enter your code, keep working normally.  That's all you need to do! A r
                 $('.context-panel.users2').addClass('open').css('opacity', 1);
             }, 1);
             $('body').css('overflow-y', 'hidden');
+        });
+        $('.radio1').click(function () {
+            $('.option1').show();
+            $('.option2').hide();
+            $('.optionTitle').html("Customize your Email Message");
+        });
+        $('.radio2').click(function () {
+            $('.option1').hide();
+            $('.option2').show();
+            $('.optionTitle').html("Follow the instructions below to install the agent from Group Policy:");
         });
     });
 </script>

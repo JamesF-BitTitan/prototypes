@@ -293,19 +293,19 @@
                 <li>
                     <a href="projects.html#new"><i class="i-plus"></i>&nbsp; <span class="">New Project</span></a>
                 </li>
-                <li>
-                    <a href="customers.html"><i class="i-users"></i>&nbsp; <span class="">Customers</span></a>
-                </li>
+                <!--<li>-->
+                    <!--<a href="customers.html"><i class="i-users"></i>&nbsp; <span class="">Customers</span></a>-->
+                <!--</li>-->
                 <!--<li>-->
                     <!--<a href="engagements.html"><i class="i-list"></i>&nbsp; <span class="">Engagements</span></a>-->
                 <!--</li>-->
-                <!--<li>-->
-                    <!--<a href="projects.html"><i class="i-project"></i>&nbsp; <span class="">Projects</span></a>-->
-                <!--</li>-->
+                <li>
+                    <a href="projects.html"><i class="i-project"></i>&nbsp; <span class="">Projects</span></a>
+                </li>
 
 
                 <li>
-                    <a href="#"><i class="i-credit"></i>&nbsp; <span class="">Licensing</span></a>
+                    <a href="purchase-licenses.html"><i class="i-credit"></i>&nbsp; <span class="">Licensing</span></a>
                 </li>
                 <li class="visible-xs">
                     <a href=""><i class="i-user-alt"></i>&nbsp;<span>Account</span></a>
@@ -397,7 +397,7 @@
             <h2 class="text-center mtx">Welcome to DeploymentPro</h2>
 
             <p class="hidden-xs mtl">
-                <strong>Onboard Users and Create Service Modules.</strong>
+                <strong>Onboard Users and Install Service Modules.</strong>
                 <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium fugiat maxime modi recusandae repellendus tenetur velit voluptas? Ab adipisci beatae delectus eligendi et magni voluptate. Asperiores dignissimos dolores impedit voluptate?</small>
             </p>
         </div>
@@ -405,34 +405,64 @@
 
     <div class="row mtx">
 
-        <div class="col-sm-8 col-sm-offset-2">
-
+        <div class="container center">
             <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <div onclick="window.location.href='customers.html'" class="stat-card cursor-pointer">
-                        <div class="icon Bg-secondary-3">
-                            <i class="i-users"></i>
-                        </div>
-                        <div class="value ptm">
-                            <h4 class="man Light" style="margin-top: 22px;">
-                                Customers
-                                &nbsp;<i class="fa fa-angle-right"></i>
-                            </h4>
-                        </div>
+                <div class="col-xs-10 col-xs-offset-1 mbl">
+                    <h3>You are three steps away from deploying Service Modules to your users:</h3>
+                </div>
+                <div class="col-sm-3 col-sm-offset-1">
+                    <div class="well">
+                        <h1 class="Mtn">1.</h1>
+                        <a href="projects.html#new">
+                            <h3>Create a Project</h3>
+                        </a>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6">
-                    <div onclick="window.location.href='engagements.html'" class="stat-card cursor-pointer">
-                        <div class="icon Bg-secondary-3">
-                            <i class="i-distribution-list"></i>
-                        </div>
-                        <div class="value ptm">
-                            <h4 class="man Light" style="margin-top: 22px;">Engagements
-                                &nbsp;<i class="fa fa-angle-right"></i></h4>
-                        </div>
+
+                <div class="col-sm-3">
+                    <div class="well">
+                        <h1 class="Mtn">2.</h1>
+                        <h3>Add Project Items</h3>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="well">
+                        <h1 class="Mtn">3.</h1>
+                        <h3>Install DeploymentPro</h3>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="col-sm-8 col-sm-offset-2 mtl">
+
+            <!--<div class="row">-->
+                <!--<div class="col-sm-12 col-md-6">-->
+                    <!--<div onclick="window.location.href='customers.html'" class="stat-card cursor-pointer">-->
+                        <!--<div class="icon Bg-secondary-3">-->
+                            <!--<i class="i-users"></i>-->
+                        <!--</div>-->
+                        <!--<div class="value ptm">-->
+                            <!--<h4 class="man Light" style="margin-top: 22px;">-->
+                                <!--Customers-->
+                                <!--&nbsp;<i class="fa fa-angle-right"></i>-->
+                            <!--</h4>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-12 col-md-6">-->
+                    <!--<div onclick="window.location.href='engagements.html'" class="stat-card cursor-pointer">-->
+                        <!--<div class="icon Bg-secondary-3">-->
+                            <!--<i class="i-distribution-list"></i>-->
+                        <!--</div>-->
+                        <!--<div class="value ptm">-->
+                            <!--<h4 class="man Light" style="margin-top: 22px;">Engagements-->
+                                <!--&nbsp;<i class="fa fa-angle-right"></i></h4>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 
             <div class="row">
                 <div class="col-sm-12 col-md-6">
@@ -441,7 +471,7 @@
                             <i class="i-project"></i>
                         </div>
                         <div class="value ptm">
-                            <h4 class="man Light" style="margin-top: 22px;">Projects
+                            <h4 class="man Light" style="margin-top: 22px;">View Projects
                                 &nbsp;<i class="fa fa-angle-right"></i></h4>
                         </div>
                     </div>
@@ -1417,10 +1447,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur
                 <div class="col-md-12">
                     <div class="well">
                         <p>
-                            <input type="radio" name="foo">&nbsp; <strong>Install Agent from Email</strong>
+                            <input class="radio1" type="radio" name="foo" value="1">&nbsp; <strong>Install Agent from Email</strong>
                         </p>
                         <p class="man">
-                            <input type="radio" name="foo">&nbsp; <strong>Install Agent using Group Policy</strong>
+                            <input class="radio2" type="radio" name="foo">&nbsp; <strong>Install Agent using Group Policy</strong>
                         </p>
                     </div>
 
@@ -1428,10 +1458,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur
                 </div>
             </div>
 
-            <h4 class="mbn">Customize your Email Message</h4>
+            <h4 class="mbn optionTitle">Customize your Email Message</h4>
 
 
-            <div class="row mtl">
+            <div class="row mtl option1">
                 <div class="col-md-12">
                     <div class="well">
 
@@ -1474,6 +1504,32 @@ Once you enter your code, keep working normally.  That's all you need to do! A r
 
                 </div>
             </div>
+            <div class="row mtl option2">
+                <div class="col-md-12">
+                    <div class="well">
+                        <div class="input-group deploy-instructions">
+                            <ol>
+                                <li>
+                                    Download the agent
+                                </li>
+                                <li>
+                                    Load to a share
+                                </li>
+                                <li>
+                                    Create script:
+                                    <ul>
+                                        <li>
+                                            healthcheck.exe 671828bc-8d63-11e5-9447-00155d000b52
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
 
 
 
@@ -1505,6 +1561,8 @@ Once you enter your code, keep working normally.  That's all you need to do! A r
         $('.accordion .list-group-item').eq(step).addClass('open');
     }
     $(document).ready(function () {
+        $('.option2').hide();
+
         $('.kb-modal.one').on('click', function () {
             $('.kb .textOne').html("Create a New Customer");
             $('.kb .textTwo').html("Create a New Customer Entity");
@@ -1523,6 +1581,16 @@ Once you enter your code, keep working normally.  That's all you need to do! A r
                 $('.context-panel.users2').addClass('open').css('opacity', 1);
             }, 1);
             $('body').css('overflow-y', 'hidden');
+        });
+        $('.radio1').click(function () {
+            $('.option1').show();
+            $('.option2').hide();
+            $('.optionTitle').html("Customize your Email Message");
+        });
+        $('.radio2').click(function () {
+            $('.option1').hide();
+            $('.option2').show();
+            $('.optionTitle').html("Follow the instructions below to install the agent from Group Policy:");
         });
     });
 </script>
