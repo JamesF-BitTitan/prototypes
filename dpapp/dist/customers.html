@@ -1264,6 +1264,115 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur
     });
 </script>
 
+<script>
+    $(document).ready(function () {
+        $('.back-to-errors').click(function () {
+            $('.context-panel.users2').removeClass('open').css('opacity', 0);
+        });
+    });
+</script>
+
+<div class="context-panel right users2" style="z-index:999999999999999">
+    <header>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mtm Light">
+
+                    <!--<a href="#" class="btn btn-xs btn-warning pull-right mtm">OPEN IN NEW WINDOW&nbsp; <i class="i-arrow-right"></i></a>-->
+                    <a class="btn cursor-pointer btn-default back-to-errors">
+                        <i class="i-arrow-left"></i>
+                    </a>&nbsp;
+                    <span class="textOne nudge down-3">
+                        Select users
+                    </span>
+                </h3>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="pal">
+            <h4 class="mtn textTwo">
+                Select which users you would like to deploy the DesktopWiz agent to:
+            </h4>
+
+            <div class="row mtl">
+                <div class="col-md-12">
+
+
+                    <div class="well" id="checkboxers">
+                        <p>
+                            <input type="checkbox" id="checkboxallone">&nbsp; <strong>Select All Users</strong> 10 Users - 18 Machines
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                        <p>
+                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="footer text-right">
+            <a href="#" class="btn btn-default back-to-errors">
+                <i class="i-left"></i>&nbsp;
+                Back
+            </a>
+            <a href="#" class="btn btn-primary close-modal two">
+                Save&nbsp;
+                <i class="i-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.back-to-errors.two').click(function () {
+            $('#select-customer').append('<option selected>'+$('#customerName').val()+'</option>')
+        });
+        $('#checkboxallone').click(function () {
+            if ($('#checkboxallone').is(':checked')) {
+                $('#checkboxers input[type=checkbox]').attr('checked', true);
+            }
+        });
+    });
+</script>
 
 
 
@@ -1385,7 +1494,7 @@ Once you enter your code, keep working normally.  That's all you need to do! A r
                 <i class="i-x"></i>&nbsp;
                 Cancel
             </a>
-            <a href="#" class="btn btn-primary close-modal">
+            <a href="#" class="btn btn-primary close-modal foo">
                 Submit&nbsp;
                 <i class="i-right"></i>
             </a>
@@ -1401,6 +1510,12 @@ Once you enter your code, keep working normally.  That's all you need to do! A r
         $('.accordion .list-group-item').eq(step).addClass('open');
     }
     $(document).ready(function () {
+
+        $('.close-modal.foo').click(function () {
+           setTimeout(function () {
+               $('.underlay.one').click();
+           }, 100);
+        });
         $('.option2').hide();
 
         $('.kb-modal.one').on('click', function () {
