@@ -164,14 +164,14 @@
 
             $('.context-panel').hide();
 
-//            $('.custom-menu a').click(function () {
-//                $('.underlay.one').fadeIn();
-//                $('.context-panel.left').show();
-//                setTimeout(function () {
-//                    $('.context-panel.left').addClass('open').css('opacity', 1);
-//                }, 1);
-//                $('body').css('overflow-y', 'hidden');
-//            });
+            $('.custom-menu a').click(function () {
+                $('.underlay.one').fadeIn();
+                $('.context-panel.left').show();
+                setTimeout(function () {
+                    $('.context-panel.left').addClass('open').css('opacity', 1);
+                }, 1);
+                $('body').css('overflow-y', 'hidden');
+            });
             $('.help-modal').click(function () {
                 $('.underlay.two').fadeIn();
                 $('.context-panel.right.errors').show();
@@ -396,10 +396,7 @@
         <div class="col-sm-8 col-sm-offset-2">
             <h2 class="text-center mtx">Welcome to DeploymentPro</h2>
 
-            <p class="hidden-xs mtl">
-                <strong>Onboard Users and Install Service Modules.</strong>
-                <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium fugiat maxime modi recusandae repellendus tenetur velit voluptas? Ab adipisci beatae delectus eligendi et magni voluptate. Asperiores dignissimos dolores impedit voluptate?</small>
-            </p>
+
         </div>
     </div>
 
@@ -408,28 +405,33 @@
         <div class="container center">
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 mbl">
-                    <h3>You are three steps away from deploying Service Modules to your users:</h3>
+                    <h3 class="Light text-center">You are three steps away from deploying Service Modules to your users:</h3>
                 </div>
-                <div class="col-sm-3 col-sm-offset-1">
-                    <div class="well">
-                        <h1 class="Mtn">1.</h1>
+                <div class="col-sm-3 col-sm-offset-1" style="margin-left: 12.66% !important;">
+                    <img src="http://bt-pages.webhook.org/webhook-uploads/1433973834974/SVG_Office%20365%20Download.svg" style="padding: 7.5px 15%;">
+                    <div class="well text-center">
+                        <h2 class="Mtn">1.</h2>
                         <a href="projects.html#new">
-                            <h3>Create a Project</h3>
+                            <h4>Create a Project</h4>
                         </a>
                     </div>
                 </div>
 
                 <div class="col-sm-3">
-                    <div class="well">
-                        <h1 class="Mtn">2.</h1>
-                        <h3>Add Project Items</h3>
+                    <img src="http://bt-pages.webhook.org/webhook-uploads/1433973834974/SVG_Office%20365%20Download.svg" style="padding: 7.5px 15%;">
+
+                    <div class="well text-center">
+                        <h2 class="Mtn">2.</h2>
+                        <h4>Add Project Items</h4>
                     </div>
                 </div>
 
-                <div class="col-sm-4">
-                    <div class="well">
-                        <h1 class="Mtn">3.</h1>
-                        <h3>Install DeploymentPro</h3>
+                <div class="col-sm-3">
+                    <img src="http://bt-pages.webhook.org/webhook-uploads/1433973834974/SVG_Office%20365%20Download.svg" style="padding: 7.5px 15%;">
+
+                    <div class="well text-center">
+                        <h2 class="Mtn">3.</h2>
+                        <h4>Install DeploymentPro</h4>
                     </div>
                 </div>
             </div>
@@ -464,7 +466,18 @@
                 <!--</div>-->
             <!--</div>-->
 
-            <div class="row">
+          <div class="row">
+              <div class="col-xs-12">
+                  <div class="well">
+                      <p class="hidden-xs man">
+                          <strong>Onboard Users and Install Service Modules.</strong>
+                          <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium fugiat maxime modi recusandae repellendus tenetur velit voluptas? Ab adipisci beatae delectus eligendi et magni voluptate. Asperiores dignissimos dolores impedit voluptate?</small>
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+            <div class="row hidden">
                 <div class="col-sm-12 col-md-6">
                     <div onclick="window.location.href='projects.html'" class="stat-card cursor-pointer">
                         <div class="icon Bg-secondary-3">
