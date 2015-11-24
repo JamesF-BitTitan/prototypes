@@ -164,14 +164,14 @@
 
             $('.context-panel').hide();
 
-            $('.custom-menu a').click(function () {
-                $('.underlay.one').fadeIn();
-                $('.context-panel.left').show();
-                setTimeout(function () {
-                    $('.context-panel.left').addClass('open').css('opacity', 1);
-                }, 1);
-                $('body').css('overflow-y', 'hidden');
-            });
+//            $('.custom-menu a').click(function () {
+//                $('.underlay.one').fadeIn();
+//                $('.context-panel.left').show();
+//                setTimeout(function () {
+//                    $('.context-panel.left').addClass('open').css('opacity', 1);
+//                }, 1);
+//                $('body').css('overflow-y', 'hidden');
+//            });
             $('.help-modal').click(function () {
                 $('.underlay.two').fadeIn();
                 $('.context-panel.right.errors').show();
@@ -1025,110 +1025,6 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur
     });
 </script>
 
-<script>
-    $(document).ready(function () {
-        $('.back-to-errors').click(function () {
-            $('.context-panel.users2').removeClass('open').css('opacity', 0);
-        });
-    });
-</script>
-
-<div class="context-panel right users2" style="z-index:999999999999999">
-    <header>
-        <div class="row">
-            <div class="col-xs-12">
-                <h3 class="mtm Light">
-
-                    <!--<a href="#" class="btn btn-xs btn-warning pull-right mtm">OPEN IN NEW WINDOW&nbsp; <i class="i-arrow-right"></i></a>-->
-                    <a class="btn cursor-pointer btn-default back-to-errors">
-                        <i class="i-arrow-left"></i>
-                    </a>&nbsp;
-                    <span class="textOne nudge down-3">
-                        Select users
-                    </span>
-                </h3>
-            </div>
-        </div>
-    </header>
-    <div class="body">
-        <div class="pal">
-            <h4 class="mtn textTwo">
-                Select which users you would like to deploy the DesktopWiz agent to:
-            </h4>
-
-            <div class="row mtl">
-                <div class="col-md-12">
-
-
-                    <div class="well">
-                        <p>
-                            <input type="checkbox">&nbsp; <strong>Select All Users</strong> 10 Users - 18 Machines
-                        </p>
-                        <p>
-                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
-                        </p>
-                        <p>
-                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
-                        </p>
-                        <p>
-                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
-                        </p>
-                        <p>
-                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
-                        </p>
-                        <p>
-                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
-                        </p>
-                        <p>
-                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
-                        </p>
-                        <p>
-                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
-                        </p>
-                        <p>
-                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
-                        </p>
-                        <p>
-                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
-                        </p>
-                        <p>
-                            <input type="checkbox">&nbsp; <strong>user2@foo.com:</strong> 3 machines - 10/11/2015
-                        </p>
-                    </div>
-
-
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-
-
-
-
-        <div class="footer text-right">
-            <a href="#" class="btn btn-default back-to-errors">
-                <i class="i-left"></i>&nbsp;
-                Back
-            </a>
-            <a href="#" class="btn btn-primary close-modal two">
-                Save&nbsp;
-                <i class="i-right"></i>
-            </a>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(document).ready(function () {
-        $('.back-to-errors.two').click(function () {
-            $('#select-customer').append('<option selected>'+$('#customerName').val()+'</option>')
-        });
-    });
-</script>
 
 
 
@@ -1250,11 +1146,12 @@ Once you enter your code, keep working normally.  That's all you need to do! A r
                 <i class="i-x"></i>&nbsp;
                 Cancel
             </a>
-            <a href="#" class="lastStep btn btn-primary users-modal2">
-                Next&nbsp;
+            <a href="#" class="btn btn-primary close-modal">
+                Submit&nbsp;
                 <i class="i-right"></i>
             </a>
         </div>
+
     </div>
 </div>
 
