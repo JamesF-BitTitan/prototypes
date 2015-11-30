@@ -1,0 +1,1303 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Tree</title>
+    <link rel="stylesheet" href="skin-win8/ui.easytree.css">
+</head>
+<body>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="jquery.easytree.js"></script>
+
+<h5>Tree Demo</h5>
+<div id="demo2_menu" style="width:300px">
+
+</div>
+<script>
+    $('#demo2_menu').easytree({
+        allowActivate: true,
+        
+        data: [
+            {
+                "text":"Customers (5)",
+                "children":[
+                    {
+                        "text":"Kmart",
+                            "children":[
+                                {
+                                    "text":"Estimates (4)",
+                                    "children":[
+                                        {
+                                            "text":"Estimate #1"
+                                        },
+                                        {
+                                            "text":"Estimate #2"
+                                        },
+                                        {
+                                            "text":"Estimate #3"
+                                        },
+                                        {
+                                            "text":"Estimate #4"
+                                        },
+                                    ],
+                                    "isActive":false,
+                                    "isExpanded":false,
+                                    "isFolder":true
+                                },
+                                {
+                                    "text":"Engagements (5)",
+                                        "children":[
+                                            {
+                                                "text":"Engagement #1",
+                                                    "children":[
+                                                        {
+                                                            "text":"DeploymentPro (3)",
+                                                                "children":[
+                                                                    {
+                                                                        "text":"Project #1"
+                                                                    },
+                                                                    {
+                                                                        "text":"Project #2"
+                                                                    },
+                                                                    {
+                                                                        "text":"Project #3"
+                                                                    }
+                                                                ],
+                                                                "isActive":false,
+                                                                "isExpanded":false,
+                                                                "isFolder":true
+                                                        },
+                                                        {
+                                                            "text":"MigrationWiz (3)",
+                                                                "children":[
+                                                                    {
+                                                                        "text":"Project #1"
+                                                                    },
+                                                                    {
+                                                                        "text":"Project #2"
+                                                                    },
+                                                                    {
+                                                                        "text":"Project #3"
+                                                                    }
+                                                                ],
+                                                                "isActive":false,
+                                                                "isExpanded":false,
+                                                                "isFolder":true
+                                                        }
+                                                    ],
+                                                    "isActive":false,
+                                                    "isExpanded":false,
+                                                    "isFolder":true
+                                            },
+                                            {
+                                                "text":"Engagement #2",
+                                                "children":[
+                                                    {
+                                                        "text":"DeploymentPro (3)",
+                                                        "children":[
+                                                            {
+                                                                "text":"Project #1"
+                                                            },
+                                                            {
+                                                                "text":"Project #2"
+                                                            },
+                                                            {
+                                                                "text":"Project #3"
+                                                            }
+                                                        ],
+                                                        "isActive":false,
+                                                        "isExpanded":false,
+                                                        "isFolder":true
+                                                    },
+                                                    {
+                                                        "text":"MigrationWiz (3)",
+                                                        "children":[
+                                                            {
+                                                                "text":"Project #1"
+                                                            },
+                                                            {
+                                                                "text":"Project #2"
+                                                            },
+                                                            {
+                                                                "text":"Project #3"
+                                                            }
+                                                        ],
+                                                        "isActive":false,
+                                                        "isExpanded":false,
+                                                        "isFolder":true
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"Engagement #3",
+                                                "children":[
+                                                    {
+                                                        "text":"DeploymentPro (3)",
+                                                        "children":[
+                                                            {
+                                                                "text":"Project #1"
+                                                            },
+                                                            {
+                                                                "text":"Project #2"
+                                                            },
+                                                            {
+                                                                "text":"Project #3"
+                                                            }
+                                                        ],
+                                                        "isActive":false,
+                                                        "isExpanded":false,
+                                                        "isFolder":true
+                                                    },
+                                                    {
+                                                        "text":"MigrationWiz (3)",
+                                                        "children":[
+                                                            {
+                                                                "text":"Project #1"
+                                                            },
+                                                            {
+                                                                "text":"Project #2"
+                                                            },
+                                                            {
+                                                                "text":"Project #3"
+                                                            }
+                                                        ],
+                                                        "isActive":false,
+                                                        "isExpanded":false,
+                                                        "isFolder":true
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"Engagement #4",
+                                                "children":[
+                                                    {
+                                                        "text":"DeploymentPro (3)",
+                                                        "children":[
+                                                            {
+                                                                "text":"Project #1"
+                                                            },
+                                                            {
+                                                                "text":"Project #2"
+                                                            },
+                                                            {
+                                                                "text":"Project #3"
+                                                            }
+                                                        ],
+                                                        "isActive":false,
+                                                        "isExpanded":false,
+                                                        "isFolder":true
+                                                    },
+                                                    {
+                                                        "text":"MigrationWiz (3)",
+                                                        "children":[
+                                                            {
+                                                                "text":"Project #1"
+                                                            },
+                                                            {
+                                                                "text":"Project #2"
+                                                            },
+                                                            {
+                                                                "text":"Project #3"
+                                                            }
+                                                        ],
+                                                        "isActive":false,
+                                                        "isExpanded":false,
+                                                        "isFolder":true
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"Engagement #5",
+                                                "children":[
+                                                    {
+                                                        "text":"DeploymentPro (3)",
+                                                        "children":[
+                                                            {
+                                                                "text":"Project #1"
+                                                            },
+                                                            {
+                                                                "text":"Project #2"
+                                                            },
+                                                            {
+                                                                "text":"Project #3"
+                                                            }
+                                                        ],
+                                                        "isActive":false,
+                                                        "isExpanded":false,
+                                                        "isFolder":true
+                                                    },
+                                                    {
+                                                        "text":"MigrationWiz (3)",
+                                                        "children":[
+                                                            {
+                                                                "text":"Project #1"
+                                                            },
+                                                            {
+                                                                "text":"Project #2"
+                                                            },
+                                                            {
+                                                                "text":"Project #3"
+                                                            }
+                                                        ],
+                                                        "isActive":false,
+                                                        "isExpanded":false,
+                                                        "isFolder":true
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                },
+                                {
+                                    "text":"Entities",
+                                    "children":[
+                                        {
+                                            "text":"Users"
+                                        },
+                                        {
+                                            "text":"Computers"
+                                        },
+                                        {
+                                            "text":"Groups"
+                                        }
+                                    ],
+                                    "isActive":false,
+                                    "isExpanded":false,
+                                    "isFolder":true
+                                },
+                            ],
+                            "isActive":false,
+                            "isExpanded":false,
+                            "isFolder":true
+                    },
+
+                    {
+                        "text":"Costco",
+                        "children":[
+                            {
+                                "text":"Entities",
+                                "children":[
+                                    {
+                                        "text":"Users"
+                                    },
+                                    {
+                                        "text":"Computers"
+                                    },
+                                    {
+                                        "text":"Groups"
+                                    }
+                                ],
+                                "isActive":false,
+                                "isExpanded":false,
+                                "isFolder":true
+                            },
+                            {
+                                "text":"Engagements",
+                                "children":[
+                                    {
+                                        "text":"Engagement #1",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #2",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #3",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #4",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #5",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                ],
+                                "isActive":false,
+                                "isExpanded":false,
+                                "isFolder":true
+                            }
+                        ],
+                        "isActive":false,
+                        "isExpanded":false,
+                        "isFolder":true
+                    },
+
+                    {
+                        "text":"BitTitan",
+                        "children":[
+                            {
+                                "text":"Entities",
+                                "children":[
+                                    {
+                                        "text":"Users"
+                                    },
+                                    {
+                                        "text":"Computers"
+                                    },
+                                    {
+                                        "text":"Groups"
+                                    }
+                                ],
+                                "isActive":false,
+                                "isExpanded":false,
+                                "isFolder":true
+                            },
+                            {
+                                "text":"Engagements",
+                                "children":[
+                                    {
+                                        "text":"Engagement #1",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #2",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #3",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #4",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #5",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                ],
+                                "isActive":false,
+                                "isExpanded":false,
+                                "isFolder":true
+                            }
+                        ],
+                        "isActive":false,
+                        "isExpanded":false,
+                        "isFolder":true
+                    },
+
+                    {
+                        "text":"Microsoft",
+                        "children":[
+                            {
+                                "text":"Entities",
+                                "children":[
+                                    {
+                                        "text":"Users"
+                                    },
+                                    {
+                                        "text":"Computers"
+                                    },
+                                    {
+                                        "text":"Groups"
+                                    }
+                                ],
+                                "isActive":false,
+                                "isExpanded":false,
+                                "isFolder":true
+                            },
+                            {
+                                "text":"Engagements",
+                                "children":[
+                                    {
+                                        "text":"Engagement #1",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #2",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #3",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #4",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #5",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                ],
+                                "isActive":false,
+                                "isExpanded":false,
+                                "isFolder":true
+                            }
+                        ],
+                        "isActive":false,
+                        "isExpanded":false,
+                        "isFolder":true
+                    },
+
+                    {
+                        "text":"Verizon",
+                        "children":[
+                            {
+                                "text":"Entities",
+                                "children":[
+                                    {
+                                        "text":"Users"
+                                    },
+                                    {
+                                        "text":"Computers"
+                                    },
+                                    {
+                                        "text":"Groups"
+                                    }
+                                ],
+                                "isActive":false,
+                                "isExpanded":false,
+                                "isFolder":true
+                            },
+                            {
+                                "text":"Engagements",
+                                "children":[
+                                    {
+                                        "text":"Engagement #1",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #2",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #3",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #4",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                    {
+                                        "text":"Engagement #5",
+                                        "children":[
+                                            {
+                                                "text":"DeploymentPro (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            },
+                                            {
+                                                "text":"MigrationWiz (3)",
+                                                "children":[
+                                                    {
+                                                        "text":"Project #1"
+                                                    },
+                                                    {
+                                                        "text":"Project #2"
+                                                    },
+                                                    {
+                                                        "text":"Project #3"
+                                                    }
+                                                ],
+                                                "isActive":false,
+                                                "isExpanded":false,
+                                                "isFolder":true
+                                            }
+                                        ],
+                                        "isActive":false,
+                                        "isExpanded":false,
+                                        "isFolder":true
+                                    },
+                                ],
+                                "isActive":false,
+                                "isExpanded":false,
+                                "isFolder":true
+                            }
+                        ],
+                        "isActive":false,
+                        "isExpanded":false,
+                        "isFolder":true
+                    },
+                ],
+                "isActive":false,
+                "isExpanded":false,
+                "isFolder":true
+            },
+            {
+                "text":"Employees (2)",
+                "isFolder":true,
+                "children":[
+                    {
+                        "text":"Jason Doe"
+                    },
+                    {
+                        "text":"John Ross"
+                    }
+                ]
+            },
+            {
+                "text":"Roles (4)",
+                "isFolder":true,
+                "children":[
+                    {
+                        "text":"Superhero"
+                    },
+                    {
+                        "text":"First Responder"
+                    },
+                    {
+                        "text":"Black Hat"
+                    },
+                    {
+                        "text":"POTUS"
+                    }
+                ]
+            }
+        ]
+    });
+</script>
+</body>
+</html>
